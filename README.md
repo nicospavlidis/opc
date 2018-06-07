@@ -4,10 +4,12 @@ Author: Nicos G. Pavlidis
 E-mail: n(.)pavlidis(at)lancaster(.)ac(.)uk
 Date:     2018-06-07
 
+=============================================
+Optimal Projections for Clustering
+=============================================
 
 OPC is a MATLAB and GNU Octave package that implements a number of
 dimensionality reduction for clustering algorithms.
-=============================================
 
 -----------------------------------------------------------------------
 INSTALLATION INSTRUCTIONS
