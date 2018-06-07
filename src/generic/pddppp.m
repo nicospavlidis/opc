@@ -1,0 +1,36 @@
+function [v, fval, idx] = pddppp(Data, pars)
+%Projection Pursuit function for PDDP algorithm
+%[V, FVAL, IDX] = PDDPPP(X, PARS)
+%
+% Inputs:
+%	(X): N-by-D data matrix
+%	(PARS): Parameter structure containing algorithm parameters
+%
+% Outputs:
+%	(V): Projection vector: 1st Principal Component of X
+%	(FVAL): Total scatter of (X)
+%	(IDX): Binary cluster assignment
+
+[N,dim] = size(Data);
+
+invalid = false;
+if dim == 1,
+	fprintf('Effective dimensionality of 1: No point in projection pursuit\n');
+	invalid = true;
+end
+
+if isfield(pars,'minsize') & 2*pars.minsize > N,
+	%fprintf('Too few observations to split\n');
+	invalid = true;
+end
+
+v = pcacomp(Data,1);
+if invalid,
+	fval = -inf;
+	idx = ones(N,1);
+	return;
+end
+
+proj = Data*v;
+idx = (proj > mean(proj)) + 1;
+fval = total_scatter(Data);
