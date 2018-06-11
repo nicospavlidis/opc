@@ -27,7 +27,7 @@ unzip opc-master.zip
 
 3. Run `mexme_fgt` to compile Fast Gauss Transform and other C++ code.
 
-```{matlab}
+``` matlab
 cd('opc-master/src/libs/fgt/')
 ```
 
