@@ -19,7 +19,7 @@ describes how to set up the MinGW-w64 compiler.
 
 OPC depends on the following two open source packages, which are included in the package:
 
-1. A cluster tree class, called _ctree_, which is a modification of the MATLAB class [tree](https://tinevez.github.io/matlab-tree/)
+1. A cluster tree class, called ctree, which is a modification of the MATLAB class [tree](https://tinevez.github.io/matlab-tree/)
 implemented by Jean-Yves Tinevez.
 
 2. The [Fast Gauss Transform mex implementation](https://uk.mathworks.com/matlabcentral/fileexchange/17438-fast-gaussian-transform-mex-implementation?focused=5194134&tab=example)
@@ -31,7 +31,7 @@ documentation system is required.
 
 #### INSTALLATION
 
-1. Download the latest release [here](https://github.com/nicospavlidis/opc/)
+1. Download the latest OPC release from this page.
 
 2. Uncompress the `opc-master.zip` file.
 
