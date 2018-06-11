@@ -23,3 +23,16 @@ mex -setup
 
 
 
+## Authors
+
+* **Nicos Pavlidis** 
+
+## License
+
+This project is licensed under the Free BSD License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* David Hofmeyr
+* Sotiris Tasoulis
+* Hankui Peng
