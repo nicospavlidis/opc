@@ -21,8 +21,9 @@ describes how to set up the MinGW-w64 compiler.
 1. Download the latest release [here](https://github.com/nicospavlidis/opc/)
 2. Uncompress the `opc-*.zip` file.
 
-```
+``` sh
 unzip opc-master.zip
+cd opc-master
 ```
 
 3. Run `mexme_fgt` to compile Fast Gauss Transform and other C++ code.
