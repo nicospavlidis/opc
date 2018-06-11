@@ -17,8 +17,9 @@ To install the package you need a C/C++ compiler. For Linux/ Mac we strongly
 recommend using the GCC compiler. For Microsoft Windows the documentation
 describes how to set up the MinGW-w64 compiler.
 
-```{matlab}
+```matlab
 mex -setup
 ```
+
 
 
