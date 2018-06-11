@@ -17,9 +17,9 @@ To install the package you need a C/C++ compiler. For Linux/ Mac we strongly
 recommend using the GCC compiler. For Microsoft Windows the documentation
 describes how to set up the MinGW-w64 compiler.
 
-OPC depends on the following two packages, which are included in the package:
+OPC depends on the following two open source packages, which are included in the package:
 
-1. A cluster tree class, called ctree, which is a modification of the MATLAB class [tree](https://tinevez.github.io/matlab-tree/)
+1. A cluster tree class, called _ctree_, which is a modification of the MATLAB class [tree](https://tinevez.github.io/matlab-tree/)
 implemented by Jean-Yves Tinevez.
 
 2. The [Fast Gauss Transform mex implementation](https://uk.mathworks.com/matlabcentral/fileexchange/17438-fast-gaussian-transform-mex-implementation?focused=5194134&tab=example)
@@ -56,10 +56,12 @@ cd('DOWNLOAD-PATH/opc-master/')
 setpath
 ```
 
-5. Test installation: The script `reproduction_script.m` reproduces all the documentation material. If this script
+5. Test installation: The script `reproduction_script.m` 
+in the root OPC folder reproduces all the examples in the documentation. If this script
 exits without an error OPC is configured correctly.
 
 ``` matlab
+cd('DOWNLOAD-PATH/opc-master/')
 reproduction_script
 ```
 
@@ -68,8 +70,8 @@ are provided in the file `documentation/document.pdf`.
 
 ### CONTACT
 
-Please file bug reports at [github.com/nicospavlidis/opc](https://github.com/nicospavlidis/opc).
-For any other questions, comments, or concerns, please contact [Nicos Pavlidis](http://www.stanford.edu/~hallac/).
+Please file bug reports at [github.com/nicospavlidis/opc](https://github.com/nicospavlidis/opc/).
+For any other questions, comments, or concerns, please contact [Nicos Pavlidis](http://www.lancaster.ac.uk/lums/people/nicos-pavlidis/)
 
 #### LICENSE
 
