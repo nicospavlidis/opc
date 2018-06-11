@@ -21,26 +21,33 @@ describes how to set up the MinGW-w64 compiler.
 1. Download the latest release [here](https://github.com/nicospavlidis/opc/)
 2. Uncompress the `opc-*.zip` file.
 
-``` sh
+``` bash
 unzip opc-master.zip
 cd opc-master
 ```
 
-3. Run `mexme_fgt` to compile Fast Gauss Transform and other C++ code.
+3. From MATLAB/ Octave execute the `mexme_fgt` script to compile Fast Gauss Transform and other C++ code. This needs to be done
+only once
 
 ``` matlab
-cd('opc-master/src/libs/fgt/')
+cd('DOWNLOAD-PATH/opc-master/src/libs/fgt/')
+mexme_fgt
 ```
 
-4. Test the installation. The included unit tests will test basic functionality to ensure that SnapVX and its dependencies are working correctly.
+4. Each time that you restart MATLAB/ Octave you need to add to the search path the root OPC folder and all its subdirectories.
+This is performed by the `setpath.m` script
 
-        cd Tests
-        chmod u+x test_basic.sh
-        ./test_basic.sh
+``` matlab
+cd(''DOWNLOAD-PATH/opc-master/')
+setpath
+```
 
-Note: to run SnapVX locally, without installing it system-wide, just run setup.py with the --user flag.
+5. Test installation: The script `reproduction_script.m` reproduces all the documentation material. If this script
+exits without any errors OPC is configured correctly.
 
-
+``` matlab
+reproduction_script
+```
 
 
 #### Authors
