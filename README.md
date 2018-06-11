@@ -79,7 +79,10 @@ This project is licensed under the BSD-3-Clause License - see the [LICENSE.md](L
 
 #### ACKNOWLEDGMENTS
 
-* David Hofmeyr
-* Sotiris Tasoulis
+The following people contributed to OPC (in alphabetical order):
+
 * Michael Epitropakis
+* David Hofmeyr
+* Dimitris Kostaras
 * Hankui Peng
+* Sotiris Tasoulis
