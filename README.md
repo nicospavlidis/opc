@@ -68,7 +68,7 @@ reproduction_script
 More detailed instructions for installing OPC and creating the HTML function reference
 are provided in the file `documentation/document.pdf`.
 
-### CONTACT
+#### CONTACT
 
 Please file bug reports at [github.com/nicospavlidis/opc](https://github.com/nicospavlidis/opc/).
 For any other questions, comments, or concerns, please contact [Nicos Pavlidis](http://www.lancaster.ac.uk/lums/people/nicos-pavlidis/)

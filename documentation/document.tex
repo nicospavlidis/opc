@@ -536,27 +536,31 @@ The
 %
 \href{https://www.artefact.tk/software/matlab/m2html/}{M2HTML}
 %
-documentation tool can be used to automatically generate an HTML function
-reference for OPC.  To create this follow the steps below:
+documentation system can be used to automatically generate an HTML function
+reference for OPC. To create this follow the steps below:
 
 \begin{enumerate}
 
-\item Download the M2HTML from:
+\item Download the M2HTML documentation system from:
 %
 \url{https://www.artefact.tk/software/matlab/m2html/}
 
 Uncompress the zip file in a folder of your choice, e.g.
 {\tt /home/user/Downloads}.
 
-\item From the root directory of the OPC package copy the folder
+\item From the folder {\tt documentation} contained in the OPC package copy the subfolder
 {\tt documentation/m2html\_template/docs} 
 %
-to the M2HTML folder {\tt templates} folder
-{\tt /home/user/Downloads/m2html/templates}
+to the {\tt templates} folder which is part of the M2HTML package,
+{\tt /home/user/Downloads/m2html/templates}.
 
+\item Copy the file 
+{\tt m2html.m} which is located in the {\tt documentation/m2html\_template/} OPC folder
+to main directory of M2HTML: 
+{\tt /home/user/Downloads/m2html/}.
 
-\item From MATLAB or GNU Octave, add the M2HTML folder to the path;
-configure the path for the OPC package, and execute
+\item From MATLAB or GNU Octave, (i) add the M2HTML folder to the path;
+(ii) ensure the path for the OPC package is set, and (iii) execute
 the script {\tt create\_reference}:
 
 \begin{verbatim}
@@ -3107,7 +3111,7 @@ hierarchical algorithms based on projection pursuit methods for clustering.
 The function {\tt gppdc} implements a framework for {\em generic projection
 pursuit divisive clustering} algorithms.
 %
-Like all divisive clustering algorithms, this function returns the cluster
+Like all divisive clustering algorithms in OPC, this function returns the cluster
 assignment {\tt idx}, and a {\tt ctree} object that represents the cluster
 hierarchy. The user can interact with this object in the same way as in all the
 previous examples.
@@ -3136,6 +3140,14 @@ The output arguments of {\tt ppfunc}
 are: the projection matrix, {\tt v}, the value of the projection index,
 {\tt fval}, and the binary cluster assignment, {\tt idx}~$\in \{1,2\}^n$.
 
+By default at each step of the divisive algorithm {\tt gppdc} splits the cluster
+with the largest value of the projection index, {\tt fval}. This behaviour can
+be modified by setting the {\tt split\_index} argument discussed below.
+Note that if the projection
+pursuit algorithm aims to minimise the projection index and the user wants at each
+step to split the cluster with the lowest projection index, an immediate
+way to achieve this without the need to define a {\tt split\_index} function 
+is for {\tt pphandle} to return minus one times the actual projection index.
 
 The generic projection pursuit divisive clustering function, {\tt gppdc},
 accepts three optional input arguments: {\tt param}, {\tt split\_index}, and
@@ -3151,14 +3163,14 @@ This structured array is used as
 the second input argument to the {\tt pphandle} function handle, and
 the third argument of the {\tt split\_index} function (described next).
 
-\item {\tt split\_index} is a handle to a function that takes
-as input the projection matrix, {\tt v}, the data matrix, {\tt X}, and a
-structured array of parameters ({\tt param}) and returns a scalar. The output
-of this function is the value of the splitting index for the cluster containing
-the observations in {\tt X}.
+\item {\tt split\_index} is a handle to a function that takes as input the
+projection matrix, {\tt v}, the data matrix, {\tt X}, and a structured array of
+parameters ({\tt param}) and returns a scalar. The output of this function is
+the value of the splitting index for the cluster containing the observations in
+{\tt X}.
 %
 At each step of {\tt gppdc} the cluster with the highest splitting index is
-bi-partitioned.
+bi-partitioned. 
 
 \item {\tt labels} is used to specify the true cluster assignment. This
 information is only used after the clustering model is estimated to compute the
@@ -3225,10 +3237,15 @@ The above function is included in the {\tt reproduction\_script.m} script file.
 A ``bisecting'' version of LDA-$k$-means is readily obtained:
 
 \begin{verbatim}
-[idx, t] = gppdc(X,10, @(x,p)(lda2m(x)), 'split_index', @(v,x,p)(total_scatter(x)));
+[idx, t] = gppdc(X,10, @(x,p)(lda2m(x)));
 \end{verbatim}
 
 
+\noindent
+%
+By not specifying a {\tt split\_index} function in the above algorithm the
+cluster that has the maximum projection index (which in the LDA-$k$-means case
+is the ratio of between--cluster to within--cluster scatter) is split at each step.
 
 %\phantomsection 
 %\addcontentsline{toc}{section}{References}
