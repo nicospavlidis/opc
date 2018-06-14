@@ -28,14 +28,9 @@ if length(x) == 1,
 	df = dkde + der;
 else
 	N = length(proj);
-	[xc1, A_k1] = fgt_model(proj', proj'    , sqrt(2)*h, 30, min(N,2*sqrt(N)), 8);
-	[xc2, A_k2] = fgt_model(proj', ones(1,N), sqrt(2)*h, 30, min(N,2*sqrt(N)), 8);
-	dkde = (fgt_predict(x', xc1,A_k1, sqrt(2)*h, 30)' - ...
-		x.*fgt_predict(x', xc2,A_k2,sqrt(2)*h, 30)')/(N*(h^3)*sqrt(2*pi));
-
-	%q = [proj, ones(N,1)];
-	%out = figtree(proj', sqrt(2)*h, q, x', eps)./(sqrt(2*pi)*N*h^3);
-	%dkde = out(:,1) - x.*out(:,2);
+	q = [proj, ones(N,1)];
+	out = figtree(proj', sqrt(2)*h, q, x', eps)./(sqrt(2*pi)*N*h^3);
+	dkde = out(:,1) - x.*out(:,2);
 
 	% derivative of penalty term
 	[~, index] = max([zeros(length(x),1), x-alpha*s, -x-alpha*s], [],2);

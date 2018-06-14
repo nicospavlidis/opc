@@ -1,19 +1,15 @@
-function out = fgt_kde(x, y, h)
-%Fast Gauss Transform to compute one-dimensional KDE with Gaussian kernels
-%OUT = FGT_KDE(X, Y, H)
+function out = ifgt_kde(proj, Y, h)
+%function OUT = FGT_KDE(X, Y, H)
 %
+% Improved Gauss Transform to compute one-dimensional KDE with Gaussian kernels
 % Input:
 %	(x) Column vector representing one dimensional sample
-%	(y) Column vector of points at which the value of the KDE will be evaluated
+%	(y) Points at which the value of the KDE will be evaluated
 %	(h) Bandwidth parameter
+% Returns:
+%	(out): Estimated density at (y)
 
 
-N=size(x,1);
-h2 = sqrt(2)*h;
-
+N=size(proj,1);
 % Gauss transform computes exp{ -||x - m||/h^2 }
-%out = figtree(x', sqrt(2)*h, ones(N,1), y', eps)./(N*h*sqrt(2*pi));
-
-[xc , A_k] = fgt_model(x' , ones(1,N) , h2, 30, min(2*sqrt(N),N), 8);
-out = fgt_predict(y', xc, A_k, h2, 30)'./(N*h*sqrt(2*pi));
-
+out = figtree(proj', sqrt(2)*h, ones(N,1), Y', eps)./(N*h*sqrt(2*pi));
