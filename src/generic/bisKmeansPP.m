@@ -1,7 +1,7 @@
 function [v,fval,idx] = bisKmeansPP(X)
 	[idx,C,sumd] = kmeans(X,2,'EmptyAction','singleton','Replicates',1);
 	v = (C(1,:) - C(2,:))';
-	if sum(abs(v))<eps,
+	if sum(abs(v))<sqrt(eps),
 		v = pcacomp(X,1);
 		fval = -inf;
 		return;
