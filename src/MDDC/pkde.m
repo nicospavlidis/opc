@@ -1,5 +1,5 @@
 function [f, fkde] = pkde(x, proj, h, alpha, eta, epsilon)
-%function [f, fkde] = pkde(x, proj, h, alpha, eta, epsilon)
+%FUNCTION [F, FKDE] = PKDE(X, PROJ, H, ALPHA, ETA, EPSILON)
 %
 % Returns: 
 %	(f): Penalised density on hyperplane at point (x)
