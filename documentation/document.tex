@@ -196,8 +196,8 @@ modification of the
 Jean-Yves Tinevez.
 
 \item The
-\href{https://uk.mathworks.com/matlabcentral/fileexchange/17438-fast-gaussian-transform-mex-implementation}
-{Fast Gauss Transform mex implementation} (FGT) by Sebastien Paris.
+\href{http://www.umiacs.umd.edu/~morariu/figtree/}
+{improved Fast Gauss Transform}~\cite{Morariu08}.
 
 \end{enumerate}
 
@@ -211,218 +211,126 @@ documentation system is required.
 
 
 
-\subsubsection{Setting up the path for OPC}\label{sec:path}
-
-Every time MATLAB or GNU Octave is restarted you need to include the OPC
-package in the search path.
+%\subsubsection{Setting up the path for OPC}\label{sec:path}
 %
-Let's assume that the uncompressed OPC code is in the directory {\tt
-/home/user/code/opc}, or {\tt C:/code/opc} in Microsoft Windows.  First use
-{\tt cd} command to set the current working directory to the 
-directory in which OPC has been unpacked.
-%
-Then the execute the {\tt setpath} script which adds to the MATLAB/ GNU Octave search
-path the current directory and all its subdirectories.
-
-\begin{verbatim}
->> % In Linux/Mac: Set current directory to root OPC directory
->> cd('/home/user/code/opc');
->> % In Microsoft Windows
->> cd ('C:/code/opc');
->> % Set MATLAB path to include all subdirectories within OPC
->> setpath
-\end{verbatim}
-
-\noindent
-%
-The above steps are equivalent to using the following command:
-
-\begin{verbatim}
->> % Linux/ Mac: Set search path using absolute path
->> addpath(genpath('/home/user/code/opc'))
->> % Microsoft Windows: Set search path using absolute path
->> addpath(genpath('C:/code/opc'))
-\end{verbatim}
-
-In MATLAB setting the path after every restart is sufficient to use OPC.
-In GNU Octave after each restart you also need to load the statistics and optim
-packages: 
-
-\begin{verbatim}
->> pkg load statistics 
->> pkg load optim
-\end{verbatim}
-%
-see last paragraph of Section~\ref{sec:Octave} for more details. 
-
-
-\section{MATLAB}
-
-OPC requires the statistics and optimization MATLAB toolboxes. 
-
-\subsection{Linux/ Mac}
-
-We strongly suggest using the GNU Compiler Collection (GCC), that is readily
-installed in both systems. To verify that {\tt mex} is correctly configured,
-type in the MATLAB command line interface (CLI):
-
-\begin{verbatim}
->> mex -setup
-MEX configured to use 'gcc' for C language compilation.
-\end{verbatim}
-
-%\noindent
-%
-%Before proceeding ensure that OPC is included in the search path (see Section~\ref{sec:path}).
-
-\noindent
-%
-Once {\tt mex} is correctly configured the FGT and the C++ functions need to be
-compiled. Change directory to {\tt src/libs/fgt} and execute the script {\tt mexme\_fgt}.
-(Once again we assume that the OPC source code is in the folder {\tt /home/user/code/opc}).
-
-
-\begin{verbatim}
->> % Change directory to FGT lib
->> cd('/home/user/code/opc/src/libs/fgt');
->> % Compile FGT and other C++ functions
->> mexme_fgt
->> % Return to OPC root directory
->> cd('/home/user/code/opc');
-\end{verbatim}
-
-\noindent
-%
-You may get warnings of the type:\\
-%
-{\tt
-Warning: You are using gcc version 'x.x.x'. The version of gcc is not supported. The version currently supported with MEX is 'y.y.y'.}\\
-%
-As long as there is no error the installation is successful.
-
-
-The above steps need to be performed only once to install OPC. However, recall
-that to use OPC you need to include the relevant directories in the MATLAB
-search path after every restart, see Section~\ref{sec:path}.
-
-%\item To use OPC after each MATLAB restart the path variable needs to be set to include
-%the root directory of the package and its sub-folders. 
-%For convenience, we provide the script {\tt setpath} (located in the root
-%directory of the package) to perform this task:
+%Every time MATLAB or GNU Octave is restarted you need to include the OPC
+%package in the search path.
+%%
+%Let's assume that the uncompressed OPC code is in the directory {\tt
+%/home/user/code/opc}, or {\tt C:/code/opc} in Microsoft Windows.  First use
+%{\tt cd} command to set the current working directory to the 
+%directory in which OPC has been unpacked.
+%%
+%Then the execute the {\tt setpath} script which adds to the MATLAB/ GNU Octave search
+%path the current directory and all its subdirectories.
 %
 %\begin{verbatim}
+%>> % In Linux/Mac: Set current directory to root OPC directory
+%>> cd('/home/user/code/opc');
+%>> % In Microsoft Windows
+%>> cd ('C:/code/opc');
+%>> % Set MATLAB path to include all subdirectories within OPC
 %>> setpath
 %\end{verbatim}
 
-
-\subsection{Microsoft Windows}
-
-A potential problem with setting up OPC in Windows is the lack of a C/C++ compiler which
-can be used to compile the C code for FGT, and two C++ functions which are
-used to compute efficiently one dimensional Gaussian kernel density estimators
-and their derivative. These need to be compiled once before the package is used
-for the first time. 
+%\noindent
+%%
+%The above steps are equivalent to using the following command:
 %
-To diagnose whether {\tt mex} is correctly configured on your system execute:
+%\begin{verbatim}
+%>> % Linux/ Mac: Set search path using absolute path
+%>> addpath(genpath('/home/user/code/opc'))
+%>> % Microsoft Windows: Set search path using absolute path
+%>> addpath(genpath('C:/code/opc'))
+%\end{verbatim}
+
+\noindent
+%
+In GNU Octave after each restart you also need to load the statistics and optim
+packages (see last paragraph of Section~\ref{sec:Octave} for more details). 
+The {\tt setpath} script also performs this task.
+
+%\begin{verbatim}
+%>> pkg load statistics 
+%>> pkg load optim
+%\end{verbatim}
+%
+
+
+\section{MATLAB Installation}
+
+OPC requires the statistics and optimization MATLAB toolboxes. 
+To use OPC it is also necessary
+to compile the C++
+\href{https://github.com/vmorariu/figtree}{FIGtree}
+library~\cite{Morariu08}.
+%
+The most recent version (0.9.3) is included in the OPC package in the directory {\tt
+src/libs/figtree-0.9.3/}. For instructions on how to compile the library
+refer to the {\tt README.md} file within this directory, or equivalently
+to the \href{https://github.com/vmorariu/figtree}{FIGtree GitHub page}.
+Effectively, the process involves two steps. First the C++ library needs to be compiled.
+It is recommended to use the GCC compiler, which is straightforward to install
+in Linux and Mac.
+
+%
+\begin{verbatim}
+$ # Assuming OPC_DIR is the path to the directory where OPC was uncompressed
+$ cd (OPC_DIR)/src/libs/figtree-0.9.3/
+$ make all
+\end{verbatim}
+%
+\noindent
+%
+In Microsoft Windows GCC is also recommended but there are instructions on how
+to compile the library using Microsoft Visual Studio. Moreover,
+the \href{http://sourceforge.net/projects/figtree}{SourceForge FIGtree page}
+contains releases with Windows binaries.
+
+%\noindent
+%%
+%After the successful compilation of the C++ library the
+%Matlab interface to FIGtree needs to be compiled. As described in the FIGtree documentation, you
+%need to perform the following steps from MATLAB:
+%
+%\begin{enumerate}
+%
+%\item Ensure that MATLAB uses the GCC compiler by running {\tt mex -setup}
+%
+%\item In MATLAB, set the working directory to {\tt /matlab/}, and compile
+%the code:
+%
+%\begin{verbatim}
+%>> cd('(OPC_DIR)/src/libs/figtree-0.9.3/matlab');
+%>> % script below calls mex() to compile the library
+%>> CompileMexFilesUsingMatlab
+%\end{verbatim}
+%
+%\end{enumerate}
+%
+%Finally two C++ functions that compute one-dimensional
+%Gaussian kernel density estimators and their derivatives must be compiled.
+%
+%\begin{verbatim}
+%>> cd('(OPC_DIR)/src/MDDC/');
+%>> mexme
+%\end{verbatim}
+
+After the successful compilation of the C++ library the Matlab interface to
+FIGtree needs to be compiled, as well as two C++ functions that compute
+one-dimensional Gaussian kernel density estimators and their derivatives.
+%
+The script {\tt install} in the root OPC directory is included to simplify this process.
+Beware that this script assumes that the path to the FIGtree library is
+{\tt (OPC\_DIR)/src/libs/figtree-0.9.3/}. If stores the library in a different location
+then {\tt install.m} needs to be edited to include the correct path.
+%
+In MATLAB:
 
 \begin{verbatim}
->> mex -setup
+>> cd('(OPC_DIR)/')
+>> install
 \end{verbatim}
-
-\noindent
-If the above command exits with an error:\\
-
-\noindent
-{\tt
-Error using mex\\
-No supported compiler or SDK was found.}\\
-
-\noindent
-{\tt mex} is not configured to use a C/C++ compiler.
-%
-Refer to this \href{https://uk.mathworks.com/support/compilers.html}{link} for
-a list of compilers supported by MATLAB R2018a.
-We next provide instructions for how to install the {\tt MinGW-w64} compiler which
-can be used on the current as well as previous releases of MATLAB.
-
-
-\subsubsection{Installing MinGW-w64 compiler in Windows}
-
-Mathworks provides instructions to
-\href{https://uk.mathworks.com/help/releases/R2015b/matlab/matlab_external/install-mingw-support-package.html}
-{install the MinGW-w64 compiler from the add-ons menu}.
-%
-If this is unsuccessful you can install this compiler manually by following the steps below:
-
-\begin{enumerate}
-
-\item Download the TDM-GCC MinGW installer, from its \href{https://sourceforge.net/projects/tdm-gcc/}{SourceForge page}.
-%Although MATLAB 
-%\href{https://uk.mathworks.com/matlabcentral/fileexchange/52848-matlab-support-for-mingw-w64-c-c++-compiler}
-%{installs older version of this compiler for different distributions},
-%I manually installed the most recent version, 5.1.0-2, from
-%\href{https://sourceforge.net/projects/tdm-gcc/}{SourceForge} and set up the mex to use it successfully.
-
-
-\item Run the TDM-GCC MinGW installer and disable the option ``Check for
-updated files on the TDM-GCC server" that appears on the first screen,
-\href{https://uk.mathworks.com/help/releases/R2015b/matlab/matlab_external/install-mingw-support-package.html}
-{as suggested by Mathworks}.
-
-\item In the first screen of the installer select ``Create'' to create a new
-installation and ensure that you install the compiler in a directory like:\\
-{\tt C:\char`\\TDM-GCC-64}\\
-and not in ``Program Files" or any directory whose path contains spaces, 
-\href{https://uk.mathworks.com/help/releases/R2015b/matlab/matlab_external/install-mingw-support-package.html}
-{as suggested by Mathworks}.
-
-\item After completing the installation of TDM-GCC MinGW, MATLAB will still be
-unable to find the MingGW-w64 compiler because the environment variable
-{\tt MW\_MINGW64\_LOC}
-is not defined.
-Use the {\tt setenv()} command to set this variable:
-
-\begin{verbatim}
->> % Second argument below must be the path to the TDM-GCC directory
->> setenv('MW_MINGW64_LOC','C:\TDM-GCC-64')
->> % Verification
->> mex -setup
-MEX configured to use 'MinGW64 Compiler (C)' for C language compilation.
-\end{verbatim}
-
-The output message in the last line above verifies that {\tt mex} is correctly configured.
-For our purposes setting up the {\tt mex} compiler once is sufficient as the FGT package
-and the other C++ functions need to be compiled only once. Bear in mind
-however that if you need to use {\tt mex} again
-you need to set this environment variable after every restart of MATLAB.
-
-\end{enumerate}
-
-
-\noindent
-%
-Having configured {\tt mex} the C and C++ code needs to be compiled.
-Recall that this needs to be done only once. 
-%
-In the code snippet below we assume that the source code
-is in the directory {\tt C:/code/opc} (we call this the root OPC directory).
-%
-Change directory to {\tt src/libs/fgt} and execute the script {\tt mexme\_fgt}.
-
-\begin{verbatim}
->> % Change directory to FGT lib
->> cd('C:/code/opc/src/libs/fgt');
->> % Compile FGT and other C++ functions
->> mexme_fgt
->> % Return to OPC root directory
->> cd('C:/code/opc');
-\end{verbatim}
-
-\noindent
-%
-The above steps need to be performed only once to install OPC. However, recall
-that to use OPC you need to include the relevant directories in the MATLAB
-search path after every restart, see Section~\ref{sec:path}.
 
 
 \section{GNU Octave}\label{sec:Octave}
@@ -435,74 +343,27 @@ classes. These are only supported after the
 %
 release. OPC is therefore incompatible with previous versions.
 
-%The following list enumerates the requirements and necessary steps to
-%install OPC in Octave:
 
-
-The C implementation of the Fast Gauss Transform, as well as two
-C++ functions necessary to efficiently compute one dimensional Gaussian kernel density
-estimators and their derivatives, need to be compiled before the package
-is used for the first time. For this purpose a C/C++ compiler is required. 
-We recommend using the GNU Compiler Collection (GCC). 
-%
-To verify the configuration of the {\tt mex} compiler execute the following:
-
-\begin{verbatim}
->> mex --print CC
->> mex --print CXX
-\end{verbatim}
-
-\noindent
-%
-Once {\tt mex} is correctly configured the FGT and the C++ functions need to be
-compiled. Change directory to {\tt src/libs/fgt} and execute the script {\tt mexme\_fgt}.
-(Once again we assume that the OPC source code is in the folder {\tt /home/user/code/opc}).
-
-
-\begin{verbatim}
->> % Change directory to FGT lib
->> cd('/home/user/code/opc/src/libs/fgt');
->> % Compile FGT and other C++ functions
->> mexme_fgt
->> % Return to OPC root directory
->> cd('/home/user/code/opc');
-\end{verbatim}
-
-\noindent
-%
-The above installation steps need to be performed only once.
-
-
-OPC requires 
-the statistics package, and the non-linear optimization package,
+OPC requires the statistics package, and the non-linear optimization package,
 optim. 
 %
 Both packages can be found at the
 \href{https://octave.sourceforge.io/packages.php}{extra packages for GNU
 Octave} repository.
 %
-Detailed instructions to install and load extra packages in GNU Octave are provided
-in relevant
+Detailed instructions to install and load extra packages in GNU Octave are
+provided in relevant
 \href{https://octave.org/doc/interpreter/Packages.html#Packages}{documentation}
 page.
 %
-Once the two packages are installed they need to be loaded after every restart of
-GNU Octave.
-%
-%\begin{verbatim}
-%>> % Load statistics and optim package
-%>> pkg load statistics
-%>> pkg load optim
-%\end{verbatim}
-%
-%\noindent
-%
-%Recall that after each restart the OPC directories need to be included in the GNU Octave
-%search path also, as described in Section~\ref{sec:path}.
-%
-For convenience in GNU Octave the {\tt setpath} script loads the
-statistics and optim packages in addition to including the OPC
-directories to the search path.
+Once the two packages are installed they need to be loaded after every restart
+of GNU Octave. The {\tt setpath} script located in the root OPC directory loads
+these packages and adds the OPC directory tree to the Octave search path.
+
+To complete the installation of OPC it is necessary to compile the FIGtree
+library, and two C++ functions that compute one-dimensional Gaussian kernel
+density estimators and their derivatives. Refer to the description of this
+process in the previous section.
 
 
 
