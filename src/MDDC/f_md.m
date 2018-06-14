@@ -39,8 +39,10 @@ s = std(proj);
 x = linspace(-alpha*s, alpha*s,200)';
 x(end) = alpha*s;
 
+
 bd = [-alpha*s, alpha*s];
 % Newton-Raphson to identify minimiser at boundary of feasible region
+L = exp(-0.5)/(sqrt(2*pi)*(h*h)* eta^epsilon);
 for i=1:2,
 	j=1;
 	xcur = bd(i);
