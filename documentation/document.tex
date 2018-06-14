@@ -1050,9 +1050,21 @@ projection pursuit for clustering.
 
 %\clearpage
 
-%\section{General Information about OPC}
+\chapter{General Information about OPC}
 
-%\subsection*{General Syntax}
+The algorithms in OPC are designed to require minimum input from the user, so
+that non-expert users can directly apply the implemented methods.  However all
+the parameters of each algorithm can be controlled by using name, value pairs,
+as is standard in the MATLAB programming language.
+%
+All clustering algorithms (except {\tt drsc}) require only the specification
+of the data matrix and the number of clusters. For {\tt drsc} because the
+cross--validation approach to set the scaling parameter of the Gaussian
+kernel is extremely computationally expensive, the specification of this parameter
+is also mandatory.
+
+
+%\subsubsection*{General Syntax}
 %
 %The data matrix and the number of clusters are the only {\bf mandatory inputs} to all the
 %algorithms, except for dePDDP, which can estimate the number of clusters
@@ -1064,70 +1076,270 @@ projection pursuit for clustering.
 %this parameter needs to be explicitly set by the user.
 %
 %
-%\subsubsection*{Output Arguments}
+\subsubsection*{Output Arguments}
+
+The partitioning algorithms, {\tt ldakmeans} and {\tt drsc}, return as the
+first three output arguments:
 %
-%The partitioning algorithms, {\tt ldakmeans} and {\tt drsc}, return as the
-%first three output arguments:
-%%
-%\begin{itemize}
+\begin{itemize}
+
+\item[] {\tt idx}: A vector of cluster assignments, {\tt idx}~$\in \{1,\ldots,k\}^n$
+
+\item[] {\tt V}: The projection matrix
+
+\item[] {\tt fval}: The value of the projection index at termination 
+
+\end{itemize}
 %
-%\item[] {\tt idx}: A vector of cluster assignments, {\tt idx}~$\in \{1,\ldots,k\}^n$
+Both {\tt ldakmeans} and {\tt drsc} return additional output arguments that are
+specific to each algorithm.
+
+
+All divisive clustering algorithms in OPC return only two output arguments:
 %
-%\item[] {\tt V}: The projection matrix
+\begin{itemize}
+
+\item[] {\tt idx}: A vector of cluster assignments, {\tt idx}~$\in \{1,\ldots,k\}^n$
+
+\item[] {\tt t}: A {\tt ctree} object that represents the cluster hierarchy in the form of a binary tree
+
+\end{itemize}
+
+\subsubsection*{Cluster Hierarchy class {\tt ctree}}
+
+The class {\tt ctree} implements a generic interface to interact with cluster
+hierarchies that enables the visualisation, and modification of the hierarchy.
 %
-%\item[] {\tt fval}: The value of the projection index at termination 
+The properties of the {\tt ctree} are:
 %
-%\end{itemize}
-%%
-%Both {\tt ldakmeans} and {\tt drsc} return additional output arguments that are
-%specific to each algorithm.
+\begin{itemize}
+
+\item {\tt Node}: A cell array each element of which stores a binary separator (node) of the
+cluster hierarchy. Different clustering algorithms can return objects of different classes
+to represent the binary separator.
+
+\item {\tt Parent}: A vector containing the index of the parent of each node. In particular, if {\tt j = Parent(i)} then
+{\tt Node(j)} is the parent of {\tt Node(i)}. 
 %
-%All divisive clustering algorithms in OPC return two output arguments:
-%%
-%\begin{itemize}
+%The root of a {\tt ctree} object is the only node with parent equal to zero: ({\tt Parent(1) = 0}).
+
+\item {\tt method}: String describing the clustering algorithm used to create the {\tt ctree} object.
+
+\item {\tt cluster}: A vector containing the cluster assignment from this clustering model.
+
+\item {\tt data}: The data matrix on which the clustering model has been estimated
+
+\item {\tt params}: A structured array containing all the parameters employed by the
+algorithm.
+
+\end{itemize}
+
+The first two properties are necessary to describe a cluster hierarchy, while
+the cluster assignment, {\tt cluster} is the main output from any clustering
+algorithm. The last two properties {\tt data} and {\tt params} are useful to
+visualise and modify the clustering model.
+
+The main methods for the {\tt ctree} class are:
+
+\begin{enumerate}
+
+\item {\tt get(id)}: Returns the binary separator at {\tt Node\{id\}}. The structure of these
+will be discussed next.
+
+\item {\tt findleaves()}: Returns the indices of the leaves of the {\tt ctree} object (that is the locations in the {\tt Node} cell array). By
+construction the leaves correspond to the final clusters.
+
+\item {\tt nnodes()}: Returns the number of nodes in the tree.
+
+\item {\tt depth()}: Returns the depth of a tree.
+
+
+
+\item {\tt perf(labels)}: This function takes as input the actual cluster assignment and computes
+the quality of the binary partition at each node of the {\tt ctree} object. For internal nodes quality
+is measured in terms of the success ratio~\cite{PavlidisHT2016}, while on leaves it is 
+measured in terms of purity~\cite{ZhaoK2004}. The function returns a new {\tt ctree} object.
+
+\item {\tt plot(labels,colours)}: This function produces a visualisation of the entire cluster hierarchy. The
+user can provide as optional input the actual cluster assignment, {\tt labels}. In this case the observations
+in the figure produced are coloured according to the actual cluster membership. The user can also determine the
+colour used for each cluster, by setting the last optional argument {\tt colours}. ({\tt colours} must
+be a $k \times$3 matrix specifying an RGB triplet for each one of the $k$ clusters.)
+
+\item {\tt nplot(id, labels,colours)}: This function produces a visualisation of the
+binary separator in {\tt Node\{id\}}. The interpretation of the optional arguments, {\tt labels} and
+{\tt colours} is the same as for the {\tt plot()} function described above.
+
+\item {\tt prune(id)}: Prunes, that is removes, the subtree rooted at {\tt Node\{id\}}. 
+After this operation {\tt Node\{id\}} is a leaf node. The function returns a new {\tt ctree} object.
+
+\item {\tt split(id,varargin)}: Splits a leaf node of the tree using the algorithm
+used to originally create this {\tt ctree} object with the same parameter settings.
+The user can modify any of the settings of the clustering algorithm by specifying
+the optional arguments. The syntax is identical to that used by the divisive algorithm
+used to create the specific {\tt ctree} object initially. The function returns a new {\tt ctree} object.
+
+\end{enumerate}
+
+\noindent
 %
-%\item[] {\tt idx}: A vector of cluster assignments, {\tt idx}~$\in \{1,\ldots,k\}^n$
+The last two functions, {\tt prune} and {\tt split} are extensively discussed
+in the chapter on model validation and modification (Chapter~\ref{sec:valid}).
 %
-%\item[] {\tt t}: A {\tt ctree} object that represents the cluster hierarchy
+Visualisation of clustering models obtained by different algorithms are
+discussed in almost every example in Chapter~\ref{sec:using}.
 %
-%\end{itemize}
+We next describe the objects that describe binary separators (elements
+of the {\tt Node} cell array in the {\tt ctree} class.
+
+\subsubsection*{Binary separators}
+
+Different clustering algorithms produce objects of different classes
+to describe the binary separator employed.
 %
+The properties discussed below are shared by all classes of binary separators
+in OPC, and suffice to understand how to extract all the meaningful information
+from such objects.
+
+\begin{enumerate}
+
+\item {\tt v}: Stores the optimal projection matrix/ vector. The data (subset)
+is first projected onto {\tt v} and then bi-partitioned.
+
+\item {\tt fval}: Value of the projection index for associated projection pursuit
+algorithm. For instance for an MDH the projection index is the value of the
+density on the optimal split point. For NCUTDC {\tt fval} is the value of the minimum
+normalised cut.
+
+\item {\tt params}: A structured array containing all the parameter values for
+the projection pursuit algorithm employed to estimate this binary separator.
+
+\item {\tt idx}: A vector containing the row-numbers (indices) of the observations
+allocated to this binary separator in the {\tt ctree} object. Observations
+allocated to the left child have a negative sign while observations allocated
+to the right child have a positive sign.
+
+\item {\tt tree\_params}: A structured array containing information that is
+only used when displaying a {\tt ctree} object on the terminal.
+
+\end{enumerate}
+
+
+\noindent
 %
-%\subsubsection*{Main Optional Input Arguments}
+In the next code snippet we provide a very simple example of how to extract information from
+{\tt ctree} object, making use of all the above information. We first compute a
+cluster hierarchy with PDDP. (Each algorithm will be discussed in much greater detail in the 
+next section.) 
+
+\begin{verbatim}
+>> % load an example dataset
+>> load('datasets/optidigits.mat');
+>> % Estimate a divisive hierarchical model using PDDP
+>> [idx,t] = pddp(X,10);
+>> % Produce visualisation (output not shown presently)
+>> plot(t);
+>>
+>> % Get separator at left child of root node
+>> node2 = t.get(2);
+>> % Identify which observations were allocated Node 2
+>> obs = abs(node2.idx);
+>> % Identify how many observatiosn were allocated to Node 2
+>> length(node2.idx);
+>> % Projection matrix for this node (1st PC for this data subset)
+>> node2.v
+>> % Value of projection index: PDDP uses total_scatter by default
+>> node2.fval 
+\end{verbatim}
+
+
+\subsubsection*{Overview of Main Optional Arguments}
+
+
+The following list of optional input arguments is not exhaustive but is meant to illustrate the main
+parameters that are common across most of algorithms.
+For a comprehensive list of all the optional arguments for each algorithm
+use {\tt help } from the command line interface, or refer to the HTML
+function reference.
+
+\paragraph{verb}
 %
-%The following list of optional input arguments is not exhaustive but is meant to illustrate the main
-%parameters that are common across most of algorithms.
-%All divisive clustering algorithms accept the following optional parameters:
+All algorithms (except {\tt gppdc}) accept the optional input argument {\tt
+verb}. If {\tt verb} is non-zero then progress information is printed/
+displayed during the clustering process. Algorithms that perform projection
+pursuit illustrate a two-dimensional visualisation of the current candidate
+solution at each step. This slows down the progress of the algorithm
+considerably, especially for divisive clustering algorithms, and especially on
+GNU Octave (the MATLAB {\tt pca} function is much faster than the Octave {\tt
+princomp} function). On the other hand such visualisation enable the user to
+obtain important insights as to whether or not the algorithm locates meaningful
+partitions. We therefore recommend setting {\tt verb=0} (which is the default)
+when estimating a cluster hierarchy, and enabling this option when more insight
+is required for particular splits in the tree (see Chapter~\ref{sec:valid}).
+
+\paragraph{labels, colours}
 %
-%\begin{itemize}
+The {\tt labels} optional argument allows the user to define the actual cluster
+assignment. This information is used only to assess performance and to improve
+the visualisation (see {\tt verb} option above), by assigning colours to
+observations based on the actual cluster. The argument {\tt colours} allows the
+user to specify the colour used to display observations from each cluster.
+These two options are very useful when performing exploratory data analysis.
+
+\paragraph{split\_index}
 %
-%\item[] {\tt minsize}: Minimum cluster size 
+This optional argument is relevant for divisive algorithms only.
+It must be set to a handle associated with a function that 
+takes three inputs:
 %
-%\item[] {\tt split\_index}: A handle to a function that returns the value of a user-defined
-%splitting criterion and takes the following three inputs:
-%	\begin{itemize}
-%	
-%	\item[] {\tt v}: the currently optimal projection matrix/ vector,
+\begin{itemize}
+	
+\item[] {\tt v}: the currently optimal projection matrix/ vector,
+
+\item[] {\tt X}: a data matrix containing the observations from the cluster that is currently split,
+
+\item[] {\tt par}: a structured array that contains all the parameters of the algorithm,
+
+\end{itemize}
 %
-%	\item[] {\tt X}: a data matrix containing the observations from the cluster that is currently split,
+and returns the value of a splitting criterion. At each step
+all divisive clustering algorithms split the current cluster that has the highest
+{\tt split\_index} value.
+
+\paragraph{v0}
 %
-%	\item[] {\tt par}: a structured array that contains all the parameters of the algorithm.
-%	\end{itemize}
+This optional argument determines the initial projection matrix used in
+perform projection pursuit. For divisive clustering algorithms it must
+defined as a handle associated with a function that takes two inputs:
 %
-%\end{itemize}
+\begin{itemize}
+	
+\item[] {\tt X}: a data matrix containing the observations from the cluster that is currently split,
+
+\item[] {\tt par}: a structured array that contains all the parameters of the algorithm,
+
+\end{itemize}
 %
-%\noindent
-%Algorithms that optimise the projection subspace(s) through numerical methods
-%({\tt mddc, mcdc, ncutdc, scppdc}, and {\tt drsc}) 
-%accept the following arguments to control the optimisation algorithm:
+and returns the value a projection matrix/ vector. 
 %
-%\begin{itemize}
+For partitioning algorithms, like {\tt drsc}, and for algorithms that estimate a single
+separating hyperplane, like {\tt mdh}, {\tt mch} and {\tt ncuth}, {\tt v0} can be defined
+as fixed projection matrix/ vector.
+
+\paragraph{minsize}
 %
-%\item[] {\tt v0}: This option defines the initial projection matrix.  {\tt v0}
-%needs to be a handle to a function that takes as inputs, the data matrix (for
-%the cluster currently split) and a structure containing all the parameters of
-%the algorithm, and returns a projection matrix.
+Most algorithms enable the user to specify the minimum number of observations in a cluster.
+
+
+\paragraph{maxit, ftol}
 %
+Algorithms that use numerical methods to identify the optimal projection matrix
+accept as arguments {\tt maxit}: the maximum number of iterations,
+and {\tt ftol} which specifies the function tolerance (that is
+the minimum change in the value of the objective function
+value in two consecutive iterations, required to allow the numerical
+algorithm to continue).
+
 %\item[] {\tt maxit}: Maximum number of iterations for numerical optimisation algorithm
 %
 %\item[] {\tt ftol}: Function tolerance. The numerical optimisation algorithm terminates if
@@ -1147,7 +1359,7 @@ projection pursuit for clustering.
 
 
 
-\chapter{Using OPC}
+\chapter{Using OPC}\label{sec:using}
 
 In this section we present examples of using the algorithms
 implemented in OPC. Our aim is to illustrate not only the syntax and the main options
