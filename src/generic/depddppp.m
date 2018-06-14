@@ -33,6 +33,15 @@ else
 	minsize = 1;
 end
 
+
+% Project onto 1st principal component
+proj = X*v;
+
+% All observations are projected on single point
+if std(proj) < 1.e-4,
+	return;
+end
+
 % Set bandwidth
 pars.h = pars.bandwidth;
 if isa(pars.h,'function_handle'),
@@ -42,8 +51,6 @@ end
 % no bound on range over which minimisers are sought
 pars.alpha = [];
 
-% Project onto 1st principal component
-proj = X*v;
 
 sorted = sort(proj);
 y = linspace(sorted(1), sorted(end), 500)';
@@ -54,7 +61,8 @@ df = diff(f);
 modes = find(df(1:end-1)>=0 & df(2:end)<0) + 1;
 % sanity check
 if isempty(modes),
-	error('MATLAB:dePDDPpp:No modes on 1D kde: This should not have occured');
+	warning('MATLAB:dePDDPpp:No modes on 1D kde: This should not have occured');
+	keyboard;
 end
 
 % if KDE is unimodal cluster cannot be split
