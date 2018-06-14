@@ -67,7 +67,7 @@ on the [FIGTree GitHub repository](https://github.com/vmorariu/figtree).
 >> setpath
 ```
 
-6. Test installation: The script `reproduction_script.m` 
+6. Testing the installation: The script `reproduction_script.m` 
 in the root OPC folder reproduces all the examples in the documentation. If this script
 exits without an error OPC is configured correctly.
 
@@ -82,7 +82,7 @@ More detailed instructions for installing OPC are provided in the file `document
 
 * The file  `document/documentation.pdf` contains a detailed documentation of OPC
 including more detailed installation instructions, and a large number of
-examples of how to use and extend the code. The source TeX file and all the
+examples that illustrate how to use and extend the code. The source TeX file and all the
 figures are also included in the `document/` directory.
 
 * An HTML function reference for OPC can be constructed using the
