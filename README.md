@@ -112,26 +112,3 @@ The following people contributed to OPC (in alphabetical order):
 * Dimitris Kostaras
 * Hankui Peng
 * Sotiris Tasoulis
-#### 
-
-More detailed instructions for installing OPC and creating the HTML function reference
-are provided in the file `documentation/document.pdf`.
-
-#### CONTACT
-
-Please file bug reports at [github.com/nicospavlidis/opc](https://github.com/nicospavlidis/opc/).
-For any other questions, comments, or concerns, please contact [Nicos Pavlidis](http://www.lancaster.ac.uk/lums/people/nicos-pavlidis/)
-
-#### LICENSE
-
-This project is licensed under the BSD-3-Clause License - see the [LICENSE.md](LICENSE.md) file for details
-
-#### ACKNOWLEDGMENTS
-
-The following people contributed to OPC (in alphabetical order):
-
-* Michael Epitropakis
-* David Hofmeyr
-* Dimitris Kostaras
-* Hankui Peng
-* Sotiris Tasoulis
