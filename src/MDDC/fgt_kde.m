@@ -1,4 +1,4 @@
-function out = ifgt_kde(proj, Y, h)
+function out = fgt_kde(proj, Y, h)
 %function OUT = FGT_KDE(X, Y, H)
 %
 % Improved Gauss Transform to compute one-dimensional KDE with Gaussian kernels
