@@ -36,7 +36,7 @@ end
 
 %keyboard;
 s = std(proj);
-x = linspace(-alpha*s, alpha*s,200)';
+x = linspace(-alpha*s, alpha*s,512)';
 x(end) = alpha*s;
 
 

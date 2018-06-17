@@ -45,6 +45,7 @@ if nargin < 3 | ~isa(pphandle,'function_handle'),
 end
 
 pars = struct();
+pars.minsize = 1;
 pars.split_index = 'fval';
 pars.labels = ones(size(X,1),1);
 pars.colours = [];
@@ -119,7 +120,7 @@ while length(list) < K,
 		[optS, pass{j}, split_index(j)] = gpp(X(list{j},:), pphandle, pars);
 
 		% if PP method fails to identify valid separating hyperplane
-		if isempty(optS.v),
+		if isinf(optS.fval),
 			% Use projection matrix from parent to enable visualisation
 			optS = gsep(t.Node{node_index(id)}.v, -inf, [1:length(list{j})]', pphandle, pars);
 		end

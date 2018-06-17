@@ -53,7 +53,7 @@ pars.alpha = [];
 
 
 sorted = sort(proj);
-y = linspace(sorted(1), sorted(end), 500)';
+y = linspace(sorted(1)-3*pars.h, sorted(end)+3*pars.h, 512)';
 f = fgt_kde(proj,y,pars.h);
 
 df = diff(f);
