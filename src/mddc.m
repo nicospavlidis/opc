@@ -20,7 +20,7 @@ function [idx,t] = mddc(X, K, varargin)
 %   	(default: v0 = @(y,p)(pca(y,'NumComponents',1)) -- 1st principal component)
 %
 %  'bandwidth' - Bandwidth parameter
-%	Function Handle: bandwidth(X) returns bandwidth (positive scalar)
+%	Function Handle: bandwidth(X,pars) returns bandwidth (positive scalar)
 %	(default: bandwidth =0.9* sqrt(eigs(cov(X),1)) * size(X,1)^(-0.2))
 %
 %  'split_index' - Criterion determining which cluster to split

@@ -15,7 +15,7 @@ function [idx,t] = depddp(X, K, varargin)
 %  in the form of Name,Value pairs. 
 %
 %  'bandwidth' - Bandwidth parameter
-%	Function Handle: bandwidth(X) returns bandwidth (positive scalar)
+%	Function Handle: bandwidth(X,pars) returns bandwidth (positive scalar)
 %	(default: bandwidth =0.9* std(projections) * N^(-0.2))
 %
 %  'split_index' - Criterion determining which cluster to split	next (only relevant if K is specified)
