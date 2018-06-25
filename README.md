@@ -6,10 +6,22 @@ Author: Nicos G. Pavlidis
 E-mail: n(.)pavlidis(at)lancaster(.)ac(.)uk
 Date:     2018-06-07
 
-OPC is an open source package for MATLAB and GNU Octave that implements
-clustering methods that seek the optimal low dimensional subspace to identify
-clusters.
+OPC is an open source MATLAB and GNU Octave package that implements clustering
+methods that seek the optimal low dimensional subspace to identify clusters.
 
+Whenever the data contains irrelevant features, or correlations among subsets
+of features exist (which is typical in high-dimensional data), or when clusters
+are defined in different subspaces, the spatial data structure (which is
+inferred from pairwise distances) becomes less informative about the underlying
+clusters. Under these conditions clustering algorithms need to simultaneously
+solve two interrelated problems: (i) identify the subspace in which clusters
+can be distinguished, and (ii) associate observations to clusters. 
+
+OPC focuses on methods which seek low dimensional subspaces that are optimal
+with respect to specific clustering criteria. This distinguishes the methods in
+OPC from generic dimensionality reduction techniques that optimise objective
+functions that are not related to any clustering criterion, and are therefore
+not guaranteed to preserve the cluster structure.
 
 #### DEPENDENCIES
 
