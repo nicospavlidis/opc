@@ -1,20 +1,23 @@
 function [optS, idx, spindex] = scpp(Data, pars, labels, colours)
-%function [optS, idx, spindex] = scpp(X, pars, labels, colours)
-%
-% Implements Spectral Clustering Projection Pursuit (SCPP) 
-% (THE DIVISIVE CLUSTERING ALGORITHM IS IN scppdc.m)
+%Spectral Clustering Projection Pursuit (SCPP) (divisive clustering is implemented in scppdc.m)
+%[OPTS, IDX, SPINDEX] = SCPP(X, PARS, LABELS, COLOURS)
 %
 % Returns:
-%	(optS) Linear subspace that minimises second eigenvalue of normalised Laplacian constructed
-%		from projected data.(
-%	(idx) Binary cluster assignment {-1,1}
-%	(spindex) Value of splitting index criterion 
+%	(OPTS): Linear subspace that minimises second eigenvalue of normalised Laplacian constructed
+%		from projected data
+%	(IDX): Binary cluster assignment {-1,1}
+%	(SPINDEX): Value of splitting index criterion 
 %
 % Inputs:
-%	(X) Data matrix
-%	(pars) Structure containing all parameters of scpp() algorithm
-%	(labels) True clusters; only used for visualisation (optional)
-%	(colours) Colormap matrix: only used for visualisation (optional)
+%	(X): Data matrix
+%	(PARS): Structure containing all parameters of scpp() algorithm
+%	(LABELS): True clusters; only used for visualisation (optional)
+%	(COLOURS): Colormap matrix: only used for visualisation (optional)
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 [N,dim] = size(Data);
 invalid = false;

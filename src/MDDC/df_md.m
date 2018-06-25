@@ -1,12 +1,19 @@
 function out = df_md(v,X,pars,bmin)
-%function out = df_md(v,X,pars,bmin)
+%Derivative of penalised density on hyperplane criterion
+%OUT = DF_MD(V,X,PARS,BMIN)
 %
-% Returns derivative of penalised density on hyperplane criterion
+% Returns:
+%	(OUT): derivative of penalised density on hyperplane criterion
 % Inputs:
-%	(v) projection vector
+%	(V) projection vector
 %	(X) N-by-D Data matrix
-%	(pars) Structure array containing parameter settings for MDH (alpha, eta, epsilon, h)
-%	(bmin) (optional argument) location of optimal split on (v)
+%	(PARS) Structure array containing parameter settings for MDH (alpha, eta, epsilon, h)
+%	(BMIN) (optional argument) location of optimal split on (v)
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 if nargin<4,
 	[~,bmin] = f_md(v,X, pars);

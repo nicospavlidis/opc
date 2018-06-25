@@ -1,7 +1,7 @@
 function [idx,sol] = mdh(X, varargin)
-%function [IDX,SOL] = mdh(X, varargin)
+%Minimum Density Hyperplane
+%[IDX,SOL] = MDH(X, VARARGIN)
 %
-%MDH: Minimum Density Hyperplane
 %  [IDX,SOL] = MDH(X) bi-partitions the points in the N-by-D data matrix X with
 %  the hyperplane that minimises the density on a hyperplane criterion
 %  (computed from one-dimensional projections of the data). 
@@ -51,6 +51,10 @@ function [idx,sol] = mdh(X, varargin)
 %Journal of Machine Learning Research, 17(156):1–33, 2016.
 %http://jmlr.org/papers/v17/15-307.html.
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 if nargin<1, 
 	error('Data matrix needs to be specified\n'); 

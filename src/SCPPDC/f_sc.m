@@ -1,23 +1,25 @@
 function [f, eigenGap] = f_sc(v, X, pars)
-%function [f, eigenGap] = f_sc(v, X, pars)
+%Second smallest eigenvalue of Normalised Laplacian and difference to 3rd smallest
+%[F, EIGENGAP] = F_SC(V, X, PARS)
 %
 % Returns: 
-%	(f) Second smallest eigenvalue of Normalised Laplacian
-%	(bmin) Optimal split point along unit-length vector (v./norm(v,2))
-%	(eigenGap) Difference between 3rd and 2nd smallest eigenvalues
-% Inputs:
-% 	(v) Projection matrix (vector storing matrix column-wise)
-%	(X) Data matrix
-%	(pars) parameter struct containing 
-%		(sigma) scaling parameter for Gaussian kernel
-%		(weights) weights of micro-clusters (if not used should be empty)
-%		(beta) (delta) parameters of similarity transform function
-%		(omega) penalty term used to ensure orthonormality of (v)
-
-%function [fval,eigenGap] = f_sc(theta,X,weights,kernel, params) 
+%	(F): Second smallest eigenvalue of Normalised Laplacian
+%	(EIGENGAP): Difference between 3rd and 2nd smallest eigenvalues
 %
-% fval : Second smallest eigenvalue of Normalised Laplacian
-% eigenGap : Difference between 3rd and 2nd smallest eigenvalues
+% Inputs:
+%	(V): Projection matrix (vector storing matrix column-wise)
+%	(X): Data matrix
+%	(PARS): parameter struct containing 
+%		(sigma): scaling parameter for Gaussian kernel
+%		(weights): weights of micro-clusters (if not used should be empty)
+%		(beta), (delta): parameters of similarity transform function
+%		(omega): penalty term used to ensure orthonormality of (v)
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 
 dim = size(X,2);  % dimensionality of original space
 pdim = size(v,1)/dim; % dimensionality of the projection space

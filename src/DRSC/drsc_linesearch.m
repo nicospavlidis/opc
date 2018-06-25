@@ -19,6 +19,12 @@ function step = drsc_linesearch(Data, W, alphamax, f, grad, sigma, U, degs)
 %	(step): Stepsize satisfying 1st Wolfe condition
 %		(Returns 0 if no such stepsize is found)
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
+
 % Eq. (6) in Niu,Dy and Jordan AISTATS (2011)
 projGrad = gram_schmidt(grad, W);
 

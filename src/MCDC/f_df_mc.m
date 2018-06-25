@@ -3,14 +3,19 @@ function [f, df, split] = f_df_mc(v,X,minsize)
 %[F, DF, SPLIT] = F_DF_MC(V,X,PARS)
 %
 % Returns: 
-%	(f) Variance Ratio Clusterability projection index
-%       (df) Derivative of (f) w.r.t. projection vector (v)
-%	(bmin) split point along (v)
+%	(F) Variance Ratio Clusterability projection index
+%	(DF) Derivative of (f) w.r.t. projection vector (v)
+%	(SPLIT) split point along (v)
 %
 % Inputs:
-% 	(v) Projection vector
+%	(V) Projection vector
 %	(X) N-by-D Data matrix
-%	(minsize): minimum cluster size
+%	(MINSIZE) minimum cluster size
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 n = size(X,1);
 nv = norm(v,2);

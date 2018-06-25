@@ -2,9 +2,17 @@ function clEval = cluster_performance(clusters, trueLabels)
 %Returns structure containing: Purity, Adjusted Rand Index, Normalised Mutual Information and V-measure
 %CLEVAL = CLUSTER_PERFORMANCE(CLUSTERS, TRUELABELS)
 %
+% Returns:
+%	(CLEVAL): Structured array containing performance measures
+%
 % Inputs:
-%	clusters: Estimated cluster assignment
-%	trueLabels: True cluster assignment
+%	(CLUSTERS): Estimated cluster assignment
+%	(TRUELABELS): True cluster assignment
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 N = length(trueLabels);
 % Confusion matrix Actual class is in rows

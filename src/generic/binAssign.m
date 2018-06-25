@@ -2,16 +2,18 @@ function out = binAssign(labels, clusters)
 %Assigns true cluster labels (labels) of each observation to the binary partition (clusters = {1,2}^n) that contains the majority of its observations
 %OUT = BINASSIGN(LABELS, CLUSTERS)
 %
-% Used in process of assessing quality of binary partition of datasets that
-% contain multiple clusters
+% Returns:
+%	(OUT): Assignment of each observation to cluster containing 
+%		majority of observations of its true label
 %
 % Inputs: 
-%	labels: Vector of true cluster labels
-%	clusters: Binary assignment of observations
-%
-% Output:
-%	out: Assignment of each observation to cluster containing 
-%		majority of observations of its true label
+%	(LABELS): Vector of true cluster labels
+%	(CLUSTERS): Binary assignment of observations
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 l = unique(labels);
 if length(l)==2,

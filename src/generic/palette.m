@@ -2,12 +2,17 @@ function out = palette(nc,colours)
 %Determines colours used for visualisation
 %OUT = PALETTE(NC,COLOURS)
 %
-% Inputs:
-%	nc: Number of clusters (if nc=1 it assumed that true clusters are unknown)
-%	colours: Matrix of colours (optional argument)
-%
 % Returns:
-%	out: Matrix of RGB colours
+%	(OUT): Matrix of RGB colours
+%
+% Inputs:
+%	(NC): Number of clusters (if NC=1 it assumed that true clusters are unknown)
+%	(COLOURS): Matrix of colours (optional argument)
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 if isempty(colours),
 	if nc > 1,

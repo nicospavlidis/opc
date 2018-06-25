@@ -3,8 +3,13 @@ function Data = normalise(Data, standard);
 %DATA = NORMALISE(DATA, STANDARD);
 % 
 % Inputs:
-%	Data: N-by-D data matrix (observations stored row-wise)
-%	standard: Optional argument with default value 0. If (standard)=1, then variables are standardised
+%	(DATA): N-by-D data matrix (observations stored row-wise)
+%	(STANDARD): If (STANDARD)=1, then variables are standardised. Default = 0
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 if nargin < 2,
 	standard=0;

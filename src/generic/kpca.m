@@ -3,19 +3,23 @@ function [pcv, eigv, rotated] = kpca(K, th)
 %[PCV, EIGV, ROTATED] = KPCA(K, TH)
 % 
 % Inputs: 
-%	K: Kernel Matrix
-%	TH: optional argument with default value 1.e-4. 
+%	(K): Kernel Matrix
+%	(TH): optional argument with default value 1.e-4. 
 %		if (th) is a positive integer >= 1 then th PCs are returned,
 %		elseif (th) \in (0,1) Principal components with eigenvalue lower than (th) are ignored.
 % Outputs:
-%	PCV: Matrix containing the principal component vectors (stored in columns)
-%	EIGV: Vector of eigenvalues corresponding to each eigenvector
-%	ROTATED: Projections (rotations) on principal components
+%	(PCV): Matrix containing the principal component vectors (stored in columns)
+%	(EIGV): Vector of eigenvalues corresponding to each eigenvector
+%	(ROTATED): Projections (rotations) on principal components
 %
-% Reference:
-% B. Scholkopf, A. Smola, K.-R. Mueller. Nonlinear component analysis 
-% as a kernel eigenvalue problem. Neural Computation 10:1299-1319, 1998.
+%Reference:
+%B. Scholkopf, A. Smola, K.-R. Mueller. Nonlinear component analysis 
+%as a kernel eigenvalue problem. Neural Computation 10:1299-1319, 1998.
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 if nargin<2, 
 	th = 1.0e-4;

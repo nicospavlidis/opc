@@ -1,14 +1,19 @@
 function out = md_reldepth(v, X, pars)
-%function out = md_reldepth(v, X, pars)
+%Relative Depth
+%OUT = MD_RELDEPTH(V, X, PARS)
 % 
-% Computes relative depth
 % Returns:
-%	(out) Relative depth 
+%	(OUT) Relative depth 
 % Inputs:
-%	(v) Projection vector
+%	(V) Projection vector
 %	(X) Data matrix (if X is a column vector then it is assumed that 
 %		it is the projected dataset: Data*v)
-%	(pars) Structure array that contains (bandwidth) and optionally range (alpha)
+%	(PARS) Structure array that contains (bandwidth) and optionally range (alpha)
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 if ~isfield(pars,'bandwidth'),
 	error('Bandwidth parameter is undefined'),

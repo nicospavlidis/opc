@@ -1,14 +1,19 @@
 function out = fgt_kde(proj, Y, h)
-%function OUT = FGT_KDE(X, Y, H)
+%Interface to improved Fast Gauss Transform to compute one-dimensional KDE with Gaussian kernels
+%OUT = FGT_KDE(X, Y, H)
 %
-% Improved Gauss Transform to compute one-dimensional KDE with Gaussian kernels
-% Input:
-%	(x) Column vector representing one dimensional sample
-%	(y) Points at which the value of the KDE will be evaluated
-%	(h) Bandwidth parameter
 % Returns:
-%	(out): Estimated density at (y)
+%	(OUT): Estimated density at (y)
+%
+% Input:
+%	(X) Column vector representing one dimensional sample
+%	(Y) Points at which the value of the KDE will be evaluated
+%	(H) Bandwidth parameter
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 N=size(proj,1);
 % Gauss transform computes exp{ -||x - m||/h^2 }

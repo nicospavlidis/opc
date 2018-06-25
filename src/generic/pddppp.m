@@ -2,14 +2,19 @@ function [v, fval, idx] = pddppp(Data, pars)
 %Projection Pursuit function for PDDP algorithm
 %[V, FVAL, IDX] = PDDPPP(X, PARS)
 %
+% Returns:
+%	(V): Projection vector: 1st Principal Component of (X)
+%	(FVAL): Total scatter of (X)
+%	(IDX): Binary cluster assignment
+%
 % Inputs:
 %	(X): N-by-D data matrix
 %	(PARS): Parameter structure containing algorithm parameters
-%
-% Outputs:
-%	(V): Projection vector: 1st Principal Component of X
-%	(FVAL): Total scatter of (X)
-%	(IDX): Binary cluster assignment
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 [N,dim] = size(Data);
 

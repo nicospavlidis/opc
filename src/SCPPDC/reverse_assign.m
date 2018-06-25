@@ -1,4 +1,18 @@
 function L = reverse_assign(coresets2clusters, data2coresets)
+%Assigns observations to clusters based on the cluster assignment of the micro-clusters
+%L = REVERSE_ASSIGN(CORESETS2CLUSTERS, DATA2CORESETS)
+%
+% Returns:
+%	(L): Assignment of original observations to clusters
+%
+% Inputs:
+%	(CORESETS2CLUSTERS): Cluster assignment of micro-cluster centres
+%	(DATA2CORESETS): Assignment of observations to micro-clusters
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 % in the case below there has been no micro-clustering 
 if length(coresets2clusters)==length(data2coresets),

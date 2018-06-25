@@ -1,5 +1,5 @@
 function [idx,sol] = mch(X, varargin)
-%Maximum Clusterability Hyperplane algorithm
+%Maximum Clusterability Hyperplane
 %[IDX,SOL] = MCH(X, VARARGIN)
 %
 %  [IDX,SOL] = MCH(X) bi-partitions the points in the N-by-D data matrix (X) with
@@ -31,6 +31,11 @@ function [idx,sol] = mch(X, varargin)
 %
 %  'colours' - Matrix containing colour specification for observations in different clusters
 %	Number of rows must be equal to the number of true clusters (if 'labels' has been specified) or equal to 2.
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 if nargin<1, 
 	error('Data matrix needs to be specified\n'); 

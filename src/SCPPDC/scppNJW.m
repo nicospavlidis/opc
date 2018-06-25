@@ -1,19 +1,23 @@
 function idx = scppNJW(K,v,X,sigma,weights, beta,delta)
-%function idx = scppNJW(K,v,X,weights,sigma,params)
-%
-% Clusters projected data using Ng, Jordan and Weiss (2002) spectral clustering algorithm
+%Clustering of projected data using Ng, Jordan and Weiss (2002) normalised spectral clustering algorithm
+%IDX = SCPPNJW(K,V,X,WEIGHTS,SIGMA,PARAMS)
 %
 % Returns:
-%	(idx) Cluster assignment vector \in {1,...,K}
+%	(IDX) Cluster assignment vector \in {1,...,K}
 %
 % Inputs:
 %	(K) number of clusters
-%	(v) Matrix defining projection subspace
+%	(V) Matrix defining projection subspace
 %	(X) Dataset (potentially micro-cluster centers)
-%	(weights) Observations per microcluster (empty for no micro-clustering)
-%	(sigma) scaling parameter for Gaussian kernel
-%	(beta,delta) parameters of similarity transformation function:
+%	(WEIGHTS) Observations per microcluster (empty for no micro-clustering)
+%	(SIGMA) scaling parameter for Gaussian kernel
+%	(BETA,delta) parameters of similarity transformation function:
 %		if empty similarity between projections is based on Euclidean distance
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 % transformed projections
 if nargin==7 & ~isempty(beta) & ~isempty(delta)

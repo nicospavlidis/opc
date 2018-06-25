@@ -2,16 +2,21 @@ function [f,df] = f_df_ncut(v, X, pars)
 %Function value and derivative of minimum normalised cut projection index
 %[F,DF] = F_DF_NCUT(V, X, PARS)
 %
+% Returns: 
+%	(F): Value of normalised cut projection index
+%	(DF): derivative of (F) w.r.t. projection vector (V)
+%
 % Inputs:
-% 	(v) Projection vector
-%	(X) N-by-D Data matrix
-%	(pars) parameter struct containing 
+%	(V): Projection vector
+%	(X): N-by-D Data matrix
+%	(PARS): parameter struct containing 
 %		(sigma) Scaling parameter for Laplace kernel
 %		(minsize): minimum cluster size
-%
-% Outputs: 
-%	(f) Value of normalised cut projection index
-%       (df) derivative of (f) w.r.t. projection vector (v)
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 if isa(pars.sigma,'function_handle')
 	sigma = pars.sigma(X);

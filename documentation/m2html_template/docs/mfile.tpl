@@ -41,11 +41,11 @@
 	<div id="content">
         <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
 			<i class="glyphicon glyphicon-align-left"></i>
-            <span>Toggle Menu</span>
+            <span>Menu</span>
         </button>
 		<h1>Matlab Index</h1>
 		<h1>{NAME}
-<!-- BEGIN mexfile --> &nbsp;&nbsp;<img src="{MASTERPATH}{MEXTYPE}.png" alt="{PLATFORMS}" border="0" title="{PLATFORMS}"> <!-- END mexfile -->
+<!-- BEGIN mexfile  &nbsp;&nbsp;<img src="{MASTERPATH}{MEXTYPE}.png" alt="{PLATFORMS}" border="0" title="{PLATFORMS}">  END mexfile -->
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a class="top" href="#_top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a></h2>

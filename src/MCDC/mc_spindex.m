@@ -1,14 +1,17 @@
 function out = mc_spindex(v, X, params, N)
-%Default split index for maximum clusterability projection pursuit
-%OUT = MC_SPINDEX(X, FVAL, TRDATA)
+%Default split_index used to select which cluster MCDC partitions at each iteration
+%OUT = MC_SPINDEX(V, X, PARAMS, N)
 %
-% Default split_index used to select which cluster MCDC partitions at each iteration
 % Inputs:
-%	(v) Projection vector
+%	(V) Projection vector
 %	(X) Data matrix
-%	(params) Parameters structure used to extract minsize (minimum cluster size)
+%	(PARAMS) Parameters structure used to extract minsize (minimum cluster size)
 %	(N) Total number of observations
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 [n,d] = size(X);
 if N > 2000,

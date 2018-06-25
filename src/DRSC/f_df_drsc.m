@@ -14,6 +14,11 @@ function [f, df] = f_df_drsc(Data, W, sigma, U, degs)
 %	(f) Function value
 %	(df) Derivative
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 % to avoid division by zero
 degs = 1./sqrt( max(degs,sqrt(eps)) );
 

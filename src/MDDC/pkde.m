@@ -1,17 +1,23 @@
 function [f, fkde] = pkde(x, proj, h, alpha, eta, epsilon)
-%FUNCTION [F, FKDE] = PKDE(X, PROJ, H, ALPHA, ETA, EPSILON)
+%Penalised density on of one-dimensional (projected) dataset at (x)
+%[F, FKDE] = PKDE(X, PROJ, H, ALPHA, ETA, EPSILON)
 %
 % Returns: 
-%	(f): Penalised density on hyperplane at point (x)
-%	(fkde): Density on hyperplane at (x)
+%	(F): Penalised density on hyperplane at point (X)
+%	(FKDE): Density on hyperplane at (X)
 % Inputs:
-%	(x) location of split along the projected data
-%	(proj) Univariate projection of dataset (X*v)
-%	(h) bandwidth parameter
-%	(alpha) range over which minimisers of 1D density are sought
-%	(eta) Term in penalty function controlling maximum distance between minimisers of the
+%	(X) location of split along the projected data
+%	(PROJ) Univariate projection of datase
+%	(H) bandwidth parameter
+%	(ALPHA) range over which minimisers of 1D density are sought
+%	(ETA) Term in penalty function controlling maximum distance between minimisers of the
 %		kde and the penalised density integral (recommended value: 0.01)
-%	(epsilon) Term in penalty function controlling smoothness (recommended value: 1)
+%	(EPSILON) Term in penalty function controlling smoothness (recommended value: 1)
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 s = std(proj);
 L = exp(-0.5)/(sqrt(2*pi)*(h*h)* eta^epsilon);

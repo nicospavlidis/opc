@@ -68,6 +68,11 @@ function [idx,t] = mddc(X, K, varargin)
 %Journal of Machine Learning Research, 17(156):1–33, 2016.
 %http://jmlr.org/papers/v17/15-307.html.
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 if nargin < 2, 
 	error('Data matrix and number of clusters need to be specified\n'); 
 end;

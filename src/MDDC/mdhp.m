@@ -1,4 +1,10 @@
 %MDHP implements Minimum Density Hyperplane (inherits from HP class)
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 classdef mdhp < hp
 
 properties (SetAccess = public)

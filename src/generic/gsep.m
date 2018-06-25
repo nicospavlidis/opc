@@ -1,4 +1,10 @@
 %Generic binary cluster separator class
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 classdef gsep
 properties (SetAccess = public)
 	% Projection matrix: columns form orthonormal basis

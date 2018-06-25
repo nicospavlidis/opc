@@ -1,11 +1,17 @@
 function s = ncut_sigma(X,smult)
-%Default scaling parameter employed by Gaussian kernel in SCPP
+%Default scaling parameter employed by Gaussian kernel in minimum normalised cut projection pursuit
 %S = NCUT_SIGMA(X,SMULT)
 %
-% Default scaling parameter for minimum normalised cut projection pursuit
+% Returns:
+%	(S): Value of default scaling parameter for NCUTPP
 % Input:
-% 	(X) Data matrix
-% 	(smult) Multiplier (recommended value 100)
+% 	(X): Data matrix
+% 	(SMULT): Multiplier (recommended value 100)
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 if nargin < 2,
 	smult = 100;

@@ -2,11 +2,20 @@ function [idx,sumD,U,deg] = spclustNJW(X,K,varargin)
 %Spectral Clustering algorithm by Ng, Jordan and West (NIPS 2001)
 %[IDX,SUMD,DEG] = SPCLUSTNJW(X,K,VARARGIN)
 %
+% Returns:
+%	(IDX): Cluster assignment vector
+%	(SUMD): Within-cluster sums of point-to-centroid distances after the application
+%		of k-means to the K eigenvectors
+%	(U):   Eigenvectors of normalised Laplacian
+%	(DEG): Vector containing degree of each vertex
+%
+%
 % Inputs:
 %	(X): N-by-D Data matrix or N-by-N Distance Matrix, 
 %		or 1-by-(N choose 2) vector of pairwise distances produced by pdist(DataMatrix).
 %		By default X is assumed to be a data matrix	
 %	(K): Number of clusters
+%	Optional Input Arguments specified as Name,Value pairs:
 %	(s): Scaling parameter used in similarity matrix:
 %			A_{ij} = exp( -norm(X(:,i) - X(:,j))^2/(2*s)^2 )
 %		If s=0 (which is the default) the local bandwidth selection rule of 
@@ -19,20 +28,17 @@ function [idx,sumD,U,deg] = spclustNJW(X,K,varargin)
 %	(nn): Number of Nearest Neighbours to use in the computation of the local bandwidth selection rule
 %		Following Zelnik-Manor and Perona (NIPS 2004) the default value is 7.
 %
-% Outputs:
-%	(idx): Cluster assignment vector
-%	(sumD): Within-cluster sums of point-to-centroid distances after the application
-%		of k-means to the K eigenvectors
-%	(U):   Eigenvectors of normalised Laplacian
-%	(deg): Vector containing degree of each vertex
-%
-%
 %References:
 %A.Y. Ng, M.I. Jordan, and Y. Weiss. On spectral clustering: Analysis and an algorithm.
 %Advances in Neural Information Processing Systems 14, pages 849-856. 2001.
 %
 %L. Zelnik-Manor and P. Perona. Self-tuning spectral clustering.
 %Advances in Neural Information Processing Systems, pages 1601--1608, 2004.
+
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 s = 0;
 ds = 0;
