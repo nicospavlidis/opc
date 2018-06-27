@@ -1,8 +1,8 @@
 OPC: Optimal Projections for Clustering
 =====================
 
-Author: Nicos G. Pavlidis
-E-mail: n \_\_(DOT)\_\_pavlidis (at) lancaster \_\_(DOT)\_\_ ac \_\_ (DOT) \_\_ uk
+Author: Nicos G. Pavlidis\\
+E-mail: n \_\_(DOT)\_\_pavlidis (at) lancaster \_\_(DOT)\_\_ ac \_\_ (DOT) \_\_ uk\\
 Date:     2018-06-27
 
 OPC is an open source MATLAB and GNU Octave package that implements clustering
