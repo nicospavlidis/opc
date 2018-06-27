@@ -90,17 +90,16 @@ describes how to set up the MinGW-w64 compiler.
 
 * OPC depends on the [improved Fast Gauss Transform](http://legacydirs.umiacs.umd.edu/~morariu/figtree/).
 
-
-* A cluster tree class, called ctree, which is a modification of the MATLAB class [tree](https://tinevez.github.io/matlab-tree/)
-implemented by Jean-Yves Tinevez.
+* OPC contains a cluster tree class, called ctree. This is a modification of the MATLAB 
+class [tree](https://tinevez.github.io/matlab-tree/) implemented by Jean-Yves Tinevez.
 
 * In MATLAB OPC depends on the optimization and statistics toolboxes
 
 * In GNU Octave OPC depends on the optim and statistics packages
 
-* To create a function reference in HTML format the 
-[M2HTML](https://github.com/pdollar/toolbox/tree/master/external/m2html)
-documentation system is required.
+* In MATLAB it is possible to create a function reference in HTML format using the
+[M2HTML](https://github.com/pdollar/toolbox/tree/master/external/m2html). More
+details are provided in the PDF documentation file, `documentation/document.pdf`.
 
 
 #### INSTALLATION
@@ -158,15 +157,18 @@ More detailed instructions for installing OPC are provided in the file `document
 
 #### DOCUMENTATION
 
-* The file  `documentation/document.pdf` contains a detailed documentation of OPC
+* The file `documentation/document.pdf` contains a detailed documentation of OPC
 including more detailed installation instructions, and a large number of
 examples that illustrate how to use and extend the code. The source TeX file and all the
 figures are also included in the `documentation/` directory.
 
-* An HTML function reference for OPC can be constructed using the
-[M2HTML](https://github.com/pdollar/toolbox/tree/master/external/m2html). For this
-purpose a custom template and a modified `m2html.m` script are provided in the
-folder `documentation/m2html_template`.
+* An online function reference constructed through the
+[M2HTML](https://github.com/pdollar/toolbox/tree/master/external/m2html)
+documentation system is available
+[here](http://www.lancaster.ac.uk/staff/pavlidin/software/opc/documentation/reference/index.html).
+
+Using MATLAB a local copy of the HTML function reference can be constructed using the
+instructions in `documentation/document.pdf`.
 
 * The script file `reproduction_script.m` located in the root OPC directory
 contains all the examples discussed in the documentation.
