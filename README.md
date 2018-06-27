@@ -31,12 +31,12 @@ not guaranteed to preserve the cluster structure.
 #### <a name="alg"> ALGORITHMS IMPLEMENTED IN OPC </a>
 
 - **Partitioning clustering algorithms** 
-	- `ldakmeans` Linear Discriminant Analysis k-means<br/>
+	- `ldakmeans` Linear Discriminant Analysis k-means
 		-  C. Ding and T. Li.
 		[Adaptive dimension reduction using discriminant analysis and k-means](http://users.cs.fiu.edu/~taoli/tenure/Ding-Li-ICML2007.pdf).
 		*Proceedings of the 24th International Conference on Machine Learning*, pages 521-528, 2007.
 
-	- `drsc` Dimension Reduction for Spectral Clustering<br/>
+	- `drsc` Dimension Reduction for Spectral Clustering
 		- D. Niu, J. G. Dy, and M. I. Jordan.
 		[Dimensionality reduction for spectral clustering](http://proceedings.mlr.press/v15/niu11a/niu11a.pdf).
 		*Proceedings of the 14th International Conference on Artificial Intelligence and Statistics*,
@@ -48,11 +48,11 @@ not guaranteed to preserve the cluster structure.
 
 - ** Divisive hierarchical clustering algorithms **
 
-	- `pddp` Principal direction divisive partitioning<br/>
+	- `pddp` Principal direction divisive partitioning
 		- D. Boley. [Principal direction divisive partitioning](https://link.springer.com/article/10.1023/A:1009740529316).
 		*Data Mining and Knowledge Discovery*, 2(4):325--344, 1998.
 
-	- `depddp` Density-enhanced principal direction divisive partitioning<br/>
+	- `depddp` Density-enhanced principal direction divisive partitioning
 		- S. K. Tasoulis, D. K. Tasoulis, and V. P. Plagianakos.
 		[Enhancing principal direction divisive clustering](https://doi.org/10.1016/j.patcog.2010.05.025).
 		*Pattern Recognition*, 43(10):3391--3411, 2010.
@@ -61,6 +61,27 @@ not guaranteed to preserve the cluster structure.
 		- N. G. Pavlidis, D. P. Hofmeyr, and S. K. Tasoulis.
 		[Minimum density hyperplanes](http://jmlr.csail.mit.edu/papers/v17/15-307.html).
 		*Journal of Machine Learning Research*, 17(156):1--33, 2016.
+
+	- `ncutdc` Minimum normalised cut divisive clustering
+		- D. Hofmeyr. [Clustering by Minimum Cut Hyperplanes](https://ieeexplore.ieee.org/document/7569106/).
+		*IEEE Transactions on Pattern Analysis and Machine Intelligence*, 39(8):1547--1560, 2017.
+	
+	- `mcdc` Maximum clusterability divisive clustering
+		- D. P. Hofmeyr and N. G. Pavlidis.
+		[Maximum Clusterability Divisive Clustering](https://ieeexplore.ieee.org/document/7376691/).
+		*IEEE Symposium Series on Computational Intelligence*, pages 780--786, 2015.
+
+	- `scppdc` Minimum spectral connectivity projection pursuit
+		- D. P. Hofmeyr, N. G. Pavlidis and I. A. Eckley.
+		[Minimum spectral connectivity projection pursuit: Divisive clustering using optimal projections for spectral clustering](https://doi.org/10.1007/s11222-018-9814-6).
+		Statistics and Computing, online since 2018.
+
+	- Bisecting k-means, and bisecting LDA-k-means as illustrations of generic projection pursuit divisive
+	clustering framework (`gppdc`).
+		- M. Steinbach, G. Karypis, and V. Kumar.
+		[A comparison of document clustering techniques](http://glaros.dtc.umn.edu/gkhome/fetch/papers/docclusterKDDTMW00.pdf).
+		**Workshop on text mining, ACM SIGKDD International
+		  Conference on Knowledge Discovery in Databases (KDD)*, pages 525--526, 2000.
 
 
 #### DEPENDENCIES
