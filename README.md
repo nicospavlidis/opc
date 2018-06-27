@@ -1,11 +1,9 @@
 OPC: Optimal Projections for Clustering library in MATLAB/Octave
 =====================
 
-Author: Nicos G. Pavlidis
-
-E-mail: n(.)pavlidis(at)lancaster(.)ac(.)uk
-
-Date:     2018-06-07
+Author: Nicos G. Pavlidis<br\>
+E-mail: n(.)pavlidis(at)lancaster(.)ac(.)uk<br/>
+Date:     2018-06-27
 
 
 #### INTRODUCTION
