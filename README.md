@@ -27,9 +27,8 @@ OPC from generic dimensionality reduction techniques that optimise objective
 functions that are not related to any clustering criterion, and are therefore
 not guaranteed to preserve the cluster structure.
 
-#### IMPLEMENTED ALGORITHMS
 
-##### <a name="alg"> Algorithms implemented in OPC </a>
+#### <a name="alg"> ALGORITHMS IMPLEMENTED IN OPC </a>
 
 
 
