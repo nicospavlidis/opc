@@ -30,7 +30,10 @@ not guaranteed to preserve the cluster structure.
 
 #### <a name="alg"> ALGORITHMS IMPLEMENTED IN OPC </a>
 
-
+- **Partitioning clustering algorithms** 
+	- Linear Discriminant Analysis k-means:
+		C. Ding and T. Li. Adaptive dimension reduction using discriminant analysis and k-means. 
+		Proceedings of the 24th International Conference on Machine Learning pages 521--528, 2007.
 
 
 
