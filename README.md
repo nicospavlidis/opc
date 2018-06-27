@@ -46,7 +46,21 @@ not guaranteed to preserve the cluster structure.
 		[Iterative discovery of multiple alternative clustering views](https://ieeexplore.ieee.org/document/6606788/).
 		*IEEE Transactions on Pattern Analysis and Machine Intelligence*, 36(7):1340--1353, 2014.
 
+- ** Divisive hierarchical clustering algorithms **
 
+	- `pddp` Principal direction divisive partitioning<br/>
+		- D. Boley. [Principal direction divisive partitioning](https://link.springer.com/article/10.1023/A:1009740529316).
+		*Data Mining and Knowledge Discovery*, 2(4):325--344, 1998.
+
+	- `depddp` Density-enhanced principal direction divisive partitioning<br/>
+		- S. K. Tasoulis, D. K. Tasoulis, and V. P. Plagianakos.
+		[Enhancing principal direction divisive clustering](https://doi.org/10.1016/j.patcog.2010.05.025).
+		*Pattern Recognition*, 43(10):3391--3411, 2010.
+
+	- `mddc` Minimum density divisive clustering
+		- N. G. Pavlidis, D. P. Hofmeyr, and S. K. Tasoulis.
+		[Minimum density hyperplanes](http://jmlr.csail.mit.edu/papers/v17/15-307.html).
+		*Journal of Machine Learning Research*, 17(156):1--33, 2016.
 
 
 #### DEPENDENCIES
