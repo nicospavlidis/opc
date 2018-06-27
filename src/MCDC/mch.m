@@ -6,7 +6,8 @@ function [idx,sol] = mch(X, varargin)
 %  the hyperplane that maximises the Variance Ratio clusterability criterion.
 %
 %  MCH returns a vector IDX containing the binary cluster assignment and a
-%  Maximum Clusterability Hyperplane (mchp) object SOL. 
+%  Maximum Clusterability Hyperplane (mchp) object SOL. (If S initial projection
+%  vectors are specified S nchp hyperplanes are returned: see v0 option)
 %
 %  SOL = MCH(X, 'PARAM1',val1, 'PARAM2',val2, ...) specifies optional parameters
 %  in the form of name/value pairs.
@@ -73,4 +74,8 @@ idx = zeros(N, size(v0,2));
 for i = 1:size(v0,2),
 	pars.v0 = v0(:,i);
 	[sol(i), idx(:,i)] = mcpp(X, pars, pars.labels, pars.colours);
+end
+
+if size(v0,2) == 1,
+	sol = sol(1);
 end

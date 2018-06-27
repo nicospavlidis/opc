@@ -19,7 +19,7 @@
 <div class="wrapper">
 	<nav id="sidebar">
 		<div class="sidebar-header">
-			<h3>Matlab Directories</h3>
+			<h3>Directories</h3>
         </div>
         <ul class="list-unstyled components">
 			<li class="">
@@ -43,7 +43,7 @@
 			<i class="glyphicon glyphicon-align-left"></i>
             <span>Menu</span>
         </button>
-		<h1>Matlab Index</h1>
+		<!-- <h1>Function Refere</h1> -->
 		<h1>{NAME}
 <!-- BEGIN mexfile  &nbsp;&nbsp;<img src="{MASTERPATH}{MEXTYPE}.png" alt="{PLATFORMS}" border="0" title="{PLATFORMS}">  END mexfile -->
 </h1>

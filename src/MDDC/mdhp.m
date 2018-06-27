@@ -45,7 +45,7 @@ methods
 	function hFig = plot(obj,data,labels,colours,hFig)
 	%PLOT Plots minimum density hyperplane separator
 		if isempty(obj.v),
-			error('Cannot plot MDHP with undefined (v)');
+			error('mdhp:plot Cannot plot MDHP with undefined (v)');
 		end
 
 		if nargin < 5, hFig = []; end
@@ -68,7 +68,7 @@ methods
 		elseif numel(obj.params.bandwidth)==1 & obj.params.bandwidth>0,
 			h = obj.params.bandwidth;
 		else
-			error('MATLAB:mdhp:Invalid bandwidth parameter');
+			error('mdhp:plot: Invalid bandwidth parameter');
 		end
 
 		alpha = obj.params.alpha;
@@ -226,7 +226,7 @@ methods(Static)
 	function [node,idx,spindex] = split(data, pars, labels, colours)
 	%SPLIT Performs binary split through minimum density hyperplane
 		if nargin < 2,
-			error('MATLAB:mdhp:split','split function requires at least 2 inputs');
+			error('mdhp:split','split function requires at least 2 inputs');
 		end
 		if nargin < 4,
 			colours = [];

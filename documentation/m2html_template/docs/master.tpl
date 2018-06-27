@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Matlab Index</title>
+  <title>Function Reference</title>
   <meta name="keywords" content="{DIRS}">
   <meta name="description" content="{DIRS}">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -15,7 +15,7 @@
 <div class="wrapper">
 	<nav id="sidebar">
 		<div class="sidebar-header">
-			<h3>Matlab Directories</h3>
+			<h3>Directories</h3>
         </div>
         <ul class="list-unstyled components">
 			<li class="">

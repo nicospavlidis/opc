@@ -84,7 +84,7 @@ for i = 1:pars.maxit,
 	Sb = St - Sw;
 
 	if rcond(Sw) < sqrt(eps),
-		warning('Condition number of within cluster sum of squares is too low -- Clusters appear to be defined in different subspaces');
+		warning('Condition number of within cluster sum of squares is too low');
 		[U,L] = eigs(pinv(Sw)*Sb,K-1);
 	else
 		[U,L] = eigs(Sb,Sw,K-1,'LA');

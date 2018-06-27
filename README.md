@@ -25,39 +25,41 @@ not guaranteed to preserve the cluster structure.
 
 #### DEPENDENCIES
 
-To install the package you need a C/C++ compiler. For Linux/ Mac we strongly
+* To install the package you need a C/C++ compiler. For Linux/ Mac we strongly
 recommend using the GCC compiler. For Microsoft Windows the documentation
 describes how to set up the MinGW-w64 compiler.
 
-OPC depends on the following two open source packages, which are included in the package:
+* OPC depends on the [improved Fast Gauss Transform](http://legacydirs.umiacs.umd.edu/~morariu/figtree/).
 
 
-1. The [improved Fast Gauss Transform](http://legacydirs.umiacs.umd.edu/~morariu/figtree/).
-
-
-2. A cluster tree class, called ctree, which is a modification of the MATLAB class [tree](https://tinevez.github.io/matlab-tree/)
+* A cluster tree class, called ctree, which is a modification of the MATLAB class [tree](https://tinevez.github.io/matlab-tree/)
 implemented by Jean-Yves Tinevez.
 
-To create a function reference in HTML format the 
+* In MATLAB OPC depends on the optimization and statistics toolboxes
+
+* In GNU Octave OPC depends on the optim and statistics packages
+
+* To create a function reference in HTML format the 
 [M2HTML](https://github.com/pdollar/toolbox/tree/master/external/m2html)
 documentation system is required.
 
+
 #### INSTALLATION
 
-1. Download the latest OPC release from this page.
+* Download the latest OPC release from this page.
 
-2. Uncompress the `opc-master.zip` file.
+* Uncompress the `opc-master.zip` file.
 
 ``` bash
 unzip opc-master.zip
 cd opc-master
 ```
 
-3. Compile the C++ FIGTree library by following the instructions on 
+* Compile the C++ FIGTree library by following the instructions on 
 the README.md file located in `opc-master/src/libs/figtree-0.9.3/`, or equivalently
 on the [FIGTree GitHub repository](https://github.com/vmorariu/figtree). 
 
-4. After the C++ code is compiled you need to compile the MATLAB/ Octave interface
+* After the C++ code is compiled you need to compile the MATLAB/ Octave interface
    to the FIGTree library as well as two C++ functions for kernel density estimation
    included in OPC. For ease
    of use the script `install.m` in the root OPC directory performs these
@@ -69,17 +71,24 @@ on the [FIGTree GitHub repository](https://github.com/vmorariu/figtree).
 >> cd('DOWNLOAD-PATH/opc-master/')
 >> install
 ```
+* In GNU Octave you also need to install and load the optim and statistics packages, which can be
+found at the extra packages for GNU Octave [repository](https://octave.sourceforge.io/packages.php).
 
+Setting the path
+~~~~~~~~~~~~~~~~
 
-5. After each restart of MATLAB/ Octave it is necessary to add to the search path the root OPC
-   directory and all its subdirectories.  This is performed by the `setpath.m` script.
+After each restart of MATLAB/ Octave it is necessary to add to the search path the root OPC
+directory and all its subdirectories.  This is performed by the `setpath.m` script.
 
 ``` matlab
 >> cd('DOWNLOAD-PATH/opc-master/')
 >> setpath
 ```
 
-6. Testing the installation: The script `reproduction_script.m` 
+Testing
+~~~~~~~
+
+After installation: The script `reproduction_script.m` 
 in the root OPC folder reproduces all the examples in the documentation. If this script
 exits without an error OPC is configured correctly.
 

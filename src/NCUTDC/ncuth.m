@@ -7,13 +7,14 @@ function [idx,sol] = ncuth(X, varargin)
 %  on one-dimensional projections of the data).
 % 
 %  NCUTH returns a vector IDX containing the binary cluster assignment and a
-%  minimum Normalised Cut Hyperplane (nchp) object SOL. 
+%  minimum Normalised Cut Hyperplane (nchp) object SOL. (If S initial projection
+%  vectors are specified S nchp hyperplanes are returned: see v0 option)
 %
-%  SOL = NCUTH(X, 'PARAM1',val1, 'PARAM2',val2, ...) specifies optional parameters
+%  [IDX,SOL] = NCUTH(X, 'PARAM1',val1, 'PARAM2',val2, ...) specifies optional parameters
 %  in the form of name/value pairs.
 %
 %  OPTIONAL PARAMETERS:
-%  'v0' - D-by-S matrix of S initial projection vectors
+%  'v0' - D-by-S matrix of S initial projection vectors.
 %   	(default: v0 = pca(X,'NumComponents',1) : First principal component of X)
 %
 %  'sigma' - positive numeric scaling parameter (sigma)
@@ -81,3 +82,7 @@ for i=1:size(v0,2),
 end
 % Cluster labels are {1,2}
 idx = 0.5*idx + 1.5;
+
+if size(v0,2) == 1,
+	sol = sol(1);
+end

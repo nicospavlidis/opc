@@ -3,8 +3,9 @@ addpath(genpath(pwd));
 % Load optiditigs dataset: X := data matrix, labels := true cluster assignment                                     
 load('datasets/optidigits.mat');
                                                                                                                    
-% Standard clustering 
+% rng() function is implemented in MATLAB only
 rng(987)
+% Standard clustering 
 km_clust = kmeans(X,10);
 sp_clust = spclustNJW(X,10);
 
@@ -130,6 +131,8 @@ cluster_performance(idx5,labels)
 [idx6, t6] = mddc(X,10);
 fprintf('Performance of MDDC\n');
 cluster_performance(idx6,labels)
+nplot(t6,2);
+%print('-f1', 'documentation/figures/mddc1', '-dpng','-r0');
 
 
 % SPECTRAL CLUSTERING: DRSC
@@ -234,25 +237,31 @@ X = normalise(X(index,:),1);
 labels = labels(index);
 
 %%% Estimate MDH with default bandwidth
-[idx,hp] = mdh(X);
-er = 1 - purity(idx, labels)
+[idx,hp0] = mdh(X);
+%er = 1 - purity(idx, labels)
 
-plot(hp,X);
+plot(hp0,X);
 %print('-f1', 'documentation/figures/mm1', '-dpng','-r0');
 
+hp = hp0;
 a = hp.params.alpha;
 v0 = 0*hp.v;
 while abs(hp.v'*v0) < 1-1.e-10,
 	v0 = hp.v;
 	h = 0.5*hp.params.bandwidth;
-	[id,hp]= mdh(X,'v0',v0,'alphamin',a,'alphamax',a,'bandwidth',h);
-	er = 1 - purity(id, labels)
-	plot(hp,X,labels);
+	[idx,hp1]= mdh(X,'v0',v0,'alphamin',a,'alphamax',a,'bandwidth',h);
+	if isinf(hp1.fval),
+		break;
+	else
+		hp = hp1;
+	end
+	%er = 1 - purity(idx, labels)
+	%plot(hp,X,labels);
 end
 plot(hp,X);
 %print('-f1', 'documentation/figures/mm2', '-dpng','-r0');
 
-fprintf('Purity of large margin hyperplane obtained through MDH\n');
+fprintf('Misclassification error of large margin hyperplane obtained through MDH\n');
 er = 1 - purity(id, labels)
 
 %%% Maximum margin example using NCUTH
@@ -278,7 +287,7 @@ while abs(hp.v'*v0) < 1-1.e-10,
 end
 plot(hp,X);
 %print('-f1', 'documentation/figures/mm4', '-dpng','-r0');
-fprintf('Purity of large margin hyperplane obtained through MDH\n');
+fprintf('Misclassification error of large margin hyperplane obtained through MDH\n');
 er = 1 - purity(id, labels)
 
 

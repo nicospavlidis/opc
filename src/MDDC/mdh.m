@@ -7,7 +7,8 @@ function [idx,sol] = mdh(X, varargin)
 %  (computed from one-dimensional projections of the data). 
 %
 %  MDH returns a vector IDX containing the binary cluster assignment and a
-%  Minimum Density Hyperplane (mdhp) object SOL. 
+%  Minimum Density Hyperplane (mdhp) object SOL. (If S initial projection
+%  vectors are specified S nchp hyperplanes are returned: see v0 option)
 %
 %  [IDX,SOL] = MDH(X, 'PARAM1',val1, 'PARAM2',val2, ...) specifies optional parameters
 %  in the form of name/value pairs. 
@@ -110,3 +111,7 @@ for i=1:size(v0,2),
 end
 % Cluster labels are {1,2}
 idx = 0.5*idx + 1.5;
+
+if size(v0,2) == 1,
+	sol = sol(1);
+end

@@ -31,8 +31,9 @@
 {\catcode`'=13 \gdef \verbatimplus{\catcode`'=13 \chardef '=13 }} 
 \makeatother
 
+\renewcommand{\chaptername}{}
 
-\title{Optimal Projections for Clustering: A MATLAB and GNU Octave package for Dimensionality Reduction for Clustering}
+\title{Optimal Projections for Clustering: An open source MATLAB and GNU Octave library for Dimensionality Reduction for Clustering}
 \author{Nicos G. Pavlidis}
 \date{}
 
@@ -50,17 +51,17 @@
 \chapter{Preface}
 
 Optimal Projections for Clustering (OPC)
-is an open source MATLAB and GNU Octave package that implements
+is an open source MATLAB and GNU Octave library that implements
 clustering methods that seek the optimal low dimensional subspace to identify
 (or separate) clusters.
 %
 This is a recognised issue in high-dimensional data
 clustering~\cite{KriegelKZ2009}, but also occurs whenever irrelevant features,
 or correlations among subsets of features exist, or when
-clusters are defined in different subspaces. These characteristics, cause
-the spatial data structure, which is inferred from pairwise distances, to be
-less informative about the underlying clusters. To correctly identify cluster
-structure, algorithms need to simultaneously solve two interrelated problems,
+clusters are defined in different subspaces. These characteristics cause
+the spatial data structure to become
+less informative about the underlying clusters. To correctly identify clusters
+algorithms need to simultaneously solve two interrelated problems,
 (i) identify the subspace in which clusters can be distinguished, and (ii)
 associate observations to clusters~\cite{KriegelKZ2009}.
 
@@ -69,21 +70,24 @@ associate observations to clusters~\cite{KriegelKZ2009}.
 OPC focuses on methods which seek low dimensional subspaces that are optimal
 with respect to a given clustering objective.
 %
-This distinguishes this package from generic dimensionality reduction methods
+This distinguishes the methods in this library from generic dimensionality
+reduction techniques,
 %
-that determine the low dimensional data embedding by optimising an objective
+which determine the low dimensional embedding by optimising an objective
 function that is not related to any clustering criterion~\cite{MaatenPH2009}. 
 %
-Consequently, although generic dimensionality reduction methods, and most
-notably Principal Component Analysis (PCA), have been successfully applied in
-numerous applications, they are not guaranteed to find a subspace that
-preserves (or reveals) the cluster structure. 
+Consequently, although generic dimensionality reduction techniques have been
+successfully applied in numerous clustering applications, they are not
+guaranteed to find a subspace that preserves (or reveals) the cluster
+structure. 
 %
-A further limitation of these methods is that the low dimensional data
-embedding typically varies substantially across different methods. This is a
-problem from a user's perspective because there is no principled approach to
-select one embedding over the others, even if the user knows which type of
-clusters he/she is seeking.
+A further limitation of using generic dimensionality reduction techniques for
+clustering is that the low dimensional data embedding typically varies
+substantially across different methods. This is a problem from a user's
+perspective because there is no principled approach to select one embedding
+over the others, even if the user knows the type of clusters they are
+seeking.
+
 %
 %A generic dimensionality reduction methods, have been implemented in the
 %MATLAB programming language~\cite{MaatenPH2009}.
@@ -105,13 +109,13 @@ clusters he/she is seeking.
 
 
 Numerous implementations of clustering algorithms and generic dimensionality
-reduction methods are available in the MATLAB programming language.
+reduction techniques are available in the MATLAB programming language.
 %
 The 
 %
 \href{https://lvdmaaten.github.io/drtoolbox/}{MATLAB toolbox for dimensionality reduction}, 
 %
-is most extensive MATLAB package for this purpose that we are aware of.
+is the most extensive MATLAB toolbox for this purpose that we are aware of.
 %
 A number of open source MATLAB implementations of robust PCA (which is not included
 in the previous toolbox)
@@ -122,7 +126,7 @@ like
 are also available.
 
 
-To the best of our knowledge OPC is the only package in the MATLAB programming
+To the best of our knowledge OPC is the only library in the MATLAB programming
 language that implements dimensionality reduction methods explicitly designed
 for clustering.
 %
@@ -130,12 +134,13 @@ The methods included optimise clusterability criteria motivated from $k$-means,
 normalised graph cut, spectral, and density clustering.
 %
 Partitioning, as well as divisive hierarchical clustering algorithms are
-provided, with the latter being more appropriate to detect clusters defined in
-different subspaces.
+provided. 
 %
-All the implemented algorithms require minimal input from the user, and employ
-parameter settings recommended in the literature. However, the user can modify
-all the parameters of each algorithm by specifying optional arguments.
+To render the algorithms accessible to non-expert users,
+all the implemented algorithms require minimal input from the user, and employ
+parameter settings recommended in the literature. However,
+all the parameters of each algorithm can be modified
+by specifying optional arguments.
 
 
 A very appealing characteristic of clustering algorithms that perform
@@ -148,7 +153,7 @@ algorithms to produce such visualisations.
 %
 The optimal
 projection matrix is one of the outputs of all partitioning algorithms in the
-package. This matrix jointly with the cluster assignment vector, can be readily
+library. This matrix jointly with the cluster assignment vector, can be readily
 used to visualise the clusters.
 %
 The divisive hierarchical algorithms return the cluster hierarchy as an object
@@ -164,14 +169,18 @@ or partitioning leaves of the current model.
 %
 The binary partition at any node of the {\tt ctree} object can also be altered
 by modifying the arguments of the projection pursuit algorithm used to produce
-it. Examples of this are provided in Section~\ref{sec:valid}.
+it. An extensive example of validating and modifying the clustering model
+using these functionalities is 
+provided in Section~\ref{sec:valid}.
 
 
 To render OPC extensible, we include an interface that allows the user to
 create divisive hierarchical algorithms that have all the aforementioned
 features by providing as input only a projection pursuit function for
 clustering. Section~\ref{sec:extend} illustrates how to obtain the well known
-bisecting $k$-means algorithm~\cite{SteinbachKK2000} through this approach.
+bisecting $k$-means algorithm~\cite{SteinbachKK2000} through this approach,
+as well as how to create a divisive hierarchical version of the
+LDA-$k$-means algorithm~\cite{DingL2007}.
 
 %Finally, extensions to problems involving clusters which are not linearly separable and
 %to the problem of finding maximum margin hyperplanes for clustering are also
@@ -185,7 +194,7 @@ To install OPC a C and C++ compiler is required. Detailed installation
 instructions for MATLAB and GNU Octave are provided in the following sections.
 %
 OPC depends on the following two open source
-packages, which are included in the package:
+libraries that are included in the library:
 
 \begin{enumerate}
 
@@ -214,7 +223,7 @@ documentation system is required.
 %\subsubsection{Setting up the path for OPC}\label{sec:path}
 %
 %Every time MATLAB or GNU Octave is restarted you need to include the OPC
-%package in the search path.
+%library in the search path.
 %%
 %Let's assume that the uncompressed OPC code is in the directory {\tt
 %/home/user/code/opc}, or {\tt C:/code/opc} in Microsoft Windows.  First use
@@ -265,7 +274,7 @@ to compile the C++
 \href{https://github.com/vmorariu/figtree}{FIGtree}
 library~\cite{Morariu08}.
 %
-The most recent version (0.9.3) is included in the OPC package in the directory {\tt
+The most recent version (0.9.3) is included in the OPC library in the directory {\tt
 src/libs/figtree-0.9.3/}. For instructions on how to compile the library
 refer to the {\tt README.md} file within this directory, or equivalently
 to the \href{https://github.com/vmorariu/figtree}{FIGtree GitHub page}.
@@ -275,6 +284,7 @@ in Linux and Mac.
 
 %
 \begin{verbatim}
+$ # Note this is taking place in the command line not within MATLAB or Octave
 $ # Assuming OPC_DIR is the path to the directory where OPC was uncompressed
 $ cd (OPC_DIR)/src/libs/figtree-0.9.3/
 $ make all
@@ -316,14 +326,14 @@ contains releases with Windows binaries.
 %>> mexme
 %\end{verbatim}
 
-After the successful compilation of the C++ library the Matlab interface to
+After the successful compilation of the C++ library the MATLAB interface to
 FIGtree needs to be compiled, as well as two C++ functions that compute
 one-dimensional Gaussian kernel density estimators and their derivatives.
 %
 The script {\tt install} in the root OPC directory is included to simplify this process.
 Beware that this script assumes that the path to the FIGtree library is
-{\tt (OPC\_DIR)/src/libs/figtree-0.9.3/}. If stores the library in a different location
-then {\tt install.m} needs to be edited to include the correct path.
+{\tt (OPC\_DIR)/src/libs/figtree-0.9.3/}. If the FIGtree is in a different location
+then edit the {\tt install.m} script to provide the correct path to the corresponding folder.
 %
 In MATLAB:
 
@@ -335,7 +345,7 @@ In MATLAB:
 
 \section{GNU Octave}\label{sec:Octave}
 
-OPC uses object oriented programming and in particular contains {\tt classdef}
+OPC uses object oriented programming and contains {\tt classdef}
 classes. These are only supported after the
 %
 \href{https://octave.org/doc/v4.2.2/classdef-Classes.html#classdef-Classes}
@@ -356,9 +366,10 @@ provided in relevant
 \href{https://octave.org/doc/interpreter/Packages.html#Packages}{documentation}
 page.
 %
-Once the two packages are installed they need to be loaded after every restart
+Once these are installed they need to be loaded after every restart
 of GNU Octave. The {\tt setpath} script located in the root OPC directory loads
-these packages and adds the OPC directory tree to the Octave search path.
+these packages and adds the OPC directory and its subfolders
+to the Octave search path.
 
 To complete the installation of OPC it is necessary to compile the FIGtree
 library, and two C++ functions that compute one-dimensional Gaussian kernel
@@ -370,10 +381,12 @@ process in the previous section.
 \section{Documentation}
 
 
-The source code ({\TeX} file and all the necessary PNG figures) to compile this document is
-provided in the directory {\tt documentation}. (All directories in this
-document are relative to the root directory of the OPC package). This
-directory also contains the compiled, PDF, version of this document.
+This PDF document as well as its
+source code ({\TeX} file and all the necessary PNG figures) to compile this document is
+provided in the directory {\tt documentation} of the
+%
+\href{https://github.com/nicospavlidis/opc}
+{OPC GitHub repository}.
 %
 An HTML version of the documentation can be readily created using
 \href{http://www.latex2html.org/}{LaTeX2HTML}.
@@ -385,10 +398,9 @@ An HTML version of the documentation can be readily created using
 %\end{verbatim}
 
 
-
 The script file {\tt reproduction\_script.m} in the root OPC directory
 contains all the material to reproduce every example in this
-document. To recreate all the figures (in PNG format) uncomment the
+document in MATLAB. To recreate all the figures (in PNG format) uncomment the
 lines which call the {\tt print} function, which follow 
 calls to the 
 {\tt plot} and {\tt nplot} functions. Beware that the new figures
@@ -396,14 +408,21 @@ will be stored in the {\tt documentation/figures} directory,
 overwriting the existing figures there.
 
 
-\subsection{HTML Function Reference}
+\subsection{Function Reference}\label{sec:htmlref}
 
-The
+A function reference for OPC is available at
+%
+\url{http://www.lancaster.ac.uk/staff/pavlidin/software/opc/documentation/reference/index.html}.
+%
+Contributors, or users that prefer a local copy of this
+can use the 
 %
 \href{https://www.artefact.tk/software/matlab/m2html/}{M2HTML}
 %
-documentation system can be used to automatically generate an HTML function
-reference for OPC. To create this follow the steps below:
+documentation system to automatically generate an HTML function
+reference for OPC.
+
+To create this follow the steps below:
 
 \begin{enumerate}
 
@@ -414,23 +433,34 @@ reference for OPC. To create this follow the steps below:
 Uncompress the zip file in a folder of your choice, e.g.
 {\tt /home/user/Downloads}.
 
-\item From the folder {\tt documentation} contained in the OPC package copy the subfolder
-{\tt documentation/m2html\_template/docs} 
+\item From the folder {\tt documentation} contained in the OPC library copy the subfolder\\
+{\tt documentation/m2html\_template/docs}\\
 %
-to the {\tt templates} folder which is part of the M2HTML package,
+to the {\tt templates} folder which is included in the M2HTML package:\\
 {\tt /home/user/Downloads/m2html/templates}.
 
-\item Copy the file 
-{\tt m2html.m} which is located in the {\tt documentation/m2html\_template/} OPC folder
-to main directory of M2HTML: 
+\begin{verbatim}
+$ # Note this is the terminal not the MATLAB CLI
+$ cp -r (OPC_DIR)/documentation/m2html_template/docs /home/user/Downloads/m2html/templates/
+\end{verbatim}
+
+
+\item Copy the script
+{\tt m2html.m}, which is located in the {\tt documentation/m2html\_template/} OPC folder,
+to the main directory of M2HTML: 
 {\tt /home/user/Downloads/m2html/}.
 
+\begin{verbatim}
+$ # Note this is the terminal not the MATLAB CLI
+$ cp (OPC_DIR)/documentation/m2html_template/m2html.m /home/user/Downloads/m2html/
+\end{verbatim}
+
 \item From MATLAB or GNU Octave, (i) add the M2HTML folder to the path;
-(ii) ensure the path for the OPC package is set, and (iii) execute
+(ii) ensure the path for the OPC library is set, and (iii) execute
 the script {\tt create\_reference}:
 
 \begin{verbatim}
->> % From root OPC directory: add OPC folders to path 
+>> % From root OPC directory: add OPC folders to path (if not already done)
 >> setpath
 >> % Add m2html folder to path
 >> addpath('/home/user/Downloads/m2html');
@@ -454,7 +484,7 @@ index.html} located in this directory.
 
 \chapter{Implemented Methods}
 
-The OPC package contains implementations of the following clustering
+The OPC library contains implementations of the following clustering
 algorithms:
 
 \begin{enumerate}
@@ -475,8 +505,10 @@ algorithms:
 
 \item Minimum Normalised Cut Divisive Clustering~(NCUTDC)~\cite{Hofmeyr2017}
 
-\item Bisecting $k$-means~\cite{SteinbachKK2000} (the implementation of this
-algorithm is used as an illustration of how the user can extend the package)
+\item Bisecting $k$-means~\cite{SteinbachKK2000} and a projection pursuit
+version of this algorithm based on LDA-$k$-means.
+The implementation of these
+algorithms is used as an illustration of how the user can extend the library.
 
 \end{enumerate}
 
@@ -488,34 +520,37 @@ Throughout we assume that the
 dataset consists of $n$~vectors in the $d$--dimensional Euclidean space,
 $\mathcal{X} = \{x_i\}_{i=1}^n \subset \R^d$.
 %
-$X \in \R^{n \times d}$ denotes the data matrix, while 
+The rows of the data matrix,
+$X \in \R^{n \times d}$, correspond to data points. 
 %
-the projection matrix is defined as
+The projection matrix is defined as
 %
-$V \in V_q(\R^d) = \{A \in \R^d \,|\, A^\top A = I_q\}$, where 
+$V \in V_q(\R^d) = \{A \in \R^{d \times q} \,|\, A^\top A = I_q\}$, where 
 $1\leqslant q<d$, and $I_q$ is the identity matrix in $q$ dimensions.
 %
 When there is a single projection vector we use lower case notation, $v$,
 to denote vectors that lie on the $d$--dimensional unit--sphere,
-$v \in \mathbb{S}^{d} = \{ x \in \R^d \,|\, x^\top x=1\}$.
+$v \in \mathbb{S}^{d} = \{ x \in \R^d \,|\, \|x\|_2=1\}$.
 
 
 \section{Principal Direction Divisive Partitioning and density-enhanced version}
 
 The most widely used approach to combine dimensionality reduction and
-clustering is to project the $d$--dimensional dataset onto the first~$q$ principal components. 
+clustering is to project the $d$--dimensional dataset onto the first~$q$
+principal components. 
 %
-Principal Component Analysis (PCA) can be considered the most popular projection
-pursuit method. PCA can be formulated either as maximising the variance of the
-projected data, or minimising the squared reconstruction
-error~\cite{Jolliffe1986}. PCA is the only projection pursuit method that has
-a closed form solution. For a given choice of~$q$, the projection index is
+Principal Component Analysis (PCA) can be considered the most popular
+projection pursuit method. PCA can be formulated either as maximising the
+variance of the projected data, or minimising the squared reconstruction
+error~\cite{Jolliffe1986}. PCA is the only projection pursuit method that has a
+closed form solution. For a given choice of~$q$, the projection index is
 optimised by the $q$~eigenvectors associated with the $q$~largest eigenvalues
 of the data covariance matrix.
 %
-Although there is no guarantee that the subspace spanned by any $q<d$
-principal components preserves cluster structure, this approach has been found
-to be effective in a number of applications~\cite{KriegelKZ2009}.
+Although there is no guarantee that the subspace spanned by any $q<d$ principal
+components preserves the cluster structure, this approach has been found to be
+effective in a plethora of applications~\cite{KriegelKZ2009}.
+
 
 PDDP and dePDDP are two divisive clustering algorithms that recursively
 project (subsets of) the data onto their first principal component.
@@ -552,14 +587,14 @@ If a density estimator that uses isotropic Gaussian kernels is employed,
 \hat{p}(x) = \frac{1}{n (2 \pi h^2)^{d/2} } \sum_{i=1}^n \exp \left\{ -\frac{ \|x - x_i \|^2}{2 h^2} \right\},
 \]
 %
-then $\hat{I}(v,b)$ can be estimated from the one-dimensional data projection,
+then $\hat{I}(v,b)$ can be estimated through the one-dimensional density estimator,
 %
 \[
 \hat{I}(v,b) = \frac{1}{n\sqrt{2\pi h^2 }} \sum_{i=1}^n  \exp \left\{- \frac{ (b - v^\top x_i)^2 }{2 h^2} \right\}.
 \]
 %
 The ability to compute $\hat{I}(v,b)$ through the above equation enables us to
-estimate MDHs. MDH is the solution to the following optimisation problem,
+estimate MDHs. The MDH is the solution to the following optimisation problem,
 %
 \begin{align}
 %
@@ -596,7 +631,7 @@ from $\mathcal{O}(mn)$ to $\mathcal{O}(m+n)$. Bisection requires $\mathcal{O}(-\
 
 \section{Maximum Clusterability Divisive Clustering}
 
-The variance ratio clusterability~\cite{Zhang2001} is a measure of strength or conclusiveness
+Variance ratio clusterability~\cite{Zhang2001} is a measure of strength or conclusiveness
 of the cluster structure in a dataset. 
 %
 Let $\{C_i\}_{i=1}^k$ denote a $k$-way partition of the data set $\mathcal{X}$, and $\mu(\cdot)$ the function
@@ -613,12 +648,12 @@ Then the variance ratio clusterability of~$\mathcal{X}$ is defined as,
 %
 \end{align*}
 %
-It is easy to show that the partition that maximises Variance Ratio clusterability
+It is easy to show that the partition that maximises the variance ratio clusterability
 also minimises the $k$-means objective function,
 %
 \begin{align*}
 %
-& \min_{C_1, \ldots, C_k} \sum_{i=1}^n \min_{j = 1, \dots, k}\|x_i - \mu(C_j)\|^2,\\
+& \min_{C_1, \ldots, C_k} \sum_{i=1}^n \min_{j = 1, \dots, k}\|x_i - \mu(C_j)\|_2^2,\\
 %
 \text{such that: } & X = \bigcup_{i=1}^k  C_i, \text{ and }  C_i \cap C_j = \emptyset, \forall i \neq j.
 %
@@ -626,10 +661,11 @@ also minimises the $k$-means objective function,
 %
 
 The Maximum Clusterability Divisive Clustering (MCDC)~\cite{HofmeyrP2015}
-algorithm recursively bi-partitions the data using hyperplanes, $H(v,b)$, that maximise
-the variance ratio clusterability index of the binary partition of the data projected onto $v$. 
+algorithm recursively bi-partitions the data by identifying the 
+unit-length vector that maximises
+the variance ratio clusterability index of the projected data. 
 %
-Such hyperplanes are called Maximum Clusterability Hyperplanes (MCHs). 
+The resulting hyperplane separators are called Maximum Clusterability Hyperplanes (MCHs). 
 %
 For any $C \subsetneq X$ the binary partition of $X$ is given by $\{C, X \setminus C\}$.
 Let $\Sigma$ the data covariance matrix, $\Sigma = n^{-1} \sum_{i=1}^n (x_i - \mu)(x_i-\mu)^\top$.
@@ -668,15 +704,15 @@ S_t & = \sum_{i=1}^n x_i x_i^\top, \\
 %
 S_b & = \sum_{j=1}^k |C_j| \, \mu(C_j) \mu(C_j)^\top, \\
 %
-S_w & = \sum_{j=1}^k \sum_{x_i \in C_j} (x_i - \mu(C_j))(x_i - \mu(C_j))^\top.
+S_w & = \sum_{j=1}^k \sum_{x_i \in C_j} (x_i - \mu(C_j))(x_i - \mu(C_j))^\top,
 %
 \end{align*}
 %
-Then the $k$-means objective function can be expressed as,
+respectively. Then the $k$-means objective function can be expressed as,
 %
 \begin{equation}\label{eq:kmeans}
 %
-\min_{C_1,\ldots,C_k} \sum_{j=1}^k \sum_{x_i \in C_j} \|x_i - \mu(C_j)\|^2 = \min_{C_1,\ldots,C_k} \tr{S_w}
+\min_{C_1,\ldots,C_k} \sum_{j=1}^k \sum_{x_i \in C_j} \|x_i - \mu(C_j)\|^2 = \min_{C_1,\ldots,C_k} \tr{S_w},
 %
 %\iff \max_{C_1,\ldots,C_k} \tr{S_b} 
 %
@@ -693,7 +729,7 @@ algorithm seeks the orthonormal matrix $V \in V_{k-1}(\R^d)$ that,
 %
 \end{equation}
 
-The fact that both LDA and $k$-means aim to minimise the within cluster (class)
+The fact that both LDA and $k$-means aim to minimise the within class (cluster)
 scatter and maximise the between class scatter motivates the LDA-$k$-means
 algorithm. 
 %
@@ -718,11 +754,11 @@ projected data:
 The $k$-means algorithm is applied to solve this problem.
 %
 In the second step the cluster (class) assignment is considered fixed and
-the objective is to identify the orthonormal matrix~$U$ that maximises
+the objective is to identify the orthonormal matrix~$V$ that maximises
 the objective function. LDA is used to solve this problem.
 The only element of the algorithm that remains
-unspecified is the initial choice of $U$. In~\cite{DingL2007} it is
-recommended to initialise~$U$ to the first $(k-1)$~principal components.
+unspecified is the initial choice of $V$. In~\cite{DingL2007} it is
+recommended to initialise~$V$ to the first $(k-1)$~principal components.
 
 
 The convergence of LDA-$k$-means algorithm is not discussed
@@ -768,7 +804,7 @@ benefits substantially from the available closed form for the LDA step.
 
 The approach to clustering based on graph theory associates clusters with strongly
 connected components of a graph, $G = (V,E)$\/. The set of vertices, $V$, corresponds
-to the data set, $V=\mathcal{X}$, while edge weights, $E_{ij}$ represent pairwise
+to the data set, $V=\mathcal{X}$, while edge weights represent pairwise
 similarities between them~\cite{Luxburg2007}.
 %
 The graph, $G$, can be equivalently represented through an adjacency, or similarity, matrix, $A \in
@@ -818,7 +854,7 @@ where the cut of binary partition is defined as,
 Dividing the value of the cut for each binary partition
 with the cluster volume
 (normalisation) discourages the optimal
-solution from containing partitions with very few vertices/ data points, which
+solution from containing partitions (clusters) with very few vertices (data points), which
 is undesirable from a clustering perspective.
 %
 However, it also renders the problem NP-hard.
@@ -841,7 +877,7 @@ and the Laplace kernel is used to compute the pairwise similarities,
 then the hyperplane that optimises the minimum normalised cut criterion
 (which is equivalent to a binary partition of the form,
 $\mathcal{X} = \{C^\star, \mathcal{X}\setminus C^\star\}$ where
-$C^\star = \{x \in X \,|\, v^\top x < b\}$ for some $b \in \R$)
+$C^\star = \{x \in \mathcal{X} \,|\, v^\top x < b\}$ for some $b \in \R$)
 %
 can be computed in log-linear time.
 %
@@ -862,9 +898,9 @@ The projection index for this method is:
 f(v) & = \min_{b \in \R} \mathrm{NCut}\left( C_{v,b},  C_{v,b}^c \right), \;
 \textrm{where},\\
 %
-C_{v,b} & = \{ v^\top x \,|\, v^\top x < b, x \in \mathcal{X}\}, \\
+C_{v,b} & = \{ v^\top x \,|\, v^\top x < b, \; x \in \mathcal{X}\}, \\
 %
-C^c_{v,b} & = \{ v^\top x \,|\, v^\top x > b, x \in \mathcal{X}\}, \\
+C^c_{v,b} & = \{ v^\top x \,|\, v^\top x > b,\; x \in \mathcal{X}\}, \\
 %
 \end{align*}
 
@@ -922,7 +958,7 @@ or equivalently~\cite{NgJW2001}:
 %
 The continuous relaxation which gives rise to spectral clustering 
 allows $T$ to
-be any orthonormal matrix in $\R^{n \times k}$~\cite{Luxburg2007}. 
+be any orthonormal matrix in~$\R^{n \times k}$~\cite{Luxburg2007}. 
 The normalised cut spectral clustering problem is thus expressed as~\cite{ShiM2000}:
 \[
 \min_{T \in \R^{n \times k}} \tr{T^\top L_n T}, \; \textrm{ subject to: } T^\top T = I_k.
@@ -974,9 +1010,9 @@ eigenvalues of $D^{-1/2}AD^{-1/2}$ (or equivalently the $k$~smallest
 eigenvalues of~$L_n$).
 %%
 
-DRSC proposes to solve the above optimisation problem by a two-stage algorithm.
+DRSC employs a two-stage algorithm to solve the above optimisation problem.
 In the first stage $V$ is fixed and the $k$ eigenvectors of $D^{-1/2}AD^{-1/2}$
-are computed to estimate the optimal~$U$. In the second stage, $U$~is fixed and
+are computed to obtain~$U$. In the second stage, $U$~is fixed and
 for each column of $V$ gradient ascent is performed to maximise the trace
 in~(\ref{eq:drsc1}). The projection index for this method can therefore be written as:
 %
@@ -994,19 +1030,19 @@ its matrix argument.
 %
 However, in the computation of the gradient of $f(V)$ in the second stage of
 the algorithm, the degree matrix $D$ is considered fixed, and therefore the
-influence of~$V$ on the degrees of the vertices is ignored. Consequently, the
-gradient estimated by assuming a fixed $D$, is not the gradient of the overall
-objective function. There is no guarantee that this direction estimated through
-this approach is even an ascent direction for the objective function. This can
-cause DRSC to fail to converge.
+influence of~$V$ on the degrees of the vertices is ignored. The gradient
+estimated by assuming $D$ is fixed is not the gradient of the overall objective
+function. There is furthermore no guarantee that this direction estimated
+through this approach is even an ascent direction for the objective function.
+This can cause DRSC to fail to converge.
 
 
 \section{Spectral Connectivity Projection Pursuit Divisive Clustering}
 
-The Spectral Connectivity Projection Pursuit Divisive Clustering
+Spectral Connectivity Projection Pursuit Divisive Clustering
 (SCPPDC)~\cite{HofmeyrPE2018} recursively bi-partitions the data by projecting
 onto the linear subspace that minimises the second smallest eigenvalue of the
-normalised graph Laplacian~$L_n$. 
+normalised graph Laplacian,~$L_n$. 
 %
 In more detail, for each projection matrix, $V$, the data are first projected
 onto $V$, and then the similarity matrix, $A$, the degree matrix, $D$, and the normalised graph
@@ -1017,7 +1053,7 @@ smallest eigenvalue of $L_n(V)$:
 %
 \[ f(V) = \lambda_2 \left(L_n(V) \right) + \omega V^\top V, \]
 %
-where the second term, $\omega V^\top V$  with
+where the second term, $\omega V^\top V$, with
 $\omega \geqslant 1$, is a penalty function included to ensure that the columns
 of~$V$ are orthogonal.
 %
@@ -1043,9 +1079,12 @@ mid-point between the two centroids,
 %
 this algorithm can be considered as performing dimensionality reduction.
 
-Bisecting $k$-means is included in the package as an example of how a user can
-extend the functionality of the package by specifying a function that performs
-projection pursuit for clustering.
+This algorithm is included in the library as an example of how a user can
+extend the functionality of the library by specifying a function that performs
+projection pursuit for clustering (see Section~\ref{sec:extend}).
+%
+A projection pursuit version of bisection $k$-means based on the
+LDA-$k$-means algorithm is also discussed in Section~\ref{sec:extend}.
 
 
 %\clearpage
@@ -1053,16 +1092,23 @@ projection pursuit for clustering.
 \chapter{General Information about OPC}
 
 The algorithms in OPC are designed to require minimum input from the user, so
-that non-expert users can directly apply the implemented methods.  However all
-the parameters of each algorithm can be controlled by using name, value pairs,
-as is standard in the MATLAB programming language.
+that non-expert users can directly apply the implemented methods. However all
+the parameters of each algorithm can be controlled by specifying
+the optional parameters through name, value pairs.
 %
 All clustering algorithms (except {\tt drsc}) require only the specification
-of the data matrix and the number of clusters. For {\tt drsc} because the
-cross--validation approach to set the scaling parameter of the Gaussian
-kernel is extremely computationally expensive, the specification of this parameter
-is also mandatory.
+of the data matrix and the number of clusters. ({\tt drsc} also requires
+the specification of the scaling parameter of the Gaussian kernel used
+to compute similarities, because the
+cross--validation approach recommended in~\cite{NiuDJ2011}
+is computationally very expensive.)
 
+\noindent
+Complete documentation for each function is available using {\tt help},
+or through the HTML function reference (see Section~\ref{sec:htmlref}).
+
+%
+%Using {\tt help} from the MATLAB or GNU Octave terminal
 
 %\subsubsection*{General Syntax}
 %
@@ -1076,7 +1122,7 @@ is also mandatory.
 %this parameter needs to be explicitly set by the user.
 %
 %
-\subsubsection*{Output Arguments}
+\subsection*{Output Arguments}
 
 The partitioning algorithms, {\tt ldakmeans} and {\tt drsc}, return as the
 first three output arguments:
@@ -1095,7 +1141,7 @@ Both {\tt ldakmeans} and {\tt drsc} return additional output arguments that are
 specific to each algorithm.
 
 
-All divisive clustering algorithms in OPC return only two output arguments:
+All divisive clustering algorithms in OPC return the following two output arguments:
 %
 \begin{itemize}
 
@@ -1105,7 +1151,7 @@ All divisive clustering algorithms in OPC return only two output arguments:
 
 \end{itemize}
 
-\subsubsection*{Cluster Hierarchy class {\tt ctree}}
+\subsection*{Cluster Hierarchy class {\tt ctree}}
 
 The class {\tt ctree} implements a generic interface to interact with cluster
 hierarchies that enables the visualisation, and modification of the hierarchy.
@@ -1119,11 +1165,11 @@ cluster hierarchy. Different clustering algorithms can return objects of differe
 to represent the binary separator.
 
 \item {\tt Parent}: A vector containing the index of the parent of each node. In particular, if {\tt j = Parent(i)} then
-{\tt Node(j)} is the parent of {\tt Node(i)}. 
+{\tt Node\{j\}} is the parent of {\tt Node\{i\}}. 
 %
 %The root of a {\tt ctree} object is the only node with parent equal to zero: ({\tt Parent(1) = 0}).
 
-\item {\tt method}: String describing the clustering algorithm used to create the {\tt ctree} object.
+\item {\tt method}: String specifying the clustering algorithm used to create the {\tt ctree} object.
 
 \item {\tt cluster}: A vector containing the cluster assignment from this clustering model.
 
@@ -1170,8 +1216,8 @@ be a $k \times$3 matrix specifying an RGB triplet for each one of the $k$ cluste
 binary separator in {\tt Node\{id\}}. The interpretation of the optional arguments, {\tt labels} and
 {\tt colours} is the same as for the {\tt plot()} function described above.
 
-\item {\tt prune(id)}: Prunes, that is removes, the subtree rooted at {\tt Node\{id\}}. 
-After this operation {\tt Node\{id\}} is a leaf node. The function returns a new {\tt ctree} object.
+\item {\tt prune(id)}: Prunes the subtree rooted at {\tt Node\{id\}}. 
+(After this operation {\tt Node\{id\}} is a leaf node.) The function returns a new {\tt ctree} object.
 
 \item {\tt split(id,varargin)}: Splits a leaf node of the tree using the algorithm
 used to originally create this {\tt ctree} object with the same parameter settings.
@@ -1184,15 +1230,15 @@ used to create the specific {\tt ctree} object initially. The function returns a
 \noindent
 %
 The last two functions, {\tt prune} and {\tt split} are extensively discussed
-in the chapter on model validation and modification (Chapter~\ref{sec:valid}).
+in the section on model validation and modification (Section~\ref{sec:valid}).
 %
 Visualisation of clustering models obtained by different algorithms are
-discussed in almost every example in Chapter~\ref{sec:using}.
+discussed in almost every example in Section~\ref{sec:using}.
 %
 We next describe the objects that describe binary separators (elements
 of the {\tt Node} cell array in the {\tt ctree} class.
 
-\subsubsection*{Binary separators}
+\subsection*{Binary separators}
 
 Different clustering algorithms produce objects of different classes
 to describe the binary separator employed.
@@ -1253,7 +1299,7 @@ next section.)
 \end{verbatim}
 
 
-\subsubsection*{Overview of Main Optional Arguments}
+\subsection*{Overview of Main Optional Arguments}
 
 
 The following list of optional input arguments is not exhaustive but is meant to illustrate the main
@@ -1265,7 +1311,7 @@ function reference.
 \paragraph{verb}
 %
 All algorithms (except {\tt gppdc}) accept the optional input argument {\tt
-verb}. If {\tt verb} is non-zero then progress information is printed/
+verb}. If {\tt verb} is non-zero then progress information is
 displayed during the clustering process. Algorithms that perform projection
 pursuit illustrate a two-dimensional visualisation of the current candidate
 solution at each step. This slows down the progress of the algorithm
@@ -1275,7 +1321,7 @@ princomp} function). On the other hand such visualisation enable the user to
 obtain important insights as to whether or not the algorithm locates meaningful
 partitions. We therefore recommend setting {\tt verb=0} (which is the default)
 when estimating a cluster hierarchy, and enabling this option when more insight
-is required for particular splits in the tree (see Chapter~\ref{sec:valid}).
+is required for particular splits in the tree (see Section~\ref{sec:valid}).
 
 \paragraph{labels, colours}
 %
@@ -1293,7 +1339,7 @@ It must be set to a handle associated with a function that
 takes three inputs:
 %
 \begin{itemize}
-	
+
 \item[] {\tt v}: the currently optimal projection matrix/ vector,
 
 \item[] {\tt X}: a data matrix containing the observations from the cluster that is currently split,
@@ -1305,10 +1351,20 @@ takes three inputs:
 and returns the value of a splitting criterion. At each step
 all divisive clustering algorithms split the current cluster that has the highest
 {\tt split\_index} value.
+%
+OPC functions that can be used as split indices are:
+%
+\begin{itemize}
+
+\item {\tt md\_reldepth}: Relative depth of separating hyperplane~\cite{PavlidisHT2016}.
+
+\item {\tt total\_scatter}: Total scatter~\cite{Boley1998}.
+
+\end{itemize}
 
 \paragraph{v0}
 %
-This optional argument determines the initial projection matrix used in
+This optional argument determines the initial projection matrix used to
 perform projection pursuit. For divisive clustering algorithms it must
 defined as a handle associated with a function that takes two inputs:
 %
@@ -1322,9 +1378,19 @@ defined as a handle associated with a function that takes two inputs:
 %
 and returns the value a projection matrix/ vector. 
 %
-For partitioning algorithms, like {\tt drsc}, and for algorithms that estimate a single
-separating hyperplane, like {\tt mdh}, {\tt mch} and {\tt ncuth}, {\tt v0} can be defined
-as fixed projection matrix/ vector.
+OPC functions that can be used as to set the initial projection matrix/ vector are:
+
+\begin{itemize}
+
+\item {\tt pcacomp}: Returns principal component vectors in the order specified by the user.
+
+\item {\tt mc\_v0}: Returns vector connecting centroids of 2-means algorithm.
+\end{itemize}
+
+\noindent
+For partitioning algorithms, like {\tt drsc}, and for algorithms that estimate
+a single separating hyperplane, like {\tt mdh}, {\tt mch} and {\tt ncuth}, {\tt
+v0} can be defined as fixed projection matrix/ vector.
 
 \paragraph{minsize}
 %
@@ -1368,7 +1434,7 @@ the clustering models produced.
 
 We use the \href{https://archive.ics.uci.edu/ml/datasets/optical+recognition+of+handwritten+digits}
 {optical recognition of handwritten digits} ({\tt optidigits}) dataset
-from the UCI repository~\cite{UCI}. This dataset is included in the package and
+from the UCI repository~\cite{UCI}. This dataset is included in the library and
 combines the training and test datasets specified in UCI. 
 %
 Observations correspond to
@@ -1405,23 +1471,24 @@ which also
 estimates the number of clusters, can be found
 \href{http://lihi.eew.technion.ac.il/files/Demos/SelfTuningClustering.html}{here}.)
 
-%
-Note that the default initialisation of {\tt kmeans} in both MATLAB and GNU Octave
-is through the $k$-means++ algorithm~\cite{ArthurV2007}, and
-therefore the output of the {\tt kmeans} function is not deterministic. This also
-affects spectral clustering because the final
-cluster assignment is performed through {\tt kmeans}. To ensure that 
-results are reproducible we set the random number
+
+
+Note that the default initialisation of {\tt kmeans} in both MATLAB and GNU
+Octave is through the $k$-means++ algorithm~\cite{ArthurV2007}, and therefore
+the output of the {\tt kmeans} function is not deterministic. This also affects
+spectral clustering because the final cluster assignment is performed through
+{\tt kmeans}. To ensure that results are reproducible we set the random number
 seed.
 %
 All the results reported in this document were obtained on MATLAB 2018a.
 
 \begin{verbatim}
->> % set random number seed to ensure reproducibility
+>> % set random number seed to ensure reproducibility (MATLAB only)
 >> rng(987)
 >> % k-means clustering
 >> km = kmeans(X,10);
 >> % Spectral clustering
+>> % (In GNU Octave the pdist function can fail for this dataset size)
 >> sc = spclustNJW(X,10);
 \end{verbatim}
 
@@ -1435,6 +1502,8 @@ index~\cite{Hubert1985}, and $V$-measure~\cite{Rosenberg2007}.
 
 \begin{verbatim}
 >> % Evaluate cluster performance
+>> % (performance will vary on consecutive kmeans executions due to
+>> % random initialisation. Performance is reported for illustration) 
 >> cluster_performance(km, labels)
 
 ans = 
@@ -1495,6 +1564,9 @@ components. This choice is made because for a $k$-means clustering
 >> V = pcacomp(X,[1:9]);
 >> % Perform clustering
 >> kmPCA = kmeans(X*V,10);
+>>
+>> % (On this lower dimensional dataset the pdist function in
+>> % GNU Octave can work even if it failed on the original dataset)
 >> scPCA = spclustNJW(X*V,10);
 >> % Assess performance
 >> cluster_performance(kmPCA, labels)
@@ -1595,12 +1667,16 @@ cluster/ class assignment. In the second stage, the labels are treated as given
 and Linear Discriminant Analysis (LDA) is used to identify the optimal linear
 subspace.
 %
-The algorithm is not guaranteed to converge, or to improve the value of the
-objective function over consecutive iterations. The fact that
-$k$-means is not guaranteed to identify the globally optimal
-solution, and the sensitivity of the 
-{\tt kmeans} function to random initialisation can produce very different
-outputs over successive executions of this algorithm.
+The inability to identify the global optimum of the $k$-means objective
+function, and the variability due to the random initialisation of the centroids
+in the {\tt kmeans} function, cause
+the algorithm to not be guaranteed to converge, or even to improve the value of the
+objective function over consecutive iterations. 
+
+%The fact that $k$-means is not guaranteed to identify the globally optimal
+%solution, and the sensitivity of the {\tt kmeans} function to random
+%initialisation can produce very different outputs over successive executions
+%of this algorithm.
 
 We apply {\tt ldakmeans} twice to illustrate this point. The first execution yields a very good
 performance on this dataset. The performance is substantially lower
@@ -1651,7 +1727,7 @@ ans =
 We next proceed to discuss divisive hierarchical clustering algorithms.
 %
 In this section we discuss PDDP and dePDDP; two methods
-that recursively project the data onto the first principal component, and split
+that recursively project the data (subset) onto their first principal component, and split
 at a point along the projection vector.
 %
 Note that this approach enables these algorithms to
@@ -1705,7 +1781,7 @@ ans =
 %
 A very appealing characteristic of OPC is that it enables the user to visualise
 the clustering model produced by any divisive hierarchical algorithm in the
-package. The user can plot both the entire hierarchy, or specific nodes. The
+library. The user can plot both the entire hierarchy, or specific nodes. The
 {\tt plot} function in the {\tt ctree} class produces visualisations of the
 entire hierarchical model:
 
@@ -1781,9 +1857,10 @@ the {\it i}--th cluster.
 
 
 Clearly the visualisation which uses the actual cluster labels to colour
-observations is very informative about how the actual clusters are partitioned.
+observations is very informative about how the actual clusters are partitioned
+at each level of the hierarchy.
 %
-However, what is of more importance for unsupervised learning is that the
+However, what is more important for unsupervised learning is that the
 visualisation of the cluster hierarchy without using the actual labels also
 allows the user to draw valuable insights about the validity of the binary
 partitions at each node. Such insights are crucial in the process of validating
@@ -1927,8 +2004,8 @@ using the method {\tt perf} of the {\tt ctree} class.
 \end{verbatim}
 
 \noindent
-The output of the above function is displayed on the terminal. It is unfortunately
-too large to be included here.
+The output of the above function is displayed on the terminal (but is
+too large to be presently included).
 
 \subsection{density-enhanced PDDP}
 
@@ -1944,11 +2021,11 @@ Clusters Identified: 4
 
 \noindent
 %
-The output above indicates that this algorithm did not manage to estimate the
-10 clusters that we requested. The dePDDP algorithm fails to partition a
-cluster when the one-dimensional kernel density estimator constructed from the
-projection of the data onto the first principal component is unimodal.
-This is considered an indication that the data belong to a single cluster.
+The output above indicates that dePDDP did not identify 10 clusters. The
+algorithm fails to partition a cluster when the one-dimensional kernel density
+estimator constructed from the projection of the data onto the first principal
+component is unimodal. This is interpreted as an indication that the data belong
+to a single cluster.
 
 \begin{figure}
 %
@@ -1980,16 +2057,17 @@ algorithm, as well as the binary partition at the root node. From this figure
 we see why the algorithm failed to estimate 10~clusters and why the clustering
 model produced is not valid for this dataset.
 %
-The one-dimensional projection of the data onto the first principal component 
+The one-dimensional data projection onto the first principal component 
 always contains one or a few
 observations that are very distant from the rest. The estimated density
-has a very small mode at these observations and as a result at each
+has a very small mode around these observations and as a result at each
 bi-partition dePDDP splits one or a few outliers from the rest of the
 data. Around the bulk of the data the density estimator is unimodal.
 
-A naive approach to overcome this limitation would be to impose
-a constraint on the minimum number of points in a cluster. This option
-is available in all divisive hierarchical clustering algorithms in OPC.
+A naive (and ineffective as we will see) approach to overcome this issue would be to impose
+a constraint on the minimum number of points in a cluster,
+by specifying the {\tt minsize} option 
+(available in all divisive hierarchical clustering algorithms in OPC).
 
 \begin{verbatim}
 >> [idx2, t2] = depddp(X,10,'minsize',10);
@@ -1999,12 +2077,12 @@ Clusters Identified: 1
 
 \noindent
 %
-The above message indicates that with a minimum cluster size of 10 the
+The above message indicates that with a minimum cluster size of~10 the
 data cannot be split.
 %
 This should not be surprising as we can see from Figure~\ref{fig:depddp1}
 that the density estimator has no local minima apart from the one at its left tail.
-%
+
 
 An important parameter in dePDDP is the bandwidth used in the density
 estimator. By default dePDDP estimates the bandwidth
@@ -2024,7 +2102,7 @@ is used to estimate the value of the bandwidth parameter for each cluster.
 In the next code snippet we halve the value of the bandwidth.
 
 \begin{verbatim}
->> % Define function handle to set bandwidth
+>> % Define function handle for bandwidth selection (note 2nd input argument not used)
 >> fh = @(x,p)(0.45*size(x,1)^(-0.2)*std(x* pcacomp(x,1)));
 >> [idx2, t2] = depddp(X,10,'minsize',100, 'bandwidth', fh);
 Clusters: 1 2 3 4 5 6 7 8 9 10
@@ -2069,12 +2147,12 @@ minimised.
 For methods based on separating hyperplanes, OPC also includes a separate
 implementation of the underlying binary segmentation algorithm. To distinguish between the two,
 the names of functions that produce a complete divisive clustering model end in {\tt dc},
-while those that perform a single binary partition using a hyperplane as a
+while those that perform a binary partition using a hyperplane as a
 cluster separator, end in {\tt h}.
 %
 For example, the MCDC algorithm is implemented in the {\tt mcdc} function,
-while the {\tt mch} function estimates a single maximum clusterability
-hyperplane.
+while the {\tt mch} function estimates maximum clusterability
+hyperplane(s).
 
 \subsubsection{Maximum Clusterability Divisive Clustering}
 
@@ -2142,7 +2220,7 @@ Figure~\ref{fig:mcdc1}.
 The figure shows that MCDC performs a much more sensible clustering, compared
 to PDDP and dePDDP. The visualisation of the binary partition at the root of
 the tree clearly shows that the projection pursuit algorithm has managed to
-identify a hyperplane that traverses a relative sparse region and separates two
+identify a hyperplane that traverses a relatively sparse region and separates two
 dense clusters. This provides clear evidence of a clustering structure in the
 data which was not visible through PDDP and dePDDP (Figures~\ref{fig:pddp2}
 and~\ref{fig:depddp1}, respectively).
@@ -2157,7 +2235,8 @@ effectively dense clusters.
 A number of leaves appear to contain more than one cluster and are natural
 candidates for further splitting. 
 %
-An extensive example of using OPC to validate and modify a clustering model is
+An extensive example of using the methods of the {\tt
+ctree} class to validate and modify a clustering model is
 provided in Section~\ref{sec:valid}.
 
 
@@ -2170,8 +2249,8 @@ must be set to a function handle.
 The associated function must accept two inputs:
 the data matrix, and a structured array containing the parameters of the algorithm.
 %
-Note that by using the first principal component to initialise the projection
-pursuit algorithm at each bi-partition {\tt mcdc} becomes deterministic. 
+%Note that by using the first principal component to initialise the projection
+%pursuit algorithm at each bi-partition {\tt mcdc} becomes deterministic. 
 
 \begin{verbatim}
 >> % Function handle returns 1st PC
@@ -2363,12 +2442,11 @@ clusters. The resulting cluster hierarchy is illustrated in Figure~\ref{fig:ncut
 
 \subsection{Minimum Density Divisive Clustering}
 
-The interface to the Minimum Density Divisive Clustering (MDDC) algorithm is
+The interface of the {\tt mddc} function is
 identical to the previous two functions, {\tt mcdc}, and {\tt ncutdc}.
 %
-For this reason in this section we simply execute the algorithm with the
-default settings and in Section~\ref{sec:valid} we use {\tt mddc} to illustrate how
-the user can validate and modify a clustering model through OPC.
+We thus thus directly execute the algorithm with the
+default settings 
 
 \begin{verbatim}
 >> [idx6,t6] = mddc(X,10);
@@ -2385,8 +2463,48 @@ ans =
      AdjRand: 0.7054
     Vmeasure: 0.7716
 
+>> nplot(t6,2);
 \end{verbatim}
 
+
+\begin{figure}
+%
+\begin{latexonly}
+%
+\begin{center}
+%
+\includegraphics[scale=0.3]{figures/mddc1.png}
+%
+\end{center}
+\end{latexonly}
+%
+\begin{htmlonly}
+%
+\includegraphics[scale=0.7]{figures/mddc1.png}} 
+%
+\end{htmlonly}
+%
+\caption{Binary partition at node 2 of cluster hierarchy produced by MDDC algorithm.}
+%
+\label{fig:mddc1}
+\end{figure}
+%
+
+\noindent
+%
+Figure~\ref{fig:mddc1} provides a visualisation of the binary partition at node 2 of
+the cluster hierarchy.  The dashed blue line in this figure corresponds to the projection
+index for MDH, $f(v)$ defined in Eq.~(\ref{eq:mdh2}). The scale of this function is
+depicted on the right vertical axis.
+%
+Notice that $f(v)$ is identical to the kernel density estimator (black solid line) within the range
+of $\alpha$~standard deviations around the mean, and increases abruptly outside this range. 
+%
+The definition of the projection index in
+Eq.~(\ref{eq:mdh2}) ensures that the minimiser is always
+within $\alpha$ standard deviations of the mean of the data.
+%
+A more extensive discussion of {\tt mddc} is postponed until Section~\ref{sec:valid}.
 
 \section{Spectral Clustering}
 
@@ -2409,22 +2527,22 @@ are not linearly separable.
 
 
 
-The Dimensionality Reduction for Spectral Clustering (DRSC)~\cite{NiuDJ2011}
-algorithm is a partitioning algorithm. DRSC attempts to identify the projection
-matrix~$V$ such that, after the data are projected onto~$V$, the sum of
-the $k$ smallest eigenvalues of the normalised graph Laplacian matrix
-(computed from the projected data) is minimised.
-%
-The SCPPDC~\cite{HofmeyrPE2018} iteratively bi-partitions the data by seeking
-the two-dimensional linear subspace that minimises the second smallest
-eigenvalue of the normalised graph Laplacian (computed from the projected
-data).
-%
-A two dimensional projection is used as this is the smallest dimensionality at
-which non-convex clusters can be correctly identified.
-%
-Although the two methods share a common objective there are significant
-differences in how the optimisation is performed. 
+%The Dimensionality Reduction for Spectral Clustering (DRSC)~\cite{NiuDJ2011}
+%algorithm is a partitioning algorithm. DRSC attempts to identify the projection
+%matrix~$V$ such that, after the data are projected onto~$V$, the sum of
+%the $k$ smallest eigenvalues of the normalised graph Laplacian matrix
+%(computed from the projected data) is minimised.
+%%
+%The SCPPDC~\cite{HofmeyrPE2018} iteratively bi-partitions the data by seeking
+%the two-dimensional linear subspace that minimises the second smallest
+%eigenvalue of the normalised graph Laplacian (computed from the projected
+%data).
+%%
+%A two dimensional projection is used as this is the smallest dimensionality at
+%which non-convex clusters can be correctly identified.
+%%
+%Although the two methods share a common objective there are significant
+%differences in how the optimisation is performed. 
 
 
 Both DRSC and SCPPDC are computationally very expensive, because each function evaluation involves
@@ -2485,8 +2603,7 @@ number of columns of the initial projection matrix.
 >> % micro-clustering
 >> [d2c,centroids] = kmeans(X,200); 
 >>
->> % Set scale parameter for Gaussian kernel
->> % to default value recommended for SCPPDC
+>> % Set scale parameter for Gaussian kernel to SCPPDC recommendation
 >> sigma = scpp_def_sigma(X);
 >> 
 >> % Execute drsc
@@ -2512,7 +2629,7 @@ ans =
 \noindent
 %
 DRSC terminates after exhausting the maximum number of iterations (the default
-value for which 50) without converging. A plot of the projection index after
+value for which is 50) without converging. A plot of the projection index after
 each complete pass over all the columns of~$V$ (contained in the third
 output argument {\tt fval}) indicates that the algorithm is not monotonically
 improving the objective function.
@@ -2624,31 +2741,38 @@ In this section we illustrate how to validate and modify a clustering model
 produced by any divisive hierarchical clustering algorithm in OPC.
 %
 For partitioning algorithms, visualisation is straightforward using the
-projection matrix. To modify the model produced by a partitioning algorithm the
-user needs to modify the optional input arguments, as discussed in the previous
+projection matrix, and the in-build function {\tt plot} and {\tt scatter} in
+MATLAB and GNU Octave. To modify the clustering model the
+user can set the optional input arguments, as discussed in the previous
 section.
 %
-Therefore there is little to discuss with respect to the process of visualising
-and modifying the output of partitioning algorithms.
+%Therefore there is little to discuss with respect to the process of visualising
+%and modifying the output of partitioning algorithms.
 
+The interactive validation and modification of divisive hierarchical models
+is more challenging, and constitutes the focus in the remainder
+of this section.
+%
 In the present example we will use the {\tt optidigits} dataset used in the
 previous section, but assume that the actual number of clusters is unknown,
 and start with an initial guess of $k=5$.
 %
-We will use the MDDC algorithm, but the interface we describe is applicable to
+We use the {\tt mddc} function to construct the initial cluster
+hierarchy, but the interface we describe relies on methods of the
+{\tt ctree} class and is hence applicable to
 all divisive hierarchical clustering methods in OPC.
 %
 The functions for visualisation, {\tt plot} and {\tt nplot}
 have been discussed extensively in the previous
 section.
-The two main functions for the modification of a clustering hierarchy are
-{\tt prune} and {\tt split}, which are methods of the {\tt ctree} class.
+The two main functions for the modification of a {\tt ctree} object are
+{\tt prune} and {\tt split}.
 
 \begin{verbatim}
 >> load('datasets/optidigits.mat');
 >>
 >> % Cluster optidigits datasets assuming k=5
->> [idx,t] = mddc(X,5)
+>> [idx,t] = mddc(X,5);
 >> Visualise cluster hierarchy (plot not shown)
 >> plot(t);
 >> % Evidence of 3 well separated clusters
@@ -2690,33 +2814,30 @@ The two main functions for the modification of a clustering hierarchy are
 \noindent
 %
 An inspection of the cluster hierarchy (not shown for brevity), and the
-hyperplane separators in nodes~2 and~3 in Figure~\ref{fig:val1}, suggests that
+hyperplane separators in nodes~2 and~3 (shown in Figure~\ref{fig:val1}), suggests that
 the leaf node 2, appears to contain 3 well separated dense clusters, while the
 hyperplane in node 3 intersects a dense region.
 %
-The dashed blue line in Figure~\ref{fig:val1} corresponds to the projection
-index for MDH, $f(v)$ defined in Eq.~(\ref{eq:mdh2}).
-%
-Notice that $f(v)$ is identical to the density estimator within the range
-of $\alpha$ standard deviations around the mean; while 
-it increases abruptly outside this range. 
-%
-The definition of the projection index ensures that its minimiser will always
-be within $\alpha$ standard deviations of the mean of the data (which in this example is zero).
-%
 The hyperplane separator for the cluster at node 2 appears to be effectively
-separating one of the three dense clusters.  We can therefore use this
+separating one of the three dense clusters. We can therefore use this
 hyperplane to split the cluster at node 2. 
 %
-This happens when the {\tt split} function is called with no optional
-arguments. 
+This is achieved by calling the {\tt split} function (method of the class {\tt ctree})
+with no optional arguments. 
+%
+If no optional arguments are specified, the {\tt split} function partitions
+a leaf node using the binary separator estimated with the parameter settings used
+to create the first instance of the {\tt ctree} object (in this example {\tt t}).
+%
+%it bi-partitions a leaf node with the separator estimated using all the
+%parameter values specified during the first call
 %
 An inspection of the new leaf node with number 10 (omitted for brevity),
 illustrates that this cluster contains two of the three dense clusters
-identified in node~2, and that the MDH for this node separates these
-clusters effectively.
+identified in node~2, and that the MDH for this node separates these clusters
+effectively.
 %
-We therefore split those by calling the {\tt  split} function without
+We therefore split node 10 by calling the {\tt  split} function without
 specifying any arguments.
 
 
@@ -2731,16 +2852,6 @@ specifying any arguments.
 >> plot(t1);
 \end{verbatim}
 
-\noindent
-%
-We next explore whether the binary partition at node 3 can be improved.
-%
-To consider alternative hyperplane separators, we first need to
-prune the subtree rooted at this node, because the {\tt split} function can
-only be applied to a leaf node. Note that after the tree is pruned
-the numbers of different nodes can change,
-as shown in Figure~\ref{fig:val2}. Node numbers in {\tt ctree} objects
-are always consecutive, and represent the order in which nodes were added to the model.
 
 \begin{figure}
 %
@@ -2772,21 +2883,33 @@ in which nodes are added to the tree}
 %
 \label{fig:val2}
 \end{figure}
+\noindent
+%
+We next explore whether the binary partition at node 3 can be improved.
+%
+To consider alternative hyperplane separators, we first
+prune the subtree rooted at this node (the {\tt split} function can
+only be applied to a leaf node). Note that after the tree is pruned
+the numbers of different nodes can change,
+as shown in Figure~\ref{fig:val2}. Node numbers in {\tt ctree} objects
+are always consecutive, and represent the order in which nodes were added to the model.
 
+\begin{verbatim}
+>> % Prune tree at node 3
+>> t1 = prune(t1,3);
+\end{verbatim}
 
 Having pruned the tree we next explore whether the cluster at node 3 can be
-split more effectively. If we simply apply the {\tt split} function on the
-cluster at node 3 we will obtain the same hyperplane as before. The reason for
-this is that the {\tt split} function bi-partitions a cluster using the same
-arguments that were used when the {\tt ctree} object was first created. 
+partitioned more effectively. If we apply the {\tt split} function on the
+cluster at node 3 we will obtain the same hyperplane as before. 
 %
-The user can modify this behaviour by specifying optional arguments.
+%The user can modify this behaviour by specifying optional arguments.
 %
-The {\tt split} function accepts all the arguments (using
-the same syntax) as the divisive hierarchical clustering algorithm
+The {\tt split} function accepts all the optional arguments (using
+the same syntax) of the divisive hierarchical clustering algorithm
 that created the first instance of the {\tt ctree} object.
 %
-In this example, 
+In this example,
 we consider MDHs obtained by initialising the projection vector
 at the 2nd and 3rd principal
 component. To this end we need to set the {\tt v0} argument.
@@ -2806,8 +2929,6 @@ to the boundary of the range of admissible MDHs (evident by
 the blue dashed line that illustrates the projection index, Eq.~(\ref{eq:mdh2})).
 
 \begin{verbatim}
->> % Prune tree at node 3
->> t1 = prune(t1,3);
 >> % Consider alternative parameter settings for PP algorithm:
 >> % initialise at 2nd PC
 >> split(t1,3,'v0',@(x,p)(pcacomp(x,2)), 'verb',1);
@@ -2858,7 +2979,7 @@ one dense clusters. In the following, the default parameter values for the
 projection pursuit algorithm appear appropriate, so they are not modified.
 %
 For brevity we omit the visualisations of the individual binary partitions
-in the following code segment.
+in the following code snippet.
 
 \begin{verbatim}
 >> % Visualise and then split leaves that 
@@ -2893,10 +3014,10 @@ ans =
 
 
 The performance of the final model is higher than that of the model obtained by
-{\tt mddc} using the default settings and the correct number of clusters. Indeed
+{\tt mddc} using the default settings and the correct number of clusters.
 %
 The visualisation of the cluster hierarchy in Figure~\ref{fig:val4}
-also verifies that the clustering model is appropriate for this dataset.
+verifies that this is a reasonable clustering model for this dataset.
 
 
 \begin{figure}
@@ -2937,16 +3058,18 @@ classification, to clustering.
 The MMC problem can be expressed as identifying the binary labelling of $\mathcal{X}$
 that will maximise the margin of a Support Vector Machine classifier estimated
 on the labelled data. MMC corresponds to a nonconvex integer optimisation
-problem. 
+problem, for which
 %
-exact methods for this problem are only feasible for very small datasets.
+exact methods are only feasible for very small datasets.
 %
 MMC algorithms that can handle reasonably sized datasets are not guaranteed
 to converge to the global optimum.
 %
-The minimum density hyperplane (MDH) and the minimum normalised cut hyperplane
-(NCUTH) converge to the maximum hard margin hyperplane as the bandwidth
-(scaling) parameter is reduced towards zero~\cite{PavlidisHT2016,Hofmeyr2017}. 
+The minimum density hyperplane (MDH), the minimum normalised cut hyperplane
+(NCUTH), and the spectral connectivity projection pursuit (SCPP) algorithm
+(when one-dimensional projections are used)
+converge to the maximum hard margin hyperplane as the bandwidth
+(scaling) parameter is reduced towards zero~\cite{PavlidisHT2016,Hofmeyr2017,HofmeyrPE2018}. 
 %
 %Unlike MMC methods that operate on the kernel matrix and are therefore able to
 %identify clusters that are not linearly separable, MDH and NCUTH operate on
@@ -2986,15 +3109,24 @@ identified MDH.
 >> hp = hp0;
 >> % Value of alpha for which MDH is obtained
 >> a = hp.params.alpha;
->> v0 = zeros(size(X,2),1);
+>> v0 = 0*hp.v;
 >> while abs(hp.v' * v0) < 1-1.e-6,
->> 	% obtain initial projection vector and bandwidth parameter
->> 	v0 = hp.v;
->> 	h = 0.5*hp.params.bandwidth;
->> 	[idx,hp]= mdh(X,'v0',v0,'alphamin',a,'alphamax',a,'bandwidth',h);
+>>      % obtain initial projection vector and bandwidth parameter
+>>      v0 = hp.v;
+>>      h = 0.5*hp.params.bandwidth;
+>>      [idx,hp1]= mdh(X,'v0',v0,'alphamin',a,'alphamax',a,'bandwidth',h);
+>>
+>>      % Numerical problems can occur at very low bandwidth:
+>>      % isinf(fval) signals projection pursuit failed 
+>>      if isinf(hp1.fval),
+>>              break;
+>>      else
+>>              hp = hp1;
+>>      end
 >> end
 >> plot(hp0,X);
 >> plot(hp,X);
+>> % Misclassification error
 >> er = 1 - purity(idx, labels(index))
 
 er =
@@ -3034,25 +3166,34 @@ for decreasing sequence of bandwidths}
 
 The minimum normalised cut hyperplane (NCUTH) also
 converges to the maximum hard margin hyperplane
-as the scaling parameter $\sigma$
-for the Gaussian kernel used to compute pairwise similarities is reduced
+as~$\sigma$, the scaling parameter
+of the Gaussian kernel used to compute pairwise similarities, is reduced
 towards zero. In the next example we illustrate this using the
 {\tt ncuth} function.
 
 \begin{verbatim}
 >> % Estimate NCUTH with default bandwidth
->> [idx,hp0] = ncuth(X);
+>> [~,hp0] = ncuth(X);
 >> plot(hp0,X);
 >> 
 >> hp = hp0;
 >> v0 = 0*hp.v;
 >> while abs(hp.v'*v0) < 1-1.e-10,
->> 	v0 = hp.v;
->> 	s = 0.5*hp.params.sigma;
->> 	[id,hp]= ncuth(X,'v0',v0,'sigma',s);
+>>      v0 = hp.v;
+>>      s = 0.5*hp.params.sigma;
+>>      [id,hp1]= ncuth(X,'v0',v0,'sigma',s);
+>>	
+>>      % Numerical problems can occur for very low scaling parameter:
+>>      % isinf(fval) signals projection pursuit failed 
+>>      if isinf(hp1.fval),
+>>              break;
+>>      else
+>>              hp = hp1;
+>>      end
 >> end
 >> plot(hp0,X);
 >> plot(hp,X);
+>> % Misclassification error
 >> er = 1 - purity(id, labels)
 
 er =
@@ -3092,7 +3233,7 @@ of scaling parameters for the Gaussian kernel}
 
 \noindent
 %
-The large margin hyperplane obtained by both NCUTH and MDH achieve a
+The large margin hyperplanes obtained by both NCUTH and MDH achieve a
 substantial improvement over all the methods reported
 in~\cite[Table~IV]{ZhangTK2009}. These include the standard clustering
 algorithms: $k$-means, kernel $k$-means, spectral clustering, as well as
@@ -3112,24 +3253,24 @@ In this section we illustrate a simple example of using Kernel Principal
 Component Analysis (KPCA)~\cite{ScholkopfSM1998} to enable the identification of
 non--linearly separable, by hyperplane based methods.
 %
-KPCA enables us to embed the data in a high-dimensional feature space in which
+Through KPCA the data is embedded in a high-dimensional feature space in which
 clusters are linearly separable. Hyperplanes in the feature space correspond to
 nonlinear cluster boundaries in the original space.  We illustrate this through
 a widely used two dimensional data set containing two clusters, each in the
 shape of a half moon, arranged so that they cannot be separated by a
 hyperplane~\cite{Jain2005}. 
 
-The next example also illustrates the use of the functions, {\tt kpca} and {\tt
-kpca\_predict} included in OPC. Both functions are based on the KPCA
+The next example illustrates the use of the functions, {\tt kpca} and {\tt
+kpca\_predict} included in OPC. These functions are based on the KPCA
 description in~\cite{ScholkopfSM1998} and have the same syntax and default
 arguments as the implementation of KPCA in the {\tt R} package {\tt
 kernelab}~\cite{kernlab}. The only important difference between {\tt kpca} and
 {\tt kpca\_predict} in OPC and {\tt kernlab} is that in OPC the user needs to
-specify the kernel matrix as an argument. 
+specify the kernel matrix as an argument.
 
 
 \begin{verbatim}
->> load('datasets/halfmoons.dat');
+>> load('datasets/halfmoons.mat');
 >> % Hyperplane separator in original space
 >> idx1 = ncuth(X);
 >>
@@ -3154,9 +3295,9 @@ specify the kernel matrix as an argument.
 %
 \begin{center}
 %
-\subfigure[Hyperplane in original space]{\includegraphics[scale=0.22]{figures/kpca1.png}} \hspace{0.3cm}
+\subfigure[Original space]{\includegraphics[scale=0.22]{figures/kpca1.png}} \hspace{0.3cm}
 %
-\subfigure[Hyperplane in feature space]{\includegraphics[scale=0.22]{figures/kpca2.png}} 
+\subfigure[Feature space]{\includegraphics[scale=0.22]{figures/kpca2.png}} 
 %
 \end{center}
 \end{latexonly}
@@ -3169,8 +3310,8 @@ specify the kernel matrix as an argument.
 %
 \end{htmlonly}
 %
-\caption{Hyperplane separators in the original, Euclidean space and in the kernel
-defined feature space}
+\caption{Clustering obtained by hyperplane separators in the original, Euclidean space and in the kernel
+defined feature space.}
 %
 \label{fig:kpca}
 \end{figure}
@@ -3183,7 +3324,7 @@ defined feature space}
 \chapter{Extending OPC}\label{sec:extend}
 
 
-The OPC package provides a simple interface for users to create divisive
+The OPC library provides a simple interface for users to create divisive
 hierarchical algorithms based on projection pursuit methods for clustering. 
 %
 The function {\tt gppdc} implements a framework for {\em generic projection
@@ -3311,8 +3452,8 @@ end
 
 \noindent
 %
-The above function is included in the {\tt reproduction\_script.m} script file.
-A ``bisecting'' version of LDA-$k$-means is readily obtained:
+The above function is in the file {\tt lda2m.m} in the directory {\tt src/generic} script file.
+A ``bisecting'' version of LDA-$k$-means is readily obtained as:
 
 \begin{verbatim}
 [idx, t] = gppdc(X,10, @(x,p)(lda2m(x)));
