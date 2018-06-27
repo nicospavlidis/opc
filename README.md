@@ -41,13 +41,13 @@ not guaranteed to preserve the cluster structure.
 		pages 552-560, 2011.
 
 		- D. Niu, J. G. Dy, and M. I. Jordan.
-		[Iterative discovery of multiple alternative clustering views](https://ieeexplore.ieee.org/document/6606788/).
+		[Iterative discovery of multiple alternative clustering views](https://doi.org/10.1109/TPAMI.2013.180).
 		*IEEE Transactions on Pattern Analysis and Machine Intelligence*, 36(7):1340-1353, 2014.
 
 - **Divisive hierarchical clustering algorithms**
 
 	- `pddp` Principal direction divisive partitioning
-		- D. Boley. [Principal direction divisive partitioning](https://link.springer.com/article/10.1023/A:1009740529316).
+		- D. Boley. [Principal direction divisive partitioning](https://doi.org/10.1023/A:1009740529316).
 		*Data Mining and Knowledge Discovery*, 2(4):325-344, 1998.
 
 	- `depddp` Density-enhanced principal direction divisive partitioning
@@ -61,12 +61,12 @@ not guaranteed to preserve the cluster structure.
 		*Journal of Machine Learning Research*, 17(156):1-33, 2016.
 
 	- `ncutdc` Minimum normalised cut divisive clustering
-		- D. Hofmeyr. [Clustering by Minimum Cut Hyperplanes](https://ieeexplore.ieee.org/document/7569106/).
+		- D. Hofmeyr. [Clustering by Minimum Cut Hyperplanes](https://doi.org/10.1109/TPAMI.2016.2609929).
 		*IEEE Transactions on Pattern Analysis and Machine Intelligence*, 39(8):1547-1560, 2017.
 	
 	- `mcdc` Maximum clusterability divisive clustering
 		- D. P. Hofmeyr and N. G. Pavlidis.
-		[Maximum Clusterability Divisive Clustering](https://ieeexplore.ieee.org/document/7376691/).
+		[Maximum Clusterability Divisive Clustering](https://doi.org/10.1109/SSCI.2015.116).
 		*IEEE Symposium Series on Computational Intelligence*, pages 780-786, 2015.
 
 	- `scppdc` Minimum spectral connectivity projection pursuit
