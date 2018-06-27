@@ -33,7 +33,7 @@
 
 \renewcommand{\chaptername}{}
 
-\title{Optimal Projections for Clustering: An open source MATLAB and GNU Octave library for Dimensionality Reduction for Clustering}
+\title{Optimal Projections for Clustering: An open source MATLAB and Octave library for Dimensionality Reduction for Clustering}
 \author{Nicos G. Pavlidis}
 \date{}
 
@@ -51,7 +51,7 @@
 \chapter{Preface}
 
 Optimal Projections for Clustering (OPC)
-is an open source MATLAB and GNU Octave library that implements
+is an open source MATLAB and Octave library that implements
 clustering methods that seek the optimal low dimensional subspace to identify
 (or separate) clusters.
 %
@@ -191,7 +191,7 @@ LDA-$k$-means algorithm~\cite{DingL2007}.
 \chapter{Installation}
 
 To install OPC a C and C++ compiler is required. Detailed installation
-instructions for MATLAB and GNU Octave are provided in the following sections.
+instructions for MATLAB and Octave are provided in the following sections.
 %
 OPC depends on the following two open source
 libraries that are included in the library:
@@ -222,7 +222,7 @@ documentation system is required.
 
 %\subsubsection{Setting up the path for OPC}\label{sec:path}
 %
-%Every time MATLAB or GNU Octave is restarted you need to include the OPC
+%Every time MATLAB or Octave is restarted you need to include the OPC
 %library in the search path.
 %%
 %Let's assume that the uncompressed OPC code is in the directory {\tt
@@ -230,7 +230,7 @@ documentation system is required.
 %{\tt cd} command to set the current working directory to the 
 %directory in which OPC has been unpacked.
 %%
-%Then the execute the {\tt setpath} script which adds to the MATLAB/ GNU Octave search
+%Then the execute the {\tt setpath} script which adds to the MATLAB/ Octave search
 %path the current directory and all its subdirectories.
 %
 %\begin{verbatim}
@@ -255,7 +255,7 @@ documentation system is required.
 
 \noindent
 %
-In GNU Octave after each restart you also need to load the statistics and optim
+In Octave after each restart you also need to load the statistics and optim
 packages (see last paragraph of Section~\ref{sec:Octave} for more details). 
 The {\tt setpath} script also performs this task.
 
@@ -343,13 +343,13 @@ In MATLAB:
 \end{verbatim}
 
 
-\section{GNU Octave}\label{sec:Octave}
+\section{Octave}\label{sec:Octave}
 
 OPC uses object oriented programming and contains {\tt classdef}
 classes. These are only supported after the
 %
 \href{https://octave.org/doc/v4.2.2/classdef-Classes.html#classdef-Classes}
-{GNU Octave 4.0}
+{Octave 4.0}
 %
 release. OPC is therefore incompatible with previous versions.
 
@@ -358,16 +358,16 @@ OPC requires the statistics package, and the non-linear optimization package,
 optim. 
 %
 Both packages can be found at the
-\href{https://octave.sourceforge.io/packages.php}{extra packages for GNU
+\href{https://octave.sourceforge.io/packages.php}{extra packages for 
 Octave} repository.
 %
-Detailed instructions to install and load extra packages in GNU Octave are
+Detailed instructions to install and load extra packages in Octave are
 provided in relevant
 \href{https://octave.org/doc/interpreter/Packages.html#Packages}{documentation}
 page.
 %
 Once these are installed they need to be loaded after every restart
-of GNU Octave. The {\tt setpath} script located in the root OPC directory loads
+of Octave. The {\tt setpath} script located in the root OPC directory loads
 these packages and adds the OPC directory and its subfolders
 to the Octave search path.
 
@@ -455,7 +455,7 @@ $ # Note this is the terminal not the MATLAB CLI
 $ cp (OPC_DIR)/documentation/m2html_template/m2html.m /home/user/Downloads/m2html/
 \end{verbatim}
 
-\item From MATLAB or GNU Octave, (i) add the M2HTML folder to the path;
+\item From MATLAB or Octave, (i) add the M2HTML folder to the path;
 (ii) ensure the path for the OPC library is set, and (iii) execute
 the script {\tt create\_reference}:
 
@@ -1108,7 +1108,7 @@ Complete documentation for each function is available using {\tt help},
 or through the HTML function reference (see Section~\ref{sec:htmlref}).
 
 %
-%Using {\tt help} from the MATLAB or GNU Octave terminal
+%Using {\tt help} from the MATLAB or Octave terminal
 
 %\subsubsection*{General Syntax}
 %
@@ -1316,7 +1316,7 @@ displayed during the clustering process. Algorithms that perform projection
 pursuit illustrate a two-dimensional visualisation of the current candidate
 solution at each step. This slows down the progress of the algorithm
 considerably, especially for divisive clustering algorithms, and especially on
-GNU Octave (the MATLAB {\tt pca} function is much faster than the Octave {\tt
+Octave (the MATLAB {\tt pca} function is much faster than the Octave {\tt
 princomp} function). On the other hand such visualisation enable the user to
 obtain important insights as to whether or not the algorithm locates meaningful
 partitions. We therefore recommend setting {\tt verb=0} (which is the default)
@@ -1455,7 +1455,7 @@ assignments are stored in {\tt optidigits.mat}.
 \section{Clustering without Dimensionality Reduction}
 
 We first apply $k$-means and spectral clustering to the full dimensional data.
-We use the built-in {\tt kmeans} function in MATLAB and GNU Octave, and the OPC
+We use the built-in {\tt kmeans} function in MATLAB and Octave, and the OPC
 function {\tt spclustNJW} that implements the spectral clustering algorithm of
 Ng.  et~al.~\cite{NgJW2001}. 
 %
@@ -1473,7 +1473,7 @@ estimates the number of clusters, can be found
 
 
 
-Note that the default initialisation of {\tt kmeans} in both MATLAB and GNU
+Note that the default initialisation of {\tt kmeans} in both MATLAB and 
 Octave is through the $k$-means++ algorithm~\cite{ArthurV2007}, and therefore
 the output of the {\tt kmeans} function is not deterministic. This also affects
 spectral clustering because the final cluster assignment is performed through
@@ -1488,7 +1488,7 @@ All the results reported in this document were obtained on MATLAB 2018a.
 >> % k-means clustering
 >> km = kmeans(X,10);
 >> % Spectral clustering
->> % (In GNU Octave the pdist function can fail for this dataset size)
+>> % (In Octave the pdist function can fail for this dataset size)
 >> sc = spclustNJW(X,10);
 \end{verbatim}
 
@@ -1546,7 +1546,7 @@ toolbox}
 %
 contains a large number of generic dimensionality reduction methods. At present we
 will use PCA, which is most widely used in practice
-and for which a built-in implementation is available in both MATLAB and GNU Octave.
+and for which a built-in implementation is available in both MATLAB and Octave.
 %
 The function {\tt pcacomp} in OPC takes as input a data matrix and a vector
 of integers that specifies which principal components should be returned.
@@ -1566,7 +1566,7 @@ components. This choice is made because for a $k$-means clustering
 >> kmPCA = kmeans(X*V,10);
 >>
 >> % (On this lower dimensional dataset the pdist function in
->> % GNU Octave can work even if it failed on the original dataset)
+>> % Octave can work even if it failed on the original dataset)
 >> scPCA = spclustNJW(X*V,10);
 >> % Assess performance
 >> cluster_performance(kmPCA, labels)
@@ -2185,7 +2185,7 @@ It is important to note
 that the initialisation of the projection pursuit algorithm in MCDC is performed by
 applying 2-means on the data (subset) and computing the vector that connects
 the cluster centroids. Since by default {\tt kmeans} in MATLAB
-and GNU Octave uses the {\it k}--means++ algorithm~\cite{ArthurV2007}, 
+and Octave uses the {\it k}--means++ algorithm~\cite{ArthurV2007}, 
 the output {\tt mcdc} can differ in consecutive executions with
 identical input parameters.
 
@@ -2742,7 +2742,7 @@ produced by any divisive hierarchical clustering algorithm in OPC.
 %
 For partitioning algorithms, visualisation is straightforward using the
 projection matrix, and the in-build function {\tt plot} and {\tt scatter} in
-MATLAB and GNU Octave. To modify the clustering model the
+MATLAB and Octave. To modify the clustering model the
 user can set the optional input arguments, as discussed in the previous
 section.
 %

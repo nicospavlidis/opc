@@ -33,7 +33,7 @@ not guaranteed to preserve the cluster structure.
 - **Partitioning clustering algorithms** 
 	- `ldakmeans` Linear Discriminant Analysis k-means
 		-  C. Ding and T. Li.
-		[Adaptive dimension reduction using discriminant analysis and k-means](http://users.cs.fiu.edu/~taoli/tenure/Ding-Li-ICML2007.pdf).
+		[Adaptive dimension reduction using discriminant analysis and k-means](https://icml.cc/imls/conferences/2007/proceedings/papers/521.pdf).
 		*Proceedings of the 24th International Conference on Machine Learning*, pages 521-528, 2007.
 
 	- `drsc` Dimension Reduction for Spectral Clustering
