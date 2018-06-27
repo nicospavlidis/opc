@@ -1,7 +1,6 @@
 OPC: Optimal Projections for Clustering
 =====================
 
-
 Author: Nicos G. Pavlidis
 E-mail: n(.)pavlidis(at)lancaster(.)ac(.)uk
 Date:     2018-06-07
