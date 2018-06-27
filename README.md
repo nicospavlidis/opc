@@ -128,7 +128,7 @@ on the [FIGTree GitHub repository](https://github.com/vmorariu/figtree).
    folder `DOWNLOAD-PATH/opc-master/src/libs/figtree-0.9.3/`. If this is modified you
    need to edit this script to provide the correct path)
 
-``` matlab
+```Matlab
 >> cd('DOWNLOAD-PATH/opc-master/')
 >> install
 ```
@@ -140,7 +140,7 @@ found at the extra packages for GNU Octave [repository](https://octave.sourcefor
 After each restart of MATLAB/ Octave it is necessary to add to the search path the root OPC
 directory and all its subdirectories.  This is performed by the `setpath.m` script.
 
-``` matlab
+```Matlab
 >> cd('DOWNLOAD-PATH/opc-master/')
 >> setpath
 ```
@@ -151,7 +151,7 @@ After installation you can execute the script `reproduction_script.m` (located i
 the root OPC directory) to reproduce all the examples in the documentation (`documentation/documentation.pdf`). 
 If this script exits without an error OPC is configured correctly.
 
-``` matlab
+```Matlab
 cd('DOWNLOAD-PATH/opc-master/')
 reproduction_script
 ```
