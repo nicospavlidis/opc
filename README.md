@@ -9,6 +9,9 @@ Date:     2018-06-07
 
 <br />
 
+### INTRODUCTION
+----------
+
 OPC is an open source MATLAB and GNU Octave package that implements clustering
 methods that seek the optimal low dimensional subspace to identify clusters.
 
