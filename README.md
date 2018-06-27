@@ -80,7 +80,7 @@ not guaranteed to preserve the cluster structure.
 	clustering framework (`gppdc`).
 		- M. Steinbach, G. Karypis, and V. Kumar.
 		[A comparison of document clustering techniques](http://glaros.dtc.umn.edu/gkhome/fetch/papers/docclusterKDDTMW00.pdf).
-		**Workshop on text mining, ACM SIGKDD International
+		*Workshop on text mining, ACM SIGKDD International
 		  Conference on Knowledge Discovery in Databases (KDD)*, pages 525--526, 2000.
 
 
