@@ -86,9 +86,9 @@ directory and all its subdirectories.  This is performed by the `setpath.m` scri
 
 #### TESTING
 
-After installation: The script `reproduction_script.m` 
-in the root OPC folder reproduces all the examples in the documentation. If this script
-exits without an error OPC is configured correctly.
+After installation you can execute the script `reproduction_script.m` (located in
+the root OPC directory) to reproduce all the examples in the documentation (`documentation/documentation.pdf`). 
+If this script exits without an error OPC is configured correctly.
 
 ``` matlab
 cd('DOWNLOAD-PATH/opc-master/')
