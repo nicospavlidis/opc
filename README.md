@@ -3,7 +3,7 @@ OPC: Optimal Projections for Clustering
 
 
 Author: Nicos G. Pavlidis
-E-mail: n(.)pavlidis(at)lancaster(.)ac(.)uk
+E-mail: n \_\_(DOT)\_\_pavlidis (at) lancaster \_\_(DOT)\_\_ ac \_\_ (DOT) \_\_ uk
 Date:     2018-06-07
 
 OPC is an open source MATLAB and GNU Octave package that implements clustering
@@ -99,15 +99,15 @@ More detailed instructions for installing OPC are provided in the file `document
 
 #### DOCUMENTATION
 
-* The file  `document/documentation.pdf` contains a detailed documentation of OPC
+* The file  `documentation/document.pdf` contains a detailed documentation of OPC
 including more detailed installation instructions, and a large number of
 examples that illustrate how to use and extend the code. The source TeX file and all the
-figures are also included in the `document/` directory.
+figures are also included in the `documentation/` directory.
 
 * An HTML function reference for OPC can be constructed using the
 [M2HTML](https://github.com/pdollar/toolbox/tree/master/external/m2html). For this
 purpose a custom template and a modified `m2html.m` script are provided in the
-folder `document/m2html_template`.
+folder `documentation/m2html_template`.
 
 * The script file `reproduction_script.m` located in the root OPC directory
 contains all the examples discussed in the documentation.
