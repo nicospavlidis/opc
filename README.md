@@ -174,10 +174,15 @@ folder `documentation/m2html_template`.
 contains all the examples discussed in the documentation.
 
 
-#### CONTACT
+#### CONTRIBUTING
 
-Please file bug reports at [github.com/nicospavlidis/opc](https://github.com/nicospavlidis/opc/).
-For any other questions, comments, or concerns, please contact [Nicos Pavlidis](http://www.lancaster.ac.uk/lums/people/nicos-pavlidis/)
+The preferred way to contribute to OPC is to fork the [main repository](https://github.com/nicospavlidis/opc)
+on GitHub. Detailed instructions are available through the online
+[Git documentation](https://git-scm.com/documentation). 
+
+
+
+Please use GitHub issues to file bug reports and feature requests. 
 
 #### LICENSE
 
