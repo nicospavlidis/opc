@@ -46,7 +46,7 @@ not guaranteed to preserve the cluster structure.
 		[Iterative discovery of multiple alternative clustering views](https://ieeexplore.ieee.org/document/6606788/).
 		*IEEE Transactions on Pattern Analysis and Machine Intelligence*, 36(7):1340--1353, 2014.
 
-- ** Divisive hierarchical clustering algorithms **
+- **Divisive hierarchical clustering algorithms**
 
 	- `pddp` Principal direction divisive partitioning
 		- D. Boley. [Principal direction divisive partitioning](https://link.springer.com/article/10.1023/A:1009740529316).
