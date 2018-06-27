@@ -33,8 +33,8 @@ not guaranteed to preserve the cluster structure.
 - **Partitioning clustering algorithms** 
 	- Linear Discriminant Analysis k-means:
 		C. Ding and T. Li.
-		"[Adaptive dimension reduction using discriminant analysis and k-means](http://users.cs.fiu.edu/~taoli/tenure/Ding-Li-ICML2007.pdf)".
-		Proceedings of the 24th International Conference on Machine Learning pages 521--528, 2007.
+		[Adaptive dimension reduction using discriminant analysis and k-means](http://users.cs.fiu.edu/~taoli/tenure/Ding-Li-ICML2007.pdf).
+		*Proceedings of the 24th International Conference on Machine Learning*, pages 521--528, 2007.
 
 
 
