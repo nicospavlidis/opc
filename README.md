@@ -38,9 +38,13 @@ not guaranteed to preserve the cluster structure.
 
 	- `drsc` Dimension Reduction for Spectral Clustering<br/>
 		- D. Niu, J. G. Dy, and M. I. Jordan.
-		[Dimensionality reduction for spectral clustering](http://proceedings.mlr.press/v15/niu11a/niu11a.pdf)
+		[Dimensionality reduction for spectral clustering](http://proceedings.mlr.press/v15/niu11a/niu11a.pdf).
 		*Proceedings of the 14th International Conference on Artificial Intelligence and Statistics*,
 		pages 552-560, 2011.
+
+		- D. Niu, J. G. Dy, and M. I. Jordan.
+		[Iterative discovery of multiple alternative clustering views](https://ieeexplore.ieee.org/document/6606788/).
+		*IEEE Transactions on Pattern Analysis and Machine Intelligence*, 36(7):1340--1353, 2014.
 
 
 
