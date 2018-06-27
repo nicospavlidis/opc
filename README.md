@@ -74,8 +74,7 @@ on the [FIGTree GitHub repository](https://github.com/vmorariu/figtree).
 * In GNU Octave you also need to install and load the optim and statistics packages, which can be
 found at the extra packages for GNU Octave [repository](https://octave.sourceforge.io/packages.php).
 
-Setting the path
-~~~~~~~~~~~~~~~~
+##### Setting the path
 
 After each restart of MATLAB/ Octave it is necessary to add to the search path the root OPC
 directory and all its subdirectories.  This is performed by the `setpath.m` script.
@@ -85,8 +84,7 @@ directory and all its subdirectories.  This is performed by the `setpath.m` scri
 >> setpath
 ```
 
-Testing
-~~~~~~~
+#### TESTING
 
 After installation: The script `reproduction_script.m` 
 in the root OPC folder reproduces all the examples in the documentation. If this script
