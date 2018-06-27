@@ -1,5 +1,5 @@
-OPC: Optimal Projections for Clustering library in MATLAB/Octave
-=====================
+## OPC: Optimal Projections for Clustering
+### An open source MATLAB and Octave library for Dimensionality Reduction for Clustering
 
 Author: Nicos G. Pavlidis<br\>
 E-mail: n(.)pavlidis(at)lancaster(.)ac(.)uk<br/>
