@@ -161,20 +161,20 @@ More detailed instructions for installing OPC are provided in the file `document
   contains detailed installation instructions and a large number of nontrivial
   examples that illustrate how to how to use and extend OPC. 
   <br>
-A PDF version of the documentation is also available in
+  A PDF version of the documentation is also available in
   `documentation/document.pdf`.  
   <!-- The source TeX file and all the figures are also
   included in the `documentation/` directory.-->
 
-* An online function reference constructed by the
-[M2HTML](https://github.com/pdollar/toolbox/tree/master/external/m2html)
-documentation system is available
-[here](http://www.lancaster.ac.uk/staff/pavlidin/software/opc/documentation/reference/index.html).
-In MATLAB a local copy of the HTML function reference can be constructed using the
-instructions in `documentation/document.pdf`.
+* An online function reference for OPC is available
+  [here](http://www.lancaster.ac.uk/staff/pavlidin/software/opc/documentation/reference/index.html).
+  To construct a local copy of the function reference using MATLAB see the
+  instructions in this
+  [section](http://www.lancaster.ac.uk/staff/pavlidin/software/opc/documentation/document/onlinedoc.html#SECTION00331000000000000000)
+  of the documentation.
 
 * The script file `reproduction_script.m` located in the root OPC directory
-contains all the examples discussed in the documentation.
+  contains all the examples discussed in the documentation.
 
 
 #### CONTRIBUTING
