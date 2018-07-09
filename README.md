@@ -157,10 +157,14 @@ More detailed instructions for installing OPC are provided in the file `document
 
 #### DOCUMENTATION
 
-* The file `documentation/document.pdf` contains a detailed documentation of OPC
-including more detailed installation instructions, and a large number of
-examples that illustrate how to use and extend the code. The source TeX file and all the
-figures are also included in the `documentation/` directory.
+* The [online documentation guide](http://www.lancaster.ac.uk/staff/pavlidin/software/opc/documentation/document/onlinedoc.html)
+  contains detailed installation instructions and a large number of nontrivial
+  examples that illustrate how to how to use and extend OPC. 
+  <br>
+A PDF version of the documentation is also available in
+  `documentation/document.pdf`.  
+  <!-- The source TeX file and all the figures are also
+  included in the `documentation/` directory.-->
 
 * An online function reference constructed by the
 [M2HTML](https://github.com/pdollar/toolbox/tree/master/external/m2html)
@@ -178,8 +182,6 @@ contains all the examples discussed in the documentation.
 The preferred way to contribute to OPC is to fork the [main repository](https://github.com/nicospavlidis/opc)
 on GitHub. Detailed instructions are available through the online
 [Git documentation](https://git-scm.com/documentation). 
-
-
 
 Please use GitHub issues to file bug reports and feature requests. 
 
