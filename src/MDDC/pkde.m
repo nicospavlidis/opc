@@ -4,7 +4,7 @@ function [f, fkde] = pkde(x, proj, h, alpha, eta, epsilon)
 %
 % Inputs:
 %	(X): location of split along the projected data
-%	(PROJ): Univariate projection of datase
+%	(PROJ): Univariate data projection
 %	(H): bandwidth parameter
 %	(ALPHA): range over which minimisers of 1D density are sought
 %	(ETA): Term in penalty function controlling maximum distance between minimisers of the
