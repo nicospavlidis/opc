@@ -7,7 +7,7 @@ function [idx,sol] = mch(X, varargin)
 %
 %  MCH returns a vector IDX containing the binary cluster assignment and a
 %  Maximum Clusterability Hyperplane (mchp) object SOL. (If S initial projection
-%  vectors are specified S nchp hyperplanes are returned: see v0 option)
+%  vectors are specified S maximum clusterability hyperplanes are returned: see 'v0')
 %
 %  SOL = MCH(X, 'PARAM1',val1, 'PARAM2',val2, ...) specifies optional parameters
 %  in the form of name/value pairs.
@@ -57,6 +57,12 @@ pars = myparser(X,2,varargin,pars);
 
 assert(~isa(pars.v0,'function_handle'), 'Initial projection vector/matrix cannot be defined as function handle');
 
+% If labels are not defined the parses renders this a vector of ones
+if max(pars.labels)==1,
+	pars.labels = [];
+end
+
+
 [N, dim] = size(X);
 
 if pars.verb >0,
@@ -76,6 +82,7 @@ for i = 1:size(v0,2),
 	[sol(i), idx(:,i)] = mcpp(X, pars, pars.labels, pars.colours);
 end
 
+% if only one mchp hyperplane is required
 if size(v0,2) == 1,
 	sol = sol(1);
 end

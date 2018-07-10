@@ -3,10 +3,13 @@ function out = mc_spindex(v, X, params, N)
 %OUT = MC_SPINDEX(V, X, PARAMS, N)
 %
 % Inputs:
-%	(V) Projection vector
-%	(X) Data matrix
-%	(PARAMS) Parameters structure used to extract minsize (minimum cluster size)
-%	(N) Total number of observations
+%	(V): Projection vector
+%	(X): Data matrix
+%	(PARAMS): Parameters structure used to extract minsize (minimum cluster size)
+%	(N): Total number of observations
+%
+% Output:
+%	(OUT): Splitting index
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

@@ -1,18 +1,18 @@
 function [optHP, idx, spindex] = mcpp(X, pars, labels, colours)
-% Maximum Clusterability Projection Pursuit (MDPP) algorithm
+%Maximum Clusterability Projection Pursuit (MCPP) algorithm
 %[OPTHP, IDX, SPINDEX] = MCPP(X, PARS, LABELS, COLOURS)
 %
-% Returns:
-%	(OPTHP) Maximum clusterability hyperplane (if more than one initial projection vectors
-%		are used then the one that maximises the splitting criterion pars.split_index())
-%	(IDX) Binary cluster assignment {-1,1}
-%	(SPINDEX) Value of splitting index criterion 
-%
 % Inputs:
-%	(X) N-by-D Data matrix
-%	(PARS) Structure containing all parameters of mddc() algorithm
-%	(LABELS) True clusters; used only for visualisation (optional)
-%	(COLOURS) Colormap matrix used only for visualisation (optional)
+%	(X): N-by-D Data matrix
+%	(PARS): Structure containing all parameters of mddc() algorithm
+%	(LABELS): True clusters; used only for visualisation (optional)
+%	(COLOURS): Colormap matrix used only for visualisation (optional)
+%
+% Output:
+%	(OPTHP): Maximum clusterability hyperplane (if more than one initial projection vectors
+%		are used then the one that maximises the splitting criterion pars.split_index())
+%	(IDX): Binary cluster assignment {-1,1}
+%	(SPINDEX): Value of splitting index criterion 
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

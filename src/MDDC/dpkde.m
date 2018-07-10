@@ -2,18 +2,18 @@ function [df, dkde] = dpkde(x, proj, h, alpha, eta, epsilon)
 %Penalised density on hyperplane: Projection index for MDH
 %[DF, DKDE] = DPKDE(X, PROJ, H, ALPHA, ETA, EPSILON)
 %
-% Returns: 
+% Inputs:
+%	(X): location of split along the projected data
+%	(PROJ): Univariate projection of dataset (X*v)
+%	(H): bandwidth parameter
+%	(ALPHA): range over which minimisers of 1D density are sought
+%	(ETA): Term in penalty function controlling maximum distance between minimisers of the
+%		kde and the penalised density integral (recommended value: 0.01)
+%	(EPSILON): Term in penalty function controlling smoothness (recommended value: 1)
+%
+% Output: 
 %	(DF): derivative of one-dimensional penalised density on hyperplane w.r.t. split point (x)
 %	(DKDE): derivative of one-dimensional kernel density estimator w.r.t. split point (x)
-%
-% Inputs:
-%	(X) location of split along the projected data
-%	(PROJ) Univariate projection of dataset (X*v)
-%	(H) bandwidth parameter
-%	(ALPHA) range over which minimisers of 1D density are sought
-%	(ETA) Term in penalty function controlling maximum distance between minimisers of the
-%		kde and the penalised density integral (recommended value: 0.01)
-%	(EPSILON) Term in penalty function controlling smoothness (recommended value: 1)
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

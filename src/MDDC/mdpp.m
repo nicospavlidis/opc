@@ -2,17 +2,18 @@ function [optHP, idx, spindex] = mdpp(Data, pars, labels, colours)
 %Minimum Density Projection Pursuit (MDPP) algorithm
 %[OPTHP, IDX, SPINDEX] = MDPP(X, PARS, LABELS, COLOURS)
 %
-% Returns:
-%	(OPTHP) Minimum density hyperplane (if more than one initial projection vectors
-%		are used then the one that maximises the splitting criterion pars.split_index())
-%	(IDX) Binary cluster assignment {-1,1}
-%	(SPINDEX) Value of splitting index criterion 
-%
 % Inputs:
-%	(X) Data matrix
-%	(PARS) Structure containing all parameters of mddc() algorithm
-%	(LABELS) True clusters; used only for visualisation (optional)
-%	(COLOURS) Colormap matrix used only for visualisation (optional)
+%	(X): Data matrix
+%	(PARS): Structure containing all parameters of mddc() algorithm
+%	(LABELS): True clusters; used only for visualisation (optional)
+%	(COLOURS): Colormap matrix used only for visualisation (optional)
+%
+% Output:
+%	(OPTHP): Minimum density hyperplane (if more than one initial projection vectors
+%		are used then the one that maximises the splitting criterion pars.split_index())
+%	(IDX): Binary cluster assignment {-1,1}
+%	(SPINDEX): Value of splitting index criterion 
+%
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

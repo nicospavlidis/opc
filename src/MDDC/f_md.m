@@ -2,17 +2,16 @@ function [fmin, bmin, df, dkde] = f_md(v,X,pars)
 %Penalised density of optimal hyperplane with normal vector (V)
 %[FVAL, SPLIT, DF, DKDE] = F_MD(V,X,PARS)
 %
-% Returns: 
-%	(FVAL) penalised density integral for optimal hyperplane orthogonal to (v)
-%	(SPLIT) optimal split point on (v) after (v) is scaled to unit-length
-%	(DF) derivative of penalised density integral at (split)
-%	(DKDE) derivative of 1D kernel density estimator at (split)	
 % Inputs:
-%	(V) Projection vector
-%	(X) Data matrix
-%	(PARS) Structure array containing MDH parameters (alpha, eta, epsilon,h)
+%	(V): Projection vector
+%	(X): Data matrix
+%	(PARS): Structure array containing MDH parameters (alpha, eta, epsilon,h)
 %
-% Used by MATLAB optimisation algorithm
+% Output: 
+%	(FVAL): penalised density integral for optimal hyperplane orthogonal to (v)
+%	(SPLIT): optimal split point on (v) after (v) is scaled to unit-length
+%	(DF): derivative of penalised density integral at (split)
+%	(DKDE): derivative of 1D kernel density estimator at (split)	
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

@@ -3,16 +3,16 @@ function [f, df] = f_df_drsc(Data, W, sigma, U, degs)
 %[F, DF] = F_DF_DRSC(DATA, W, SIGMA, U, DEGS)
 %
 % Inputs:
-%	(Data): N-by-D data matrix
+%	(DATA): N-by-D data matrix
 %	(W): Projection matrix
-%	(sigma): scale parameter for Gaussian kernel used to 
+%	(SIGMA): scale parameter for Gaussian kernel used to 
 %		estimate similarity matrix (K)
 %	(U): First (K) eigenvectors of D^{-1/2} *K*D^{-1/2}
-%	(degs): Vector of degrees of each vertex: D = diag(degs)
+%	(DEGS): Vector of degrees of each vertex: D = diag(degs)
 %
-% Outputs:
-%	(f) Function value
-%	(df) Derivative
+% Output:
+%	(F): Function value
+%	(DF): Derivative
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

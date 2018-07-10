@@ -2,14 +2,14 @@ function [f, bmin] = f_mc(v,X,minsize)
 %Variance ratio clusterability and split point along unit-length (v)
 %[F, BMIN] = F_MC(V,X,MINSIZE)
 %
-% Returns:
-%	(F) Variance Ratio Clusterability of projected dataset X*v
-% 	(BMIN) Optimal split point along unit-length vector (v./norm(v,2))
-%
 % Inputs:
-%	(V) Projection vector
-%	(X) N-by-D data matrix
-%	(MINSIZE): minimum cluster size
+%	(V): Projection vector
+%	(X): N-by-D data matrix
+%	(MINSIZE): Minimum cluster size
+%
+% Output:
+%	(F): Variance Ratio Clusterability of projected dataset X*(V./norm(V,2))
+%	(BMIN): Optimal split point along unit-length vector (V./norm(V,2))
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

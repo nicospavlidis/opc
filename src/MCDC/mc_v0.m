@@ -3,10 +3,10 @@ function v = mc_v0(X)
 %V = MC_V0(X)
 % 
 % Input:
-%	(X) Data matrix
+%	(X): Data matrix
 %
 % Output:
-%	(V) Vector connecting the centroids of 2-means applied on (X)
+%	(V): Unit-length vector connecting the centroids of 2-means applied on (X)
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

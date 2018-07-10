@@ -1,16 +1,15 @@
 function [f,df] = f_df_md(v,X, pars)
-%Function value and derivative for penalised density (MDH projection index)
+%Function value and derivative for penalised density 
 %[F,DF] = F_DF_MD(V,X, PARS)
 %
-% Returns: 
-%	(F) the value of projection index for MDH 
-%	(DF) derivative of projection index w.r.t. projection vector (v)
 % Inputs:
-%	(V) Projection vector
-%	(X) Data matrix
-%	(PARS) Structure array containing all parameters of MDH algorithm
+%	(V): Projection vector
+%	(X): Data matrix
+%	(PARS): Structure array containing all parameters of MDH algorithm
 %
-% Used by MATLAB optimisation algorithm
+% Output: 
+%	(F): the value of projection index for MDH 
+%	(DF): derivative of projection index w.r.t. projection vector (v)
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

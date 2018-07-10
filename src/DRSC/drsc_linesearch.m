@@ -1,22 +1,22 @@
-function step = drsc_linesearch(Data, W, alphamax, f, grad, sigma, U, degs)
+function step = drsc_linesearch(Data, W, max_step, f, grad, sigma, U, degs)
 %Line search subroutine to determine stepsize for gradient ascent performed by DRSC
-%STEP = LINESEARCH((DATA, W, MAX_STEP, F, GRAD, SIGMA, U, DEGS)
+%STEP = DRSC_LINESEARCH(DATA, W, MAX_STEP, F, GRAD, SIGMA, U, DEGS)
 %
 %Line-search for gradient ascent within DRSC satisfying only first Wolfe condition 
 %(using both takes excessively long)
 %
 % Inputs:
-%	(Data): N-by-D data matris
+%	(DATA): N-by-D data matris
 %	(W): 	Projection matrix (ascent is performed w.r.t. last column of W)
-%	(max_step): Maximum stepszie	
-%	(f):	Function value at current poit
-%	(grad):	Gradient at current point
-%	(sigma): Scale parameter for Gaussian kernel (used to estimate similarity matrix)
+%	(MAX_STEP): Maximum stepszie	
+%	(F):	Function value at current poit
+%	(GRAD):	Gradient at current point
+%	(SIGMA): Scale parameter for Gaussian kernel (used to estimate similarity matrix)
 %	(U):	Top K eigenvectors of D^{-1/2} *K*D^{-1/2}
-%	(degs): Vector of degrees of each vertex: D = diag(degs)
+%	(DEGS): Vector of degrees of each vertex: D = diag(degs)
 %
 % Output:
-%	(step): Stepsize satisfying 1st Wolfe condition
+%	(STEP): Stepsize satisfying 1st Wolfe condition
 %		(Returns 0 if no such stepsize is found)
 
 %-------------------------------------------------------------------------------------

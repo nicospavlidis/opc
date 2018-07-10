@@ -2,15 +2,15 @@ function [f, df, split] = f_df_mc(v,X,minsize)
 %Function value, derivative, and split point along projection vector of variance ratio clusterability projection index
 %[F, DF, SPLIT] = F_DF_MC(V,X,PARS)
 %
-% Returns: 
-%	(F) Variance Ratio Clusterability projection index
-%	(DF) Derivative of (f) w.r.t. projection vector (v)
-%	(SPLIT) split point along (v)
-%
 % Inputs:
-%	(V) Projection vector
-%	(X) N-by-D Data matrix
-%	(MINSIZE) minimum cluster size
+%	(V): Projection vector
+%	(X): N-by-D Data matrix
+%	(MINSIZE): minimum cluster size
+%
+% Output: 
+%	(F): Variance Ratio Clusterability projection index
+%	(DF): Derivative of (f) w.r.t. projection vector (v)
+%	(SPLIT): split point along (v)
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018
