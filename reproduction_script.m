@@ -1,4 +1,4 @@
-addpath(genpath(pwd));
+setpath;
 
 % Load optiditigs dataset: X := data matrix, labels := true cluster assignment                                     
 load('datasets/optidigits.mat');
@@ -7,7 +7,7 @@ load('datasets/optidigits.mat');
 rng(987)
 % Standard clustering 
 km_clust = kmeans(X,10);
-sp_clust = spclustNJW(X,10);
+sp_clust = spclust(X,10);
 
 fprintf('Performance of k-means\n');
 cluster_performance(km_clust,labels)
@@ -22,7 +22,7 @@ kmPCA = kmeans(X*V,10);
 fprintf('k-means on data projected onto first 9 PCs\n');
 cluster_performance(kmPCA,labels)
 
-scPCA = spclustNJW(X*V,10);
+scPCA = spclust(X*V,10);
 fprintf('normalised spectral clustering on data projected onto first 9 PCs\n');
 cluster_performance(scPCA,labels)
 
@@ -35,7 +35,7 @@ kmPCA = kmeans(X*V,10);
 fprintf('k-means on data projected onto first 33 PCs\n');
 cluster_performance(kmPCA,labels)
 
-scPCA = spclustNJW(X*V,10);
+scPCA = spclust(X*V,10);
 fprintf('normalised spectral clustering on data projected onto first 33 PCs\n');
 cluster_performance(scPCA,labels)
 

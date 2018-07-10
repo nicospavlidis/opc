@@ -44,7 +44,7 @@ methods
 				labels = [];
 			end
 		end
-		if isempty(labels),
+		if isempty(labels) || (max(labels)==1 && size(colours,1)>1),
 			defLabels = false;
 		end
 		[data,labels,nc,idx,X,v,w,colours] = preprocess(obj,data,labels,colours);

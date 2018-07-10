@@ -49,7 +49,7 @@ methods
 				labels = [];
 			end
 		end
-		if isempty(labels),
+		if isempty(labels) || (max(labels)==1 && size(colours,1)==2),
 			defLabels = false;
 		end
 		% Data preprocessing
