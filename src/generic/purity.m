@@ -5,6 +5,9 @@ function out = purity(clusters, trueLabels)
 % Inputs:
 %	(CLUSTERS): Estimated cluster assignment
 %	(TRUELABELS): True cluster assignment
+%
+% Output:
+%	(OUT): Purity
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

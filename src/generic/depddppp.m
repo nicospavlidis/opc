@@ -6,7 +6,7 @@ function [v, fval, idx] = depddppp(X, pars)
 %	(X): N-by-D data matrix
 %	(PARS): Parameter structure containing algorithm parameters
 %
-% Outputs:
+% Output:
 %	(V): Projection vector: 1st Principal Component of X
 %	(FVAL): Function of KDE at split point
 %	(IDX): Binary cluster assignment

@@ -2,11 +2,11 @@ function idx = tree2clusters(T)
 %Assigns cluster labels from a cluster hierarchy (ctree object) 
 %IDX = TREE2CLUSTERS(T)
 %
-% Output:
-%	(IDX): Cluster assignment vector
-%
 % Input:
 %	(T): ctree object
+%
+% Output:
+%	(IDX): Cluster assignment vector
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

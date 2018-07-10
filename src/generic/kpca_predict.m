@@ -7,6 +7,7 @@ function predict = kpca_predict(K,Knew,pcv)
 %	(KNEW): Kernel matrix of inner products (in feature space) between observations that 
 %		are to be predicted and observations that gave rise to (K)
 %	(PCV): Principal components vectors of (K) as estimated through KPCA
+%
 % Output:
 %	(PREDICT): Projection of feature vectors in (KNEW) onto (PCV)
 %

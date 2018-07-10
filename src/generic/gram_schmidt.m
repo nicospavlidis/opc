@@ -2,11 +2,12 @@ function v = gram_schmidt(v,W)
 %Gram-Schmidt orthonormalisation of vector (V) with respect to columns of (W)
 %V = GRAM_SCHMIDT(V,W)
 %
-% Returns:
-%	(V): Vector orthonormal to each column in (W)
 % Inputs:
 %	(V): D-by-1 vector 
 %	(W): D-by-N Matrix whose columns are orthonormal vectors
+%
+% Output:
+%	(V): Vector orthonormal to each column in (W)
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

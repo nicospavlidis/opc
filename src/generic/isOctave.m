@@ -1,5 +1,5 @@
 function flag = isOctave()
-%Determines whether the environment is GNU Octave (returns TRUE) or MATLAB
+%Determines whether the environment is GNU Octave (returns TRUE) or MATLAB (returns FALSE)
 %FLAG = ISOCTAVE()
 
 %-------------------------------------------------------------------------------------

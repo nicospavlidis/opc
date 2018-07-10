@@ -5,6 +5,9 @@ function Data = normalise(Data, standard);
 % Inputs:
 %	(DATA): N-by-D data matrix (observations stored row-wise)
 %	(STANDARD): If (STANDARD)=1, then variables are standardised. Default = 0
+%
+% Output:
+%	(DATA): N-by-D data matrix
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

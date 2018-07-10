@@ -3,7 +3,7 @@ function T = mycrosstab(x,y)
 %T = MYCROSSTAB(X,Y)
 %
 % Included for compatibility with GNU Octave 
-% (crosstab function currently not implemented in statistics package)
+% (crosstab function currently not implemented in Octave statistics package)
 % In MATLAB: mycrosstab(x,y) = crosstab(x,y)
 %
 % Vectors (X) and (Y) must be of the same length

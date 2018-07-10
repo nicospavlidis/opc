@@ -2,7 +2,7 @@ function out = ifelse(a,b,c)
 %Shorthand for ternary operator: if-then-else
 %OUT = IFELSE(A,B,C)
 %
-% Ternary operator like the one in R
+% Ternary operator for MATLAB like the one in GNU Octave
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

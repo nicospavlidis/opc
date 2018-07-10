@@ -2,14 +2,14 @@ function [coeff,score,latent] = pcacomp(X,index)
 %Returns the principal components of (X) specified in vector (index)
 %[COEFF,SCORE,LATENT] = PCACOMP(X,INDEX)
 %
-% Returns:
-%	(COEFF):  [pca(X,'NumComponents',index(1)), pca(X,'NumComponents',index(2)), ... ]
-%	(SCORE):  Representation of X in the principal component space
-%	(LATENT): Eigenvalues of COV(X'*X)
-%
 % Inputs:
 %	(X): Data matrix
 %	(INDEX): Vector containing indices of principal component vectors required
+%
+% Output:
+%	(COEFF):  [pca(X,'NumComponents',index(1)), pca(X,'NumComponents',index(2)), ... ]
+%	(SCORE):  Representation of X in the principal component space
+%	(LATENT): Eigenvalues of COV(X'*X)
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

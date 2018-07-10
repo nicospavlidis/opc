@@ -2,12 +2,12 @@ function clEval = cluster_performance(clusters, trueLabels)
 %Returns structure containing: Purity, Adjusted Rand Index, Normalised Mutual Information and V-measure
 %CLEVAL = CLUSTER_PERFORMANCE(CLUSTERS, TRUELABELS)
 %
-% Returns:
-%	(CLEVAL): Structured array containing performance measures
-%
 % Inputs:
 %	(CLUSTERS): Estimated cluster assignment
 %	(TRUELABELS): True cluster assignment
+%
+% Output:
+%	(CLEVAL): Structured array containing performance measures
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

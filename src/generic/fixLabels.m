@@ -2,11 +2,11 @@ function L = fixLabels(labels)
 %Enforces cluster labels to be in the range 1:K
 %L = FIXLABELS(LABELS)
 %
-% Returns:
-%	(L): New label vector
-%
 % Input:
-%	(LABELS): Original labels
+%	(LABELS): Cluster assignment
+%
+% Output:
+%	(L): New label vector \in {1,...,K}^N
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

@@ -2,14 +2,6 @@ function [optS, idx, spindex] = gpp(X, ppf, pars)
 %Generic Projection Pursuit 
 %[OPTS, IDX, SPINDEX] = GPP(X, PPF, CLF, PARS)
 %
-% Returns:
-%	(OPTS): Binary separator object of class GSEP
-%	(IDX): Binary assignment vector in {-1,1}
-%	(SPINDEX): Split index. By default equal to projection index (FVAL)
-%		If PARS.SPLIT_INDEX is empty SPINDEX=FVAL
-%		otherwise (SPINDEX) is calculated from the user-defined 
-%		function (PARS.SPLIT_INDEX(V,X,PARS))
-%
 % Inputs:
 %	(X): Data matrix
 %	(PPF): Function handle to projection pursuit function of the form:
@@ -17,6 +9,14 @@ function [optS, idx, spindex] = gpp(X, ppf, pars)
 %		(FVAL) is the projection index
 %	(CLF): Binary Cluster assignment function of the form:
 %		CLUSTERS = F(V,X,PARS), where (clusters) is in {1,2}
+%
+% Output:
+%	(OPTS): Binary separator object of class GSEP
+%	(IDX): Binary assignment vector in {-1,1}
+%	(SPINDEX): Split index. By default equal to projection index (FVAL)
+%		If PARS.SPLIT_INDEX is empty SPINDEX=FVAL
+%		otherwise (SPINDEX) is calculated from the user-defined 
+%		function (PARS.SPLIT_INDEX(V,X,PARS))
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

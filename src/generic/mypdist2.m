@@ -1,5 +1,5 @@
 function out = mypdist2(x,y)
-%Computes Euclidean pairwise distances between observations (row vectors) in X and Y
+%Computes pairwise Euclidean distances between observations (row vectors) in X and Y
 %OUT = MYPDIST2(X,Y)
 %
 % Included for compatibility with GNU Octave

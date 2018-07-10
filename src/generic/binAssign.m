@@ -1,14 +1,14 @@
 function out = binAssign(labels, clusters)
-%Assigns true cluster labels (labels) of each observation to the binary partition (clusters = {1,2}^n) that contains the majority of its observations
+%Assigns true cluster label (labels) of each observation to the element of the binary partition (clusters = {1,2}^n) that contains the majority of its observations
 %OUT = BINASSIGN(LABELS, CLUSTERS)
-%
-% Returns:
-%	(OUT): Assignment of each observation to cluster containing 
-%		majority of observations of its true label
 %
 % Inputs: 
 %	(LABELS): Vector of true cluster labels
 %	(CLUSTERS): Binary assignment of observations
+%
+% Output:
+%	(OUT): Assignment of each observation to cluster containing 
+%		majority of observations of its true label
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

@@ -5,6 +5,9 @@ function tsc = total_scatter(X)
 % Inputs:
 %	(X): Data matrix
 %
+% Output:
+%	(TSC): Total scatter
+%
 %Reference:
 %D. Boley. Principal Direction Divisive Partitioning. Data Mining and Knowledge Discovery, 2(4):325-344, 1998.
 

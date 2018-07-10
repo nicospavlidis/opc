@@ -2,14 +2,14 @@ function pars = myparser(X,K,args,defp)
 %Function used to parse optional arguments in form of Name,Value pairs for a number of OPC algorithms
 %PARS = MYPARSER(X,K,ARGS,DEFP)
 %
-% Returns:
-%	(PARS): Structured array containing optional user-specified parameters 
-%
 % Inputs:
 %	(X): N-by-D data matrix
 %	(K): Number of clusters
 %	(ARGS): Optional arguments
 %	(DEFP): Structured array containing default parameters
+%
+% Output:
+%	(PARS): Structured array containing optional user-specified parameters 
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

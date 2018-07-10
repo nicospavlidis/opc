@@ -2,13 +2,13 @@ function str = contentToString(sp)
 %Function used to print ctree Node to terminal
 %STR = CONTENTTOSTRING(SP)
 %
-% Returns:
-%	(STR): String description of Node
-%
 % Inputs:
 %	(SP): Node from ctree object
 %
-%  Based on MATLAB tree-class: Jean-Yves Tinevez <tinevez@pasteur.fr> March 2012
+% Output:
+%	(STR): String description of Node
+%
+%  Based on MATLAB tree class function orinally created by Jean-Yves Tinevez <tinevez@pasteur.fr> March 2012
 %  Modified by: Nicos Pavlidis 2018
 
 	str = sprintf('(%i) n:%i', sp.tree_params.nodeid, length(sp.idx));

@@ -2,12 +2,12 @@ function out = palette(nc,colours)
 %Determines colours used for visualisation
 %OUT = PALETTE(NC,COLOURS)
 %
-% Returns:
-%	(OUT): Matrix of RGB colours
-%
 % Inputs:
 %	(NC): Number of clusters (if NC=1 it assumed that true clusters are unknown)
 %	(COLOURS): Matrix of colours (optional argument)
+%
+% Output:
+%	(OUT): Matrix of RGB colours
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

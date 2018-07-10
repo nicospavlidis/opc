@@ -1,6 +1,6 @@
-function [idx,sumD,U,deg] = spclustNJW(X,K,varargin)
+function [idx,sumD,U,deg] = spclust(X,K,varargin)
 %Spectral Clustering algorithm by Ng, Jordan and West (NIPS 2001)
-%[IDX,SUMD,DEG] = SPCLUSTNJW(X,K,VARARGIN)
+%[IDX,SUMD,DEG] = SPCLUST(X,K,VARARGIN)
 %
 % Returns:
 %	(IDX): Cluster assignment vector

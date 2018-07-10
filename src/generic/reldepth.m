@@ -10,6 +10,11 @@ function out = reldepth(v, X, pars)
 %
 % Output:
 %	(OUT): Relative depth 
+%
+%Reference:
+%N.G. Pavlidis, D.P. Hofmeyr and S.K. Tasoulis. Minimum density hyperplanes.
+%Journal of Machine Learning Research, 17(156):1-33, 2016.
+%http://jmlr.org/papers/v17/15-307.html.
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

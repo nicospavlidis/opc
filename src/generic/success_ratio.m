@@ -6,6 +6,9 @@ function out = success_ratio(clusters, trueLabels)
 %	(CLUSTERS): Estimated binary partition
 %	(TRUELABELS): True cluster assignment
 %
+% Output:
+%	(OUT): Success ratio
+%
 %Reference:
 %Pavlidis N.G., Hofmeyr D.P., Tasoulis S.K. (2016) Minimum Density Hyperplanes. 
 %Journal of Machine Learning Research, 17(156), 1–33.
