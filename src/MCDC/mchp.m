@@ -68,7 +68,7 @@ methods
 		if defLabels,
 			% ensure reproducibility of colours
 			M = sparse(1:size(X,1), labels, 1);
-			scatter(X(:,1), X(:,2),[],M*colours);
+			scatter(X(:,1), X(:,2),14,M*colours);
 			%l = unique(labels);
 			%for i=1:length(l),
 			%	plot(hFig, X(labels==l(i),1), X(labels==l(i),2),'bo', ...
@@ -77,7 +77,7 @@ methods
 		else
 			right = 1 + (X(:,1) > obj.b);
 			M = sparse(1:size(X,1), right, 1);
-			scatter(X(:,1), X(:,2),[],M*colours(1:2,:));
+			scatter(X(:,1), X(:,2),14,M*colours(1:2,:));
 			%left = (X(:,1) <= obj.b);
 			%plot(hFig, X( left,1), X( left,2), 'bo','MarkerSize',3, 'Color',colours(1,:));
 			%plot(hFig, X(~left,1), X(~left,2), 'bo','MarkerSize',3, 'Color',colours(2,:));
