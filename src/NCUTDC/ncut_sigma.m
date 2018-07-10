@@ -2,11 +2,12 @@ function s = ncut_sigma(X,smult)
 %Default scaling parameter employed by Gaussian kernel in minimum normalised cut projection pursuit
 %S = NCUT_SIGMA(X,SMULT)
 %
-% Returns:
-%	(S): Value of default scaling parameter for NCUTPP
 % Input:
 % 	(X): Data matrix
 % 	(SMULT): Multiplier (recommended value 100)
+%
+% Output:
+%	(S): Default scaling parameter for NCUTPP
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

@@ -2,17 +2,17 @@ function [f,bmin,idx] = f_ncut(v, Data, pars)
 %Function value, split point, and cluster assignment for minimum normalised cut projection index
 %[F,BMIN,IDX] = F_NCUT(V, DATA, PARS)
 %
-% Returns: 
-%	(F): Value of normalised cut for DATA*(V./norm(V,2))
-%	(BMIN): Optimal split point along unit-length vector (V./norm(V,2))
-%	(IDX): Resulting binary assignment 
-%
 % Inputs:
 % 	(V): Projection vector
 %	(DATA): Data matrix
 %	(PARS): parameter struct containing 
 %		minsize: minimum cluster size and
 %		sigma: Scaling parameter for Laplace kernel
+%
+% Output: 
+%	(F): Value of normalised cut for DATA*(V./norm(V,2))
+%	(BMIN): Optimal split point along unit-length vector (V./norm(V,2))
+%	(IDX): Resulting binary assignment 
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

@@ -36,6 +36,10 @@ function [idx,sol] = ncuth(X, varargin)
 %
 %  'colours' - Matrix containing colour specification for observations in different clusters
 %	Number of rows must be equal to the number of true clusters (if 'labels' has been specified) or equal to 2.
+%
+%Reference:
+%D.P. Hofmeyr. Clustering by Minimum Cut Hyperplanes.
+%IEEE Transactions on Pattern Analysis and Machine Intelligence, 39(8):1547-1560, 2017.
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018
@@ -59,9 +63,13 @@ pars.labels = [];
 pars.colours = [];
 
 pars = myparser(X,2,varargin,pars);
+
 assert(~isa(pars.v0,'function_handle'), 'Initial projection vector/matrix cannot be defined as function handle');
 assert(~isa(pars.sigma,'function_handle'), 'Scaling parameter (sigma) must be a scalar, not a function handle');
 
+if max(pars.labels)==1,
+	pars.labels=[];
+end
 
 if pars.verb >0,
 	fprintf('\nPARAMETER VALUES:\n');

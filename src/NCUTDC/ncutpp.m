@@ -2,17 +2,17 @@ function [optHP, idx, spindex] = ncutpp(Data, pars, labels, colours)
 %Minimum normalised cut projection pursuit
 %[OPTHP, IDX, SPINDEX] = NCUTPP(X, PARS, LABELS, COLOURS)
 %
-% Returns:
-%	(OPTHP): Minimum normalised cut hyperplane (if more than one initial projection vectors
-%		are used then the one that maximises the splitting criterion pars.split_index())
-%	(IDX): Binary cluster assignment {-1,1}
-%	(SPINDEX): Value of splitting index criterion 
-%
 % Inputs:
 %	(X): Data matrix
 %	(PARS): Structure containing all parameters of ncutdc() algorithm
 %	(LABELS): True clusters; only used for visualisation (optional)
 %	(COLOURS): Colormap matrix: only used for visualisation (optional)
+%
+% Output:
+%	(OPTHP): Minimum normalised cut hyperplane (if more than one initial projection vectors
+%		are used then the one that maximises the splitting criterion pars.split_index())
+%	(IDX): Binary cluster assignment {-1,1}
+%	(SPINDEX): Value of splitting index criterion 
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

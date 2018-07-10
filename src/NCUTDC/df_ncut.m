@@ -2,15 +2,15 @@ function out = df_ncut(v,X,pars)
 %Derivative of minimum normalised cut projection index with respect to projection vector
 %DF = DF_NCUT(V,X,PARS)
 %
-% Returns: 
-%	(DF): derivative of Normalised Cut projection index
-%
 % Inputs:
 %	(V): projection vector
 %	(X): N-by-D Data matrix
 %	(PARS): parameter struct containing 
 %		(minsize): minimum cluster size and
 %		(sigma) Scaling parameter for Laplace kernel
+%
+% Output: 
+%	(DF): derivative of Normalised Cut projection index
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

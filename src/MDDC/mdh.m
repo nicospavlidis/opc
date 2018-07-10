@@ -49,7 +49,7 @@ function [idx,sol] = mdh(X, varargin)
 %
 %Reference:
 %N.G. Pavlidis, D.P. Hofmeyr and S.K. Tasoulis. Minimum density hyperplanes.
-%Journal of Machine Learning Research, 17(156):1–33, 2016.
+%Journal of Machine Learning Research, 17(156):1-33, 2016.
 %http://jmlr.org/papers/v17/15-307.html.
 
 %-------------------------------------------------------------------------------------

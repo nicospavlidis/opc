@@ -73,15 +73,20 @@ methods
 		hold on;
 		if defLabels,
 			% ensure reproducibility of colours
-			l = unique(labels);
-			for i=1:length(l),
-				plot(hFig, X(labels==l(i),1), X(labels==l(i),2),'bo','MarkerSize',3, ...
-					'Color', colours(l(i),:));
-			end
+			M = sparse(1:size(X,1), labels, 1);
+			scatter(X(:,1), X(:,2),14,M*colours);
+			%l = unique(labels);
+			%for i=1:length(l),
+			%	plot(hFig, X(labels==l(i),1), X(labels==l(i),2),'bo','MarkerSize',3, ...
+			%		'Color', colours(l(i),:));
+			%end
 		else
-			left = (X(:,1) <= obj.b);
-			plot(hFig, X( left,1), X( left,2), 'bo','MarkerSize',3, 'Color',colours(1,:));
-			plot(hFig, X(~left,1), X(~left,2), 'bo','MarkerSize',3, 'Color',colours(2,:));
+			right = 1 + (X(:,1) > obj.b);
+			M = sparse(1:size(X,1), right, 1);
+			scatter(X(:,1), X(:,2),14,M*colours(1:2,:));
+			%left = (X(:,1) <= obj.b);
+			%plot(hFig, X( left,1), X( left,2), 'bo','MarkerSize',3, 'Color',colours(1,:));
+			%plot(hFig, X(~left,1), X(~left,2), 'bo','MarkerSize',3, 'Color',colours(2,:));
 		end
 		y = linspace(min(X(:,1)), max(X(:,1)), 100)';
 		axis([ y(1), y(end), min(X(:,2)), max(X(:,2))]);
