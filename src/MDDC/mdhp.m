@@ -85,7 +85,7 @@ methods
 
 		% estimate relative depth
 		if isempty(obj.rel_dep),
-			obj.rel_dep = md_reldepth(v, X(:,1), obj.params);
+			obj.rel_dep = reldepth(v, X(:,1), obj.params);
 		end
 		dp = obj.rel_dep;
 

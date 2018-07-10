@@ -252,7 +252,7 @@ case 'iter'
 	proj = Data*x;
 	[fmin, bmin, ~, kdeGrad] = f_md(x,Data,pars);
 	bmin = bmin(1);
-	dp = md_reldepth(x, proj, pars);
+	dp = reldepth(x, proj, pars);
 	if (abs(kdeGrad)<1.0e-6) && (dp>0) && (min(sum(proj<=bmin), sum(proj>bmin)) >= pars.minsize),
 		bestX = x;
 		bestA = pars.alpha;

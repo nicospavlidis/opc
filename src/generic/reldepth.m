@@ -1,14 +1,15 @@
 function out = md_reldepth(v, X, pars)
 %Relative Depth
-%OUT = MD_RELDEPTH(V, X, PARS)
+%OUT = RELDEPTH(V, X, PARS)
 % 
-% Returns:
-%	(OUT) Relative depth 
 % Inputs:
-%	(V) Projection vector
-%	(X) Data matrix (if X is a column vector then it is assumed that 
+%	(V): Projection vector
+%	(X): Data matrix (if X is a column vector then it is assumed that 
 %		it is the projected dataset: Data*v)
-%	(PARS) Structure array that contains (bandwidth) and optionally range (alpha)
+%	(PARS): Structure array that contains (bandwidth) and optionally range (alpha)
+%
+% Output:
+%	(OUT): Relative depth 
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018
