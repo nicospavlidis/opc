@@ -68,6 +68,11 @@ function [idx,t] = scppdc(X, K, varargin)
 %D.P. Hofmeyr, N.G. Pavlidis, and I.A. Eckley. Minimum spectral connectivity projection pursuit. 
 %Statistics and Computing, forthcoming.
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 % Set all parameter values to defaults
 pars = schp.def_opar();
 pars.minsize = floor(size(X,1)/(5*K));

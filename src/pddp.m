@@ -31,6 +31,11 @@ function [idx,t] = pddp(X,K, varargin)
 %Reference:
 %D. Boley. Principal Direction Divisive Partitioning. Data Mining and Knowledge Discovery, 2(4):325-344, 1998.
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 % Set default parameters
 pars = struct();
 pars.minsize = 1;

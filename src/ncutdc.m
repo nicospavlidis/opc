@@ -52,6 +52,11 @@ function [idx,t] = ncutdc(X, K, varargin)
 %D.P. Hofmeyr. Clustering by minimum cut hyperplanes. IEEE Transactions on Pattern
 %Analysis and Machine Intelligence, 39(8):1547–1560, 2017.
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 % Set default parameters
 pars = struct();
 pars.v0 = @(x,p)(pcacomp(x,1));

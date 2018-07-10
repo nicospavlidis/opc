@@ -37,6 +37,10 @@ function [idx,t] = depddp(X, K, varargin)
 %S.K. Tasoulis, D.K. Tasoulis and V.P. Plagianakos. Enhancing principal direction divisive clustering.
 %Pattern Recognition, 43(10):3391-3411, 2010.
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
 
 if nargin==1,
 	K = size(X,1);

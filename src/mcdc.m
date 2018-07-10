@@ -49,6 +49,11 @@ function [idx,t] = mcdc(X, K, varargin)
 %D.P. Hofmeyr and N.G. Pavlidis. Maximum clusterability divisive clustering.
 %IEEE Symposium Series on Computational Intelligence, pages 780-786, 2015. 
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 if nargin<1,
 	error('Data matrix and number of clusters need to be specified');
 end

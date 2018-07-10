@@ -36,6 +36,11 @@ function [idx,W,fval,sumD,iter] = drsc(X, K, sigma, varargin)
 %Proceedings of the 14th International Conference on Artificial Intelligence and Statistics,
 %volume 15 of JMLR W&CP, pages 552-560, 2011. 
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 if nargin < 3, 
 	error('drsc:','Scaling parameter is either, or incorrectly specified');
 elseif isempty(sigma) | ~isscalar(sigma) | sigma < sqrt(eps),

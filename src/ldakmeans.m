@@ -33,6 +33,11 @@ function [idx,U,fval,C,iter] = ldakmeans(X,K,varargin)
 %C. Ding and T. Li. Adaptive dimension reduction using discriminant analysis and k-means clustering. 
 %Proceedings of the 24th International Conference on Machine Learning, pages 521-528, 2007.
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 pars = struct();
 pars.maxit = 50;
 pars.ftol = 1.e-5;

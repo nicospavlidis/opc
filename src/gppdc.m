@@ -40,6 +40,11 @@ function [idx,t] = gppdc(X, K, pphandle, varargin)
 %
 %  'labels' - true cluster labels. Used only to evaluate quality of binary partitions at the end
 
+%-------------------------------------------------------------------------------------
+% Copyright @ Nicos Pavlidis, 2018
+% OPC is licensed under the BSD-3-Clause License - see the LICENSE.md file for details
+%-------------------------------------------------------------------------------------
+
 if nargin < 3 | ~isa(pphandle,'function_handle'),
 	error('MATLAB:gppdc:','pphandle must be a function handle');
 end
