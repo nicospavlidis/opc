@@ -1,4 +1,4 @@
-function out = md_reldepth(v, X, pars)
+function out = reldepth(v, X, pars)
 %Relative Depth
 %OUT = RELDEPTH(V, X, PARS)
 % 
