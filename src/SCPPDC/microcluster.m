@@ -1,15 +1,15 @@
 function [centers, weights, data2coresets] = microcluster(X,K)
 %Performs k-means with large K to estimate micro-clusters
 %[CENTERS, WEIGHTS, DATA2CORESETS] = MICROCLUSTER(X,K)
-% 
-% Returns:
-%	(CENTERS): micro-cluster centers
-%	(WEIGHTS): number of observations allocated to each micro-cluster
-%	(DATA2CORESETS): assignment of observations to micro-clusters
 %
 % Inputs:
 %	(X): Data matrix
 %	(K): Number of micro-clusters
+% 
+% Output:
+%	(CENTERS): micro-cluster centers
+%	(WEIGHTS): number of observations allocated to each micro-cluster
+%	(DATA2CORESETS): assignment of observations to micro-clusters
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

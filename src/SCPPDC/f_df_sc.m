@@ -2,10 +2,6 @@ function [f, Df] = f_df_sc(v,X, pars)
 %Function value and derivative of second smallest eigenvalue of normalised Laplacian
 %[F,DF] = F_DF_SC(V, X, PARS)
 %
-% Returns: 
-%	(F): Second smallest eigenvalue of Normalised Laplacian
-%       (DF): derivative of (f) w.r.t. projection matrix (v)
-%
 % Inputs:
 % 	(V): Projection vector
 %	(X): N-by-D Data matrix
@@ -14,7 +10,9 @@ function [f, Df] = f_df_sc(v,X, pars)
 %		(minsize): minimum cluster size
 %		(beta) (delta): parameters for similarity transformation
 %
-% Used by MATLAB optimisation algorithm
+% Output: 
+%	(F): Second smallest eigenvalue of Normalised Laplacian
+%       (DF): derivative of (f) w.r.t. projection matrix (v)
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

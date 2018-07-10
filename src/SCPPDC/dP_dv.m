@@ -2,15 +2,15 @@ function DT = dP_dv(proj, X, weights, a, d)
 %Derivative of transformed data projections along projection vector V
 %DT = DP_DV(PROJ, X, WEIGHTS, A, D)
 %
-% Returns:
-%	(OUT): Derivative of transformed data projections along (V)
-%
 % Inputs:
 %	(PROJ): Projected data 
 %	(X): Data matrix
 %	(WEIGHTS): Weight assigned to each observation (in case of micro-clustering)
 %	(A): alpha parameter used to determine range
 %	(D): parameter used by distance transformation function
+%
+% Output:
+%	(OUT): Derivative of transformed data projections along (V)
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

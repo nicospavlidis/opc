@@ -1,12 +1,12 @@
 function out = scpp_def_sigma(X)
 %Default scaling parameter (sigma) for Gaussian kernel used to estimate kernel/ similarity matrix in SCPP
 %OUT = SCPP_DEF_SIGMA(X)
-% 
-% Returns:
-%	(OUT): Default scaling parameter
 %
 % Input:
 %	(X): Data matrix 
+% 
+% Output:
+%	(OUT): Default scaling parameter
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

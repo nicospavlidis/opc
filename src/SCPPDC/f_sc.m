@@ -2,10 +2,6 @@ function [f, eigenGap] = f_sc(v, X, pars)
 %Second smallest eigenvalue of Normalised Laplacian and difference to 3rd smallest
 %[F, EIGENGAP] = F_SC(V, X, PARS)
 %
-% Returns: 
-%	(F): Second smallest eigenvalue of Normalised Laplacian
-%	(EIGENGAP): Difference between 3rd and 2nd smallest eigenvalues
-%
 % Inputs:
 %	(V): Projection matrix (vector storing matrix column-wise)
 %	(X): Data matrix
@@ -14,6 +10,10 @@ function [f, eigenGap] = f_sc(v, X, pars)
 %		(weights): weights of micro-clusters (if not used should be empty)
 %		(beta), (delta): parameters of similarity transform function
 %		(omega): penalty term used to ensure orthonormality of (v)
+%
+% Output: 
+%	(F): Second smallest eigenvalue of Normalised Laplacian
+%	(EIGENGAP): Difference between 3rd and 2nd smallest eigenvalues
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

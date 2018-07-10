@@ -2,12 +2,12 @@ function L = reverse_assign(coresets2clusters, data2coresets)
 %Assigns observations to clusters based on the cluster assignment of the micro-clusters
 %L = REVERSE_ASSIGN(CORESETS2CLUSTERS, DATA2CORESETS)
 %
-% Returns:
-%	(L): Assignment of original observations to clusters
-%
 % Inputs:
 %	(CORESETS2CLUSTERS): Cluster assignment of micro-cluster centres
 %	(DATA2CORESETS): Assignment of observations to micro-clusters
+%
+% Output:
+%	(L): Assignment of original observations to clusters
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018

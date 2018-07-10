@@ -2,13 +2,13 @@ function [L, v1] = LaplacianN(W,weights)
 %Normalised Laplacian and vector containing square root of degree of each vertex
 %[L, V1] = LAPLACIANN(W,WEIGHTS)
 %
-% Returns:
-%	(L): Normalised Laplacian matrix
-%	(V1): unit-length vector containing square root of degrees := 1st eigenvector of (L)
-%
 % Inputs:
 %	(W): Similarity matrix
 %	(WEIGHTS): microcluster weights (if empty no microclustering is assumed)
+%
+% Output:
+%	(L): Normalised Laplacian matrix
+%	(V1): unit-length vector containing square root of degrees := 1st eigenvector of (L)
 
 %-------------------------------------------------------------------------------------
 % Copyright @ Nicos Pavlidis, 2018
