@@ -87,6 +87,11 @@ assert(pars.alphamin>=0 & pars.alphamax>=pars.alphamin);
 assert(~isa(pars.v0,'function_handle'), 'Initial projection vector/matrix cannot be defined as function handle');
 assert(~isa(pars.bandwidth,'function_handle'), 'Bandwidth parameter must be a scalar, not a function handle')
 
+% If labels are not defined the parses renders this a vector of ones
+if max(pars.labels)==1,
+	pars.labels = [];
+end
+
 [N, dim] = size(X);
 
 if pars.verb >0,

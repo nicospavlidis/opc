@@ -3,10 +3,10 @@ function out = df_md(v,X,pars,bmin)
 %OUT = DF_MD(V,X,PARS,BMIN)
 %
 % Inputs:
-%	(V) projection vector
-%	(X) N-by-D Data matrix
-%	(PARS) Structure array containing parameter settings for MDH (alpha, eta, epsilon, h)
-%	(BMIN) (optional argument) location of optimal split on (v)
+%	(V): projection vector
+%	(X): N-by-D Data matrix
+%	(PARS): Structure array containing parameter settings for MDH (alpha, eta, epsilon, h)
+%	(BMIN): (optional argument) location of optimal split on (v)
 %
 % Output:
 %	(OUT): derivative of penalised density on hyperplane criterion
