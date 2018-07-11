@@ -6,13 +6,13 @@ load('datasets/optidigits.mat');
 % rng() function is implemented in MATLAB only
 rng(987)
 % Standard clustering 
-km_clust = kmeans(X,10);
-sp_clust = spclust(X,10);
+km = kmeans(X,10);
+sc = spclust(X,10);
 
 fprintf('Performance of k-means\n');
-cluster_performance(km_clust,labels)
+cluster_performance(km,labels)
 fprintf('Performance of normalised spectral clustering, Ng et al. (2001)\n');
-cluster_performance(sp_clust,labels)
+cluster_performance(sc,labels)
 
 % Common approach of performing dimensionality reduction
 % as a pre-processing step prior to clustering
@@ -137,6 +137,7 @@ nplot(t6,2);
 
 % SPECTRAL CLUSTERING: DRSC
 % Step 1: micro-clustering
+rng(56789);
 [d2c,centroids] = kmeans(X,200);
 
 % Step 2: Set scale parameter to default value used by SCPP
@@ -152,6 +153,7 @@ fprintf('Performance of DRSC\n');
 cluster_performance(idx7,labels);
 
 %SPECTRAL CLUSTERING: SCPPDC
+rng(1098765);
 [idx8,t8] = scppdc(X,10);
 plot(t8)
 %print('-f2', 'documentation/figures/scpp1', '-dpng','-r0');
@@ -164,7 +166,7 @@ cluster_performance(idx8,labels);
 
 
 %%%% MODEL VALIDATION AND MODIFICATION
-
+rng(201800630);
 [idx,t] = mddc(X,5)
 
 plot(t)
@@ -262,7 +264,7 @@ plot(hp,X);
 %print('-f1', 'documentation/figures/mm2', '-dpng','-r0');
 
 fprintf('Misclassification error of large margin hyperplane obtained through MDH\n');
-er = 1 - purity(id, labels)
+er = 1 - purity(idx, labels)
 
 %%% Maximum margin example using NCUTH
 load('datasets/optidigitsTest.mat');
@@ -281,9 +283,16 @@ v0 = 0*hp.v;
 while abs(hp.v'*v0) < 1-1.e-10,
 	v0 = hp.v;
 	s = 0.5*hp.params.sigma;
-	[id,hp]= ncuth(X,'v0',v0,'sigma',s);
-	plot(hp,X,labels);
-	er = 1 - purity(id, labels)
+	[id,hp1]= ncuth(X,'v0',v0,'sigma',s);
+
+	% Numerical problems can occur for very low scaling parameter:
+	% isinf(fval) signals projection pursuit failed 
+	if isinf(hp1.fval),
+	        break;
+	else
+	        hp = hp1;
+	end
+	%er = 1 - purity(id, labels)
 end
 plot(hp,X);
 %print('-f1', 'documentation/figures/mm4', '-dpng','-r0');

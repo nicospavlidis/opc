@@ -28,7 +28,7 @@ function step = drsc_linesearch(Data, W, max_step, f, grad, sigma, U, degs)
 % Eq. (6) in Niu,Dy and Jordan AISTATS (2011)
 projGrad = gram_schmidt(grad, W);
 
-step = alphamax;
+step = max_step;
 fail = 1;
 for i=1:20,
 	% Eq. (7) in Niu,Dy and Jordan AISTATS (2011)

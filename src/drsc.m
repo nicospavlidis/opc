@@ -81,9 +81,9 @@ for iter = 1:pars.maxit,
 	% Step 1: Spectral clustering of projected data to obtain eigenvectors and degrees
 	if iter==1,
 		% Initial W is equal to eye(dim), recommended in Niu et al. AISTATS (2011)
-		[~,~,U,degs] = spclustNJW(X,K,'s',sigma);
+		[~,~,U,degs] = spclust(X,K,'s',sigma);
 	else
-		[~,~,U,degs] = spclustNJW(X*W,K,'s',sigma);
+		[~,~,U,degs] = spclust(X*W,K,'s',sigma);
 	end
 
 	% Step 2: Optimise W through Dimension Growth
@@ -146,4 +146,4 @@ fval = fval(~isinf(fval));
 iter = exitflag;
 
 % Perform spectral clustering on data projected onto W
-[idx,sumD] = spclustNJW(X*W,K,'s',sigma);
+[idx,sumD] = spclust(X*W,K,'s',sigma);
