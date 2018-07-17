@@ -61,12 +61,12 @@ not guaranteed to preserve the cluster structure.
 		*Journal of Machine Learning Research*, 17(156):1-33, 2016.
 
 	- `ncutdc` Minimum normalised cut divisive clustering
-		- D. Hofmeyr. [Clustering by Minimum Cut Hyperplanes](https://doi.org/10.1109/TPAMI.2016.2609929).
+		- D. Hofmeyr. [Clustering by minimum cut hyperplanes](https://doi.org/10.1109/TPAMI.2016.2609929).
 		*IEEE Transactions on Pattern Analysis and Machine Intelligence*, 39(8):1547-1560, 2017.
 	
 	- `mcdc` Maximum clusterability divisive clustering
 		- D. P. Hofmeyr and N. G. Pavlidis.
-		[Maximum Clusterability Divisive Clustering](https://doi.org/10.1109/SSCI.2015.116).
+		[Maximum clusterability divisive clustering](https://doi.org/10.1109/SSCI.2015.116).
 		*IEEE Symposium Series on Computational Intelligence*, pages 780-786, 2015.
 
 	- `scppdc` Minimum spectral connectivity projection pursuit
@@ -97,9 +97,9 @@ class [tree](https://tinevez.github.io/matlab-tree/) implemented by Jean-Yves Ti
 
 * In GNU Octave OPC depends on the optim and statistics packages.
 
-* In MATLAB it is possible to create a function reference in HTML format using the
+<!-- * In MATLAB it is possible to create a function reference in HTML format using the
 [M2HTML](https://github.com/pdollar/toolbox/tree/master/external/m2html). Detailed instructions
-are provided in the PDF documentation file, `documentation/document.pdf`.
+are provided in the PDF documentation file, `documentation/document.pdf`. -->
 
 
 #### INSTALLATION
@@ -153,7 +153,7 @@ cd('DOWNLOAD-PATH/opc-master/')
 reproduction_script
 ```
 
-More detailed instructions for installing OPC are provided in the file `documentation/document.pdf`.
+More detailed instructions for installing OPC are provided in the file `user_guide.pdf`.
 
 #### DOCUMENTATION
 
@@ -161,8 +161,8 @@ More detailed instructions for installing OPC are provided in the file `document
   contains detailed installation instructions and a large number of nontrivial
   examples that illustrate how to how to use and extend OPC. 
   <br>
-  A PDF version of the documentation is also available in
-  `documentation/document.pdf`.  
+  A PDF version of the documentation is also available in the file `user_guide.pdf`.  
+
   <!-- The source TeX file and all the figures are also
   included in the `documentation/` directory.-->
 
