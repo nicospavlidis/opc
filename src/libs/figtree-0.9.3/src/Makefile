@@ -69,7 +69,6 @@ TARGET=$(TARGETBASE)$(LIBSUFFIX)
 all: $(SOURCES) $(TARGET)
 	
 $(TARGET): $(OBJECTS) 
-	mkdir -p ${LIBDIR}
 	$(MAKELIB) $@ $(OBJECTS) $(LDFLAGS)
 
 .cpp.o:

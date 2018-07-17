@@ -8,7 +8,6 @@ endif
 
 all:
 	cd ann_1.1.1 ; $(MAKE) $(MAKEOPT)
-	mkdir -p ../lib
 	mv ann_1.1.1/lib/libann_figtree_version$(LIBSUFFIX) ../lib/libann_figtree_version$(LIBSUFFIX)
 
 clean:
