@@ -84,8 +84,7 @@ not guaranteed to preserve the cluster structure.
 
 #### DEPENDENCIES
 
-* To install the package you need a C/C++ compiler. For Linux/ Mac we strongly
-recommend using the GCC compiler. 
+* To install the package you need a C/C++ compiler. We recommend using the GCC compiler. 
 
 * OPC depends on the [improved Fast Gauss Transform](http://legacydirs.umiacs.umd.edu/~morariu/figtree/).
 
