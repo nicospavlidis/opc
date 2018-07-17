@@ -85,8 +85,7 @@ not guaranteed to preserve the cluster structure.
 #### DEPENDENCIES
 
 * To install the package you need a C/C++ compiler. For Linux/ Mac we strongly
-recommend using the GCC compiler. For Microsoft Windows the documentation
-describes how to set up the MinGW-w64 compiler.
+recommend using the GCC compiler. 
 
 * OPC depends on the [improved Fast Gauss Transform](http://legacydirs.umiacs.umd.edu/~morariu/figtree/).
 
