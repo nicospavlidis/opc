@@ -166,10 +166,6 @@ More detailed instructions for installing OPC are provided in the file `user_gui
 
 * An online function reference for OPC is available
   [here](http://www.lancaster.ac.uk/staff/pavlidin/software/opc/documentation/reference/index.html).
-  To construct a local copy of the function reference using MATLAB see the
-  instructions in this
-  [section](http://www.lancaster.ac.uk/staff/pavlidin/software/opc/documentation/document/onlinedoc.html#SECTION00331000000000000000)
-  of the documentation.
 
 * The script file `reproduction_script.m` located in the root OPC directory
   contains all the examples discussed in the documentation.
