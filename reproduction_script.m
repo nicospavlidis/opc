@@ -4,7 +4,13 @@ setpath;
 load('datasets/optidigits.mat');
                                                                                                                    
 % rng() function is implemented in MATLAB only
-rng(987)
+if ~isOctave(),
+	rng(987)
+else
+	rand('seed',987);
+	randn('seed',987);
+end
+
 % Standard clustering 
 km = kmeans(X,10);
 sc = spclust(X,10);

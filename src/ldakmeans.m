@@ -186,7 +186,7 @@ else
 		s = find(idx==i);
 		plot(X(s,1), X(s,2),'bo','MarkerSize',3, 'Color', colours(i,:));
 	end
-	str = sprintf('iter %i fval=%1.5f',iter, fval);
+	str = sprintf('iter %i Ratio of between-cluster to within-cluster SSE: %1.5f',iter, fval);
 	title(str);
 	hold off;
 	axis([min(X(:,1)), max(X(:,1)), min(X(:,2)), max(X(:,2))]);
