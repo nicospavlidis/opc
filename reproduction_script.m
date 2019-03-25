@@ -173,7 +173,7 @@ cluster_performance(idx8,labels);
 
 %%%% MODEL VALIDATION AND MODIFICATION
 rng(201800630);
-[idx,t] = mddc(X,5)
+[idx,t] = mddc(X,5);
 
 plot(t)
 %print('-f2', 'documentation/figures/val1', '-dpng','-r0');

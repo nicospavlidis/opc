@@ -60,6 +60,7 @@ methods
 		if isempty(labels) || (max(labels)==1 && size(colours,1)==2),
 			defLabels = false;
 		end
+		
 		% Data preprocessing
 		[data,labels,nc,idx,X,v,w,colours] = preprocess(obj,data,labels,colours);
 
@@ -119,7 +120,7 @@ methods
 		hold on;
 		if defLabels,
 			% ensure reproducibility of colours
-			M = sparse(1:size(X,1), labels, 1);
+			M = sparse(1:size(X,1), labels, 1, size(X,1), size(colours,1));
 			scatter(X(:,1), X(:,2),14,M*colours);
 
 			%l = unique(labels);
@@ -144,7 +145,7 @@ methods
 		end
 		axis([y(1), y(end), min(X(:,2)), max(X(:,2))]);
 
-		ax1_pos = get(gca,"position");
+		ax1_pos = get(gca,'position');
 		ax2 = axes('Position',ax1_pos,...
 			'XAxisLocation','top',...
 			'YAxisLocation','right',... 

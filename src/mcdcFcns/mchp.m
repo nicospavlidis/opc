@@ -67,7 +67,7 @@ methods
 		hold on;
 		if defLabels,
 			% ensure reproducibility of colours
-			M = sparse(1:size(X,1), labels, 1);
+			M = sparse(1:size(X,1), labels, 1, size(X,1), size(colours,1));
 			scatter(X(:,1), X(:,2),14,M*colours);
 			%l = unique(labels);
 			%for i=1:length(l),
@@ -89,7 +89,7 @@ methods
 		h = 0.9* std(X(:,1)) * size(X,1)^(-0.2);
 		f = fgt_kde(X(:,1), y, h);
 
-		ax1_pos = get(gca,"position");
+		ax1_pos = get(gca,'position');
 		ax2 = axes('Position',ax1_pos,...
 			'XAxisLocation','top',...
 			'YAxisLocation','right',... 

@@ -94,7 +94,7 @@ for i=2:length(x)-2,
 	fx = -1;
 	dfx = -1;
 	% gradient is zero
-	if abs(df(i)) < 1.0e-8 || abs(df(i+1)) < 1.0e-8,
+	if abs(df(i)) < eps || abs(df(i+1)) < eps,
 		% set minimiser
 		if abs(df(i)) < abs(df(i+1)),
 			xmin = x(i);
@@ -165,6 +165,7 @@ if length(bmin)>1,
 		fprintf('%1.8f  ', bmin(i));
 	end
 	fprintf('\n');
+	keyboard
 end
 
 if nargout>2,

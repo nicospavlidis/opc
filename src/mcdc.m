@@ -23,9 +23,9 @@ function [idx,t] = mcdc(X, K, varargin)
 %	Cluster with MAXIMUM INDEX is split at each step of the algorithm
 %	Two standard choices of split index can be enabled by setting 'split_index' to 
 %	one of the strings below:
-%		+ 'fval':    Split cluster whose hyperplane achieves the lowest density integral
+%		+ 'fval':    Split cluster with maximum variance ratio clusterability index
 %		+ 'size':    Split largest cluster
-%	(default: split_index = 'mc_spindex' as recommended in Hofmeyr and Pavlidis (2015))
+%	(default: split_index = 'size')
 %
 %  'minsize' - Minimum cluster size (integer)
 %	(default minsize = 1)
@@ -61,7 +61,7 @@ end
 % Set default parameters
 pars = struct();
 pars.v0 = @(x,p)(mc_v0(x));
-pars.split_index = @(x1,x2,x3)(mc_spindex(x1,x2,x3,size(X,1)));
+pars.split_index = 'size';  %@(x1,x2,x3)(mc_spindex(x1,x2,x3,size(X,1)));
 pars.minsize = 1;
 pars.maxit = 50;
 pars.ftol = 1.e-7;

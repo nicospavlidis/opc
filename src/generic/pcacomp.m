@@ -23,8 +23,8 @@ elseif min(index<=0),
 end
 
 % Determine whether we are using Octave or MATLAB
-if exist ('OCTAVE_VERSION', 'builtin') == 0,
-	if nargout ==1,
+if ~isOctave(),
+	if nargout == 1,
 		coeff = pca(X,'NumComponents',max(index));
 	else
 		[coeff,score,latent] = pca(X,'NumComponents',max(index));
@@ -38,16 +38,24 @@ if exist ('OCTAVE_VERSION', 'builtin') == 0,
 		end
 	end
 else
-	% Octave
-	if nargout==1,
-		coeff = princomp(X);
-	else
-		[coeff,score,latent] = princomp(X);
-	end
-
-	coeff = coeff(:,index);
-	if nargout>1,
-		score = score(:,index);
+	% Octave (code below is much faster than 'princomp')
+	Xc = bsxfun(@minus,X,mean(X));
+	[~,S,coeff] = svds(Xc,max(index));
+	if ~isempty(coeff),
+		coeff = coeff(:,index);
+		score = Xc*coeff;
+		latent = diag(S).^2/(size(Xc,1)-1);
 		latent = latent(index);
 	end
+
+	%if nargout==1,
+	%	%coeff = princomp(X);
+	%else
+	%	%[coeff,score,latent] = princomp(X);
+	%end
+
+	%if nargout>1,
+	%	score = score(:,index);
+	%	latent = latent(index);
+	%end
 end

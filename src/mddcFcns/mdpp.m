@@ -26,7 +26,7 @@ if dim == 1,
 	fprintf('Effective dimensionality of 1: No point in projection pursuit\n');
 	invalid = true;
 end
-if 2*pars.minsize > N,
+if N < 2*pars.minsize + 3,
 	fprintf('Too few observations to split\n');
 	invalid = true;
 end
@@ -206,10 +206,11 @@ objfungrad = @(v)f_df_md(v,Data,pars);
 outF = @(a,b,c)outFcn(a,b,c,Data,pars,labels,colours);
 if ~isOctave(),
 	options = optimoptions(@fminunc,'Algorithm','quasi-newton','GradObj','on','HessUpdate','bfgs', ...
-		'MaxIter', pars.maxit, 'ObjectiveLimit', 1.0e-5,'Display','off', 'OutputFcn', outF);
+		'MaxIter', pars.maxit, 'ObjectiveLimit', pars.ftol, 'OptimalityTolerance', pars.ftol, ...
+		'Display',ifelse(pars.verb>0,'iter','off'), 'OutputFcn', outF);
 else
 	options = optimset('GradObj','on','MaxIter',pars.maxit,'TolX',pars.ftol,...
-		'TolFun',pars.ftol, 'OutputFcn', outF, 'Display','Off');
+		'TolFun',pars.ftol, 'OutputFcn', outF, 'Display',ifelse(pars.verb>0,'iter','off'));
 end
 
 [x, fval, exitflag] = fminunc(objfungrad, x, options);

@@ -11,7 +11,7 @@ function [idx,t] = depddp(X, K, varargin)
 %  [IDX,T] = dePDDP(X,K) returns the cluster assignment, (IDX), and the  binary 
 %  tree (T) containing the cluster hierarchy. If K==[] the number of clusters is estimated
 %
-%  [IDX, T] = dePDDP(X, K, 'PARAM1',val1, 'PARAM2',val2, ...) specifies optional parameters
+%  [IDX,T] = dePDDP(X, K, 'PARAM1',val1, 'PARAM2',val2, ...) specifies optional parameters
 %  in the form of Name,Value pairs. 
 %
 %  'bandwidth' - Bandwidth parameter

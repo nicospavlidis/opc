@@ -25,7 +25,7 @@ if dim == 1,
 	fprintf('Effective dimensionality of 1: No point in projection pursuit\n');
 	invalid = true;
 end
-if 2*pars.minsize > N,
+if N < 2*pars.minsize + 3,
 	fprintf('Too few observations to split\n');
 	invalid = true;
 end
@@ -81,7 +81,7 @@ total_iter = 0;
 for i = 1:size(V,2),
 	sol = mcpp_internal(X, V(:,i), pars, labels, colours);
 	total_iter = total_iter + sol.params.iter;
-	if (crit==1 | crit==2) & sol.fval > spindex, 
+	if (crit==1 | crit==2) & -sol.fval > spindex, 
 		% fval is the negative of the Variance Ratio clusterability index
 		spindex = -sol.fval;
 		optHP = sol;

@@ -234,7 +234,7 @@ methods
 				bmin = [];
 			end
 
-			XLim = get(gca,"XLim");
+			XLim = get(gca,'XLim');
 			y = linspace(XLim(1), XLim(2), 200)';
 
 			% Bandwidth selection
@@ -248,7 +248,7 @@ methods
 
 			f = fgt_kde(X(:,1),y,h);
 
-			ax1_pos = get(gca,"position");
+			ax1_pos = get(gca,'position');
 			ax2 = axes('Position',ax1_pos,...
 				'XAxisLocation','top',...
 				'YAxisLocation','right',... 

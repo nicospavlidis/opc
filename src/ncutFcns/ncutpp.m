@@ -25,7 +25,7 @@ if dim == 1,
 	fprintf('Effective dimensionality of 1: No point in projection pursuit\n');
 	invalid = true;
 end
-if 2*pars.minsize > N,
+if N < 2*pars.minsize + 3,
 	fprintf('Too few observations to split\n');
 	invalid = true;
 end
@@ -101,7 +101,7 @@ for i = 1:size(V,2),
 end
 
 % If valid hyperplane separator has been obtained
-if ~isempty(optHP) > 0,
+if ~isinf(optHP.fval),
 	% Set cluster assignment
 	idx(Data* optHP.v > optHP.b) = 1;
 
