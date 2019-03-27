@@ -18,9 +18,9 @@ function [coeff,index] = rpcacomp(X,index)
 
 
 if isempty(index),
-	error('rpcacomp: Unspecified number of RPCA components');
+	error('rpcacomp: Unspecified number of Robust PCs');
 elseif min(index<=0),
-	error('rpcacomp: index has to be positive');
+	error('rpcacomp: all elements of (index) have to be positive integers');
 end
 
 % perform Principal Component Pursuit 
@@ -31,4 +31,4 @@ if max(index) < r,
 	index = index(index<=r);
 end
 
-rpc = pcacomp(L,index);
+coeff = pcacomp(L,index);
