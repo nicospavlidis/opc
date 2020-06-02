@@ -44,6 +44,11 @@ not guaranteed to preserve the cluster structure.
 		[Iterative discovery of multiple alternative clustering views](https://doi.org/10.1109/TPAMI.2013.180).
 		*IEEE Transactions on Pattern Analysis and Machine Intelligence*, 36(7):1340-1353, 2014.
 
+	- `kurtClust` Kurtosis Projection Pursuit Clustering
+		- D. Pena and F. J. Prieto.
+		[Cluster Identification Using Projections](https://doi.org/10.1198/016214501753382345).
+		*Journal of the American Statistical Association*, 96(456):1433-1445, 2001.
+
 - **Divisive hierarchical clustering algorithms**
 
 	- `pddp` Principal direction divisive partitioning
