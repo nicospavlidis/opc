@@ -45,7 +45,7 @@ x = linspace(-alpha*s, alpha*s,512)';
 x(end) = alpha*s;
 
 
-bd = [-alpha*s, alpha*s];
+bd = [-alpha*s; alpha*s];
 % Newton-Raphson to identify minimiser at boundary of feasible region
 L = exp(-0.5)/(sqrt(2*pi)*(h*h)* eta^epsilon);
 for i=1:2,
@@ -159,13 +159,19 @@ if fmin < 1.0e-4 & length(bmin)>1,
 end
 
 if length(bmin)>1,
-	warning('Function is not differentiable: More than one global minimisers: ');
-	%keyboard;
-	for i=1:length(bmin),
-		fprintf('%1.8f  ', bmin(i));
+	if fmin < sqrt(eps),
+		[max_gap, id] = max(diff(proj)');
+		% Largest gap: proj(id+1) - proj(id);
+		bmin = 0.5*(proj(id+1) - proj(id));
+	else 
+
+		warning('Function is not differentiable: More than one global minimisers: ');
+		%keyboard;
+		for i=1:length(bmin),
+			fprintf('%1.8f  ', bmin(i));
+		end
+		fprintf('\n');
 	end
-	fprintf('\n');
-	keyboard
 end
 
 if nargout>2,
