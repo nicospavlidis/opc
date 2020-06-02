@@ -152,26 +152,20 @@ if fmin < 1.0e-4 & length(bmin)>1,
 	[~,max_gap] = max(diff(proj));
 	mid = 0.5*(proj(max_gap+1) + proj(max_gap));
 	fmid = pkde(mid, proj, h, alpha, eta, epsilon);
-	if fmid < fmin,
+	if fmid <= fmin,
 		bmin = [mid];
 		fmin = fmid;
 	end
 end
 
 if length(bmin)>1,
-	if fmin < sqrt(eps),
-		[max_gap, id] = max(diff(proj)');
-		% Largest gap: proj(id+1) - proj(id);
-		bmin = 0.5*(proj(id+1) - proj(id));
-	else 
 
-		warning('Function is not differentiable: More than one global minimisers: ');
-		%keyboard;
-		for i=1:length(bmin),
-			fprintf('%1.8f  ', bmin(i));
-		end
-		fprintf('\n');
+	warning('Function is not differentiable: More than one global minimisers: ');
+	%keyboard;
+	for i=1:length(bmin),
+		fprintf('%1.8f  ', bmin(i));
 	end
+	fprintf('\n');
 end
 
 if nargout>2,
