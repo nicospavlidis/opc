@@ -93,7 +93,7 @@ pars.verb = 0;
 
 % We strongly recommend not to modify these
 pars.eta = 0.01;
-pars.epsilon = 1-1.0e-6;
+pars.epsilon = 1; % epsilon is 1 to avoid imaginary number in Newton-Raphson steps
 
 pars = myparser(X,K,varargin,pars);
 [N, dim] = size(X);
