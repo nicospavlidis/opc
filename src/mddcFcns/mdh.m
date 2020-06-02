@@ -79,7 +79,7 @@ pars.verb = 0;
 
 % We strongly recommend not to modify these
 pars.eta = 0.01;
-pars.epsilon = 1-1.0e-6;
+pars.epsilon = 1;
 
 pars = myparser(X,2,varargin,pars);
 
